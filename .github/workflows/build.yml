@@ -31,7 +31,7 @@ jobs:
           bundle _2.4.6_ config set path 'vendor/bundle'
           bundle _2.4.6_ install
 
-     - name: Download docs
+      - name: Download docs
         run: |
           bundle _2.4.6_ exec thor docs:download php laravel javascript css sass typescript java kotlin react webpack csharp mysql sqlite || echo "Some docs failed, continuing..."
 
@@ -45,3 +45,4 @@ jobs:
         with:
           name: devdocs-complete
           path: devdocs-offline.tar.gz
+
