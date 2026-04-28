@@ -33,7 +33,7 @@ jobs:
       - name: Download docs
         id: download
         run: |
-          bundle _2.4.6_ exec thor docs:download php laravel@11 javascript typescript css sass html dom react@18 vue@3 angular@20 nextjs node@22 LTS npm webpack@5 vite@7 bootstrap@5 tailwindcss@3 jquery_core mysql postgresql@17 sqlite redis apache nginx git bash docker electron react_native express@4 fastapi flask@3.0 mongodb mongoose socketio@4 graphql lodash@4 axios moment eslint prettier babel@7 svelte@4 lit@3 cypress playwright wordpress 2>&1 | tee download.log
+          bundle _2.4.6_ exec thor docs:download php laravel@11 javascript typescript css sass html dom react@18 vue@3 angular@20 nextjs npm webpack@5 vite@7 bootstrap@5 tailwindcss@3 jquery_core mysql postgresql@17 sqlite redis apache nginx git bash docker electron react_native express@4 fastapi flask@3.0 mongodb mongoose socketio@4 graphql lodash@4 axios moment eslint prettier babel@7 svelte@4 lit@3 cypress playwright wordpress 2>&1 | tee download.log
         continue-on-error: true
 
       - name: Deploy to built branch
