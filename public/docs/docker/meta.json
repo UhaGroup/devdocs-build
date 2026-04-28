@@ -1,0 +1,13 @@
+{
+  "name": "Docker",
+  "slug": "docker",
+  "type": "simple",
+  "links": {
+    "home": "https://docker.com/",
+    "code": "https://github.com/docker/docker"
+  },
+  "version": "",
+  "release": "20.10.16",
+  "mtime": 1654206621,
+  "db_size": 4328150
+}

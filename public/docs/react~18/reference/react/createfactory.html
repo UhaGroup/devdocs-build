@@ -1,0 +1,131 @@
+<h1>createFactory
+</h1>
+<h3>
+Deprecated</h3>
+<div><p>This API will be removed in a future major version of React. <a href="#alternatives">See the alternatives.</a></p></div> <div>
+<p><code dir="ltr">createFactory</code> lets you create a function that produces React elements of a given type.</p>
+<pre data-language="jsx"><code><span>const</span> <span>factory</span> = <span>createFactory</span><span>(</span><span>type</span><span>)</span></code></pre>
+</div> <ul>
+<li>
+<a href="#reference">Reference </a><ul><li><a href="#createfactory"><code dir="ltr">createFactory(type)</code> </a></li></ul>
+</li>
+<li>
+<a href="#usage">Usage </a><ul><li><a href="#creating-react-elements-with-a-factory">Creating React elements with a factory </a></li></ul>
+</li>
+<li>
+<a href="#alternatives">Alternatives </a><ul>
+<li><a href="#copying-createfactory-into-your-project">Copying <code dir="ltr">createFactory</code> into your project </a></li>
+<li><a href="#replacing-createfactory-with-createelement">Replacing <code dir="ltr">createFactory</code> with <code dir="ltr">createElement</code> </a></li>
+<li><a href="#replacing-createfactory-with-jsx">Replacing <code dir="ltr">createFactory</code> with JSX </a></li>
+</ul>
+</li>
+</ul> <hr> <h2 id="reference">Reference 
+</h2> <h3 id="createfactory">
+<code dir="ltr">createFactory(type)</code> 
+</h3> <p>Call <code dir="ltr">createFactory(type)</code> to create a factory function which produces React elements of a given <code dir="ltr">type</code>.</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>createFactory</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>const</span> <span>button</span> = <span>createFactory</span><span>(</span><span>'button'</span><span>)</span><span>;</span></code></pre> <p>Then you can use it to create React elements without JSX:</p> <pre data-language="jsx"><code><span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>button</span><span>(</span><span>{</span>
+    <span>onClick</span><span>:</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span>
+    <span>}</span>
+  <span>}</span><span>,</span> <span>'Click me'</span><span>)</span><span>;</span>
+<span>}</span></code></pre> <p><a href="#usage">See more examples below.</a></p> <h4 id="parameters">Parameters 
+</h4> <ul> <li>
+<code dir="ltr">type</code>: The <code dir="ltr">type</code> argument must be a valid React component type. For example, it could be a tag name string (such as <code dir="ltr">'div'</code> or <code dir="ltr">'span'</code>), or a React component (a function, a class, or a special component like <a href="fragment"><code dir="ltr">Fragment</code></a>).</li> </ul> <h4 id="returns">Returns 
+</h4> <p>Returns a factory function. That factory function receives a <code dir="ltr">props</code> object as the first argument, followed by a list of <code dir="ltr">...children</code> arguments, and returns a React element with the given <code dir="ltr">type</code>, <code dir="ltr">props</code> and <code dir="ltr">children</code>.</p> <hr> <h2 id="usage">Usage 
+</h2> <h3 id="creating-react-elements-with-a-factory">Creating React elements with a factory 
+</h3> <p>Although most React projects use <a href="../../learn/writing-markup-with-jsx">JSX</a> to describe the user interface, JSX is not required. In the past, <code dir="ltr">createFactory</code> used to be one of the ways you could describe the user interface without JSX.</p> <p>Call <code dir="ltr">createFactory</code> to create a <em>factory function</em> for a specific element type like <code dir="ltr">'button'</code>:</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>createFactory</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>const</span> <span>button</span> = <span>createFactory</span><span>(</span><span>'button'</span><span>)</span><span>;</span></code></pre> <p>Calling that factory function will produce React elements with the props and children you have provided:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>createFactory</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>const</span> <span>button</span> = <span>createFactory</span><span>(</span><span>'button'</span><span>)</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>button</span><span>(</span><span>{</span>
+    <span>onClick</span><span>:</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span>
+    <span>}</span>
+  <span>}</span><span>,</span> <span>'Click me'</span><span>)</span><span>;</span>
+<span>}</span>
+
+</pre> <p>This is how <code dir="ltr">createFactory</code> was used as an alternative to JSX. However, <code dir="ltr">createFactory</code> is deprecated, and you should not call <code dir="ltr">createFactory</code> in any new code. See how to migrate away from <code dir="ltr">createFactory</code> below.</p> <hr> <h2 id="alternatives">Alternatives 
+</h2> <h3 id="copying-createfactory-into-your-project">Copying <code dir="ltr">createFactory</code> into your project 
+</h3> <p>If your project has many <code dir="ltr">createFactory</code> calls, copy this <code dir="ltr">createFactory.js</code> implementation into your project:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>createFactory</span> <span>}</span> <span>from</span> <span>'./createFactory.js'</span><span>;</span>
+
+<span>const</span> <span>button</span> = <span>createFactory</span><span>(</span><span>'button'</span><span>)</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>button</span><span>(</span><span>{</span>
+    <span>onClick</span><span>:</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span>
+    <span>}</span>
+  <span>}</span><span>,</span> <span>'Click me'</span><span>)</span><span>;</span>
+<span>}</span>
+
+</pre> <p>This lets you keep all of your code unchanged except the imports.</p> <hr> <h3 id="replacing-createfactory-with-createelement">Replacing <code dir="ltr">createFactory</code> with <code dir="ltr">createElement</code> 
+</h3> <p>If you have a few <code dir="ltr">createFactory</code> calls that you don’t mind porting manually, and you don’t want to use JSX, you can replace every call a factory function with a <a href="createelement"><code dir="ltr">createElement</code></a> call. For example, you can replace this code:</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>createFactory</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>const</span> <span>button</span> = <span>createFactory</span><span>(</span><span>'button'</span><span>)</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>button</span><span>(</span><span>{</span>
+    <span>onClick</span><span>:</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span>
+    <span>}</span>
+  <span>}</span><span>,</span> <span>'Click me'</span><span>)</span><span>;</span>
+<span>}</span></code></pre> <p>with this code:</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>createElement</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>createElement</span><span>(</span><span>'button'</span><span>,</span> <span>{</span>
+    <span>onClick</span><span>:</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span>
+    <span>}</span>
+  <span>}</span><span>,</span> <span>'Click me'</span><span>)</span><span>;</span>
+<span>}</span></code></pre> <p>Here is a complete example of using React without JSX:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>createElement</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>createElement</span><span>(</span><span>'button'</span><span>,</span> <span>{</span>
+    <span>onClick</span><span>:</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span>
+    <span>}</span>
+  <span>}</span><span>,</span> <span>'Click me'</span><span>)</span><span>;</span>
+<span>}</span>
+
+</pre> <hr> <h3 id="replacing-createfactory-with-jsx">Replacing <code dir="ltr">createFactory</code> with JSX 
+</h3> <p>Finally, you can use JSX instead of <code dir="ltr">createFactory</code>. This is the most common way to use React:</p> 
+<pre data-language="jsx"><span>export</span> <span>default</span> <span>function</span> <span>App</span><span>(</span><span>)</span> <span>{</span>
+  <span>return</span> <span>(</span>
+    <span>&lt;</span><span>button</span> <span>onClick</span>=<span>{</span><span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+      <span>alert</span><span>(</span><span>'Clicked!'</span><span>)</span><span>;</span>
+    <span>}</span><span>}</span><span>&gt;</span>
+      Click me
+    <span>&lt;/</span><span>button</span><span>&gt;</span>
+  <span>)</span><span>;</span>
+<span>}</span><span>;</span>
+
+</pre> <div class="note note-orange">
+<h4>Pitfall</h4>
+<div>
+<p>Sometimes, your existing code might pass some variable as a <code dir="ltr">type</code> instead of a constant like <code dir="ltr">'button'</code>:</p>
+<pre data-language="jsx"><code><span>function</span> <span>Heading</span><span>(</span><span>{</span> <span>isSubheading</span><span>,</span> <span>...</span><span>props</span> <span>}</span><span>)</span> <span>{</span>
+  <span>const</span> <span>type</span> = <span>isSubheading</span> ? <span>'h2'</span> : <span>'h1'</span><span>;</span>
+  <span>const</span> <span>factory</span> = <span>createFactory</span><span>(</span><span>type</span><span>)</span><span>;</span>
+  <span>return</span> <span>factory</span><span>(</span><span>props</span><span>)</span><span>;</span>
+<span>}</span></code></pre>
+<p>To do the same in JSX, you need to rename your variable to start with an uppercase letter like <code dir="ltr">Type</code>:</p>
+<pre data-language="jsx"><code><span>function</span> <span>Heading</span><span>(</span><span>{</span> <span>isSubheading</span><span>,</span> <span>...</span><span>props</span> <span>}</span><span>)</span> <span>{</span>
+  <span>const</span> <span>Type</span> = <span>isSubheading</span> ? <span>'h2'</span> : <span>'h1'</span><span>;</span>
+  <span>return</span> <span>&lt;</span><span>Type</span> <span>{</span><span>...</span><span>props</span><span>}</span> <span>/&gt;</span><span>;</span>
+<span>}</span></code></pre>
+<p>Otherwise React will interpret <code dir="ltr">&lt;type&gt;</code> as a built-in HTML tag because it is lowercase.</p>
+</div>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2013&ndash;present Facebook Inc.<br>Licensed under the Creative Commons Attribution 4.0 International Public License.<br>
+    <a href="https://18.react.dev/reference/react/createFactory" class="_attribution-link">https://18.react.dev/reference/react/createFactory</a>
+  </p>
+</div>

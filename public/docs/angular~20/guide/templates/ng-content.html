@@ -1,0 +1,31 @@
+<h1 tabindex="-1">Render templates from a parent component with <a href="../../api/core/ng-content"><code>ng-content</code></a>
+</h1> <header class="docs-header"> <docs-breadcrumb ng-version="20.3.15" _nghost-ng-c3945279308 ngh="8"></docs-breadcrumb>   </header> <p><code>&lt;ng-content&gt;</code> is a special element that accepts markup or a template fragment and controls how components render content. It does not render a real DOM element.</p> <p>Here is an example of a <code>BaseButton</code> component that accepts any markup from its parent.</p> <pre data-language="ts">// ./base-button/base-button.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'button[baseButton]',
+  template: `
+      &lt;ng-content /&gt;
+  `,
+})
+export class BaseButton {}</pre>
+<pre data-language="ts">// ./app.component.ts
+import { Component } from '@angular/core';
+import { BaseButton } from './base-button/base-button.component';
+
+@Component({
+  selector: 'app-root',
+  imports: [BaseButton],
+  template: `
+    &lt;button baseButton&gt;
+      Next &lt;span class="icon arrow-right"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  `,
+})
+export class AppComponent {}</pre>
+<p>For more detail, check out the <a href="../components/content-projection"><code>&lt;ng-content&gt;</code> in-depth guide</a> for other ways you can leverage this pattern.</p><div class="_attribution">
+  <p class="_attribution-p">
+    Super-powered by Google &copy;2010&ndash;2025.<br />Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.<br>
+    <a href="https://v20.angular.dev/guide/templates/ng-content" class="_attribution-link">https://v20.angular.dev/guide/templates/ng-content</a>
+  </p>
+</div>

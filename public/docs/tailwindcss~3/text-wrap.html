@@ -1,0 +1,67 @@
+<h1>Text Wrap</h1>
+<div id="__next">
+<div><div><div><div>
+<header id="header"><div><div></div></div>
+<p>Utilities for controlling how text wraps within an element.</p></header><div>
+<h2 id="class-reference">Quick reference</h2>
+<div><div id="class-table">
+<table>
+<thead><tr>
+<th><div>Class</div></th>
+<th><div>Properties</div></th>
+</tr></thead>
+<tbody>
+<tr>
+<td translate="no">text-wrap</td>
+<td translate="no">text-wrap: wrap; </td>
+</tr>
+<tr>
+<td translate="no">text-nowrap</td>
+<td translate="no">text-wrap: nowrap; </td>
+</tr>
+<tr>
+<td translate="no">text-balance</td>
+<td translate="no">text-wrap: balance; </td>
+</tr>
+<tr>
+<td translate="no">text-pretty</td>
+<td translate="no">text-wrap: pretty; </td>
+</tr>
+</tbody>
+</table>
+<div></div>
+</div></div>
+</div>
+<div id="content-wrapper">
+<h2 id="basic-usage">Basic usage</h2> <h3 id="wrap">Wrap</h3> <p>Use <code>text-wrap</code> to wrap overflowing text onto multiple lines at logical points in the text.</p>  <pre data-language="html">&lt;article class="text-wrap ..."&gt;
+  &lt;h3&gt;Beloved Manhattan soup stand closes&lt;/h3&gt;
+  &lt;p&gt;New Yorkers are facing the winter chill...&lt;/p&gt;
+&lt;/article&gt;</pre> <h3 id="no-wrap">No Wrap</h3> <p>Use <code>text-nowrap</code> to prevent text from wrapping, allowing it to overflow if necessary.</p>  <pre data-language="html">&lt;article class="text-nowrap ..."&gt;
+  &lt;h3&gt;Beloved Manhattan soup stand closes&lt;/h3&gt;
+  &lt;p&gt;New Yorkers are facing the winter chill...&lt;/p&gt;
+&lt;/article&gt;</pre> <h3 id="balance">Balance</h3> <p>Use <code>text-balance</code> to distribute the text evenly across each line.</p>  <pre data-language="html">&lt;article&gt;
+  &lt;h3 class="text-balance ..."&gt;Beloved Manhattan soup stand closes&lt;/h3&gt;
+  &lt;p&gt;New Yorkers are facing the winter chill...&lt;/p&gt;
+&lt;/article&gt;</pre> <p>For performance reasons browsers limit text balancing to blocks that are ~6 lines or less, making it best suited for headings.</p> <h3 id="pretty">Pretty</h3> <p>Use <code>text-pretty</code> to prevent orphans (a single word on its own line) at the end of a text block.</p>  <pre data-language="html">&lt;article class="text-pretty ..."&gt;
+  &lt;h3&gt;Beloved Manhattan soup stand closes&lt;/h3&gt;
+  &lt;p&gt;New Yorkers are facing the winter chill...&lt;/p&gt;
+&lt;/article&gt;</pre>  <h2 id="applying-conditionally" data-docsearch-ignore="">Applying conditionally</h2> <h3 id="hover-focus-and-other-states" data-docsearch-ignore="">Hover, focus, and other states</h3> <p>Tailwind lets you conditionally apply utility classes in different states using variant modifiers. For example, use <code>hover:text-balance</code> to only apply the <code>text-balance</code> utility on hover.</p>
+<pre data-language="html">&lt;h1 class="text-wrap hover:text-balance"&gt;
+  &lt;!-- ... --&gt;
+&lt;/h1&gt;
+</pre>
+<p>For a complete list of all available state modifiers, check out the <a href="hover-focus-and-other-states">Hover, Focus, &amp; Other States</a> documentation.</p> <h3 id="breakpoints-and-media-queries" data-docsearch-ignore="">Breakpoints and media queries</h3> <p>You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use <code>md:text-balance</code> to apply the <code>text-balance</code> utility at only medium screen sizes and above.</p>
+<pre data-language="html">&lt;h1 class="text-wrap md:text-balance"&gt;
+  &lt;!-- ... --&gt;
+&lt;/h1&gt;
+</pre>
+<p>To learn more, check out the documentation on <a href="responsive-design">Responsive Design</a>, <a href="dark-mode">Dark Mode</a> and <a href="hover-focus-and-other-states#media-and-feature-queries">other media query modifiers</a>.</p>
+</div>
+</div></div></div></div>
+<div hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></div>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Tailwind Labs Inc.<br>
+    <a href="https://v3.tailwindcss.com/docs/text-wrap" class="_attribution-link">https://v3.tailwindcss.com/docs/text-wrap</a>
+  </p>
+</div>

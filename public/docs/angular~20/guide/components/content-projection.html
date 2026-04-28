@@ -1,0 +1,138 @@
+<h1 tabindex="-1">Content projection with ng-content</h1> <header class="docs-header"> <docs-breadcrumb ng-version="20.3.15" _nghost-ng-c3945279308 ngh="8"></docs-breadcrumb>   </header> <div class="docs-alert docs-alert-tip"> <p><strong>TIP:</strong> This guide assumes you've already read the <a href="https://v20.angular.dev/essentials">Essentials Guide</a>. Read that first if you're new to Angular.</p> </div> <p>You often need to create components that act as containers for different types of content. For example, you may want to create a custom card component:</p> <pre data-language="ts">@Component({
+  selector: 'custom-card',
+  template: '&lt;div class="card-shadow"&gt; &lt;!-- card content goes here --&gt; &lt;/div&gt;',
+})
+export class CustomCard {/* ... */}</pre>
+<p><strong>You can use the <code>&lt;ng-content&gt;</code> element as a placeholder to mark where content should go</strong>:</p> <pre data-language="ts">@Component({
+  selector: 'custom-card',
+  template: '&lt;div class="card-shadow"&gt; &lt;ng-content/&gt; &lt;/div&gt;',
+})
+export class CustomCard {/* ... */}</pre> <div class="docs-alert docs-alert-tip"> <p><strong>TIP:</strong> <code>&lt;ng-content&gt;</code> works similarly to <a href="https://developer.mozilla.org/docs/Web/HTML/Element/slot" target="_blank">the native <code>&lt;slot&gt;</code> element</a>, but with some Angular-specific functionality.</p> </div> <p>When you use a component with <code>&lt;ng-content&gt;</code>, any children of the component host element are rendered, or <strong>projected</strong>, at the location of that <code>&lt;ng-content&gt;</code>:</p> <pre data-language="ts">// Component source
+@Component({
+  selector: 'custom-card',
+  template: `
+    &lt;div class="card-shadow"&gt;
+      &lt;ng-content /&gt;
+    &lt;/div&gt;
+  `,
+})
+export class CustomCard {/* ... */}</pre>
+<pre data-language="ts">&lt;!-- Using the component --&gt;
+&lt;custom-card&gt;
+  &lt;p&gt;This is the projected content&lt;/p&gt;
+&lt;/custom-card&gt;</pre>
+<pre data-language="ts">&lt;!-- The rendered DOM --&gt;
+&lt;custom-card&gt;
+  &lt;div class="card-shadow"&gt;
+    &lt;p&gt;This is the projected content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/custom-card&gt;</pre>
+<p>Angular refers to any children of a component passed this way as that component's <strong>content</strong>. This is distinct from the component's <strong>view</strong>, which refers to the elements defined in the component's template.</p> <p><strong>The <code>&lt;ng-content&gt;</code> element is neither a component nor DOM element</strong>. Instead, it is a special placeholder that tells Angular where to render content. Angular's compiler processes all <code>&lt;ng-content&gt;</code> elements at build-time. You cannot insert, remove, or modify <code>&lt;ng-content&gt;</code> at run time. You cannot add directives, styles, or arbitrary attributes to <code>&lt;ng-content&gt;</code>.</p> <div class="docs-alert docs-alert-important"> <p><strong>IMPORTANT:</strong> You should not conditionally include <code>&lt;ng-content&gt;</code> with <code>@if</code>, <code>@for</code>, or <code>@switch</code>. Angular always instantiates and creates DOM nodes for content rendered to a <code>&lt;ng-content&gt;</code> placeholder, even if that <code>&lt;ng-content&gt;</code> placeholder is hidden. For conditional rendering of component content, see <a href="../../api/core/ng-template">Template fragments</a>.</p> </div> <h2 id="multiple-content-placeholders"> Multiple content placeholders </h2> <p>Angular supports projecting multiple different elements into different <code>&lt;ng-content&gt;</code> placeholders based on CSS selector. Expanding the card example from above, you could create two placeholders for a card title and a card body by using the <code>select</code> attribute:</p> <pre data-language="ts">@Component({
+  selector: 'card-title',
+  template: `&lt;ng-content&gt;card-title&lt;/ng-content&gt;`,
+})
+export class CardTitle {}
+
+@Component({
+  selector: 'card-body',
+  template: `&lt;ng-content&gt;card-body&lt;/ng-content&gt;`,
+})
+export class CardBody {}</pre>
+<pre data-language="ts">&lt;!-- Component template --&gt;
+Component({
+  selector: 'custom-card',
+  template: `
+  &lt;div class="card-shadow"&gt;
+    &lt;ng-content select="card-title"&gt;&lt;/ng-content&gt;
+    &lt;div class="card-divider"&gt;&lt;/div&gt;
+    &lt;ng-content select="card-body"&gt;&lt;/ng-content&gt;
+  &lt;/div&gt;
+  `,
+})
+export class CustomCard {}</pre>
+<pre data-language="ts">&lt;!-- Using the component --&gt;
+@Component({
+  selector: 'app-root',
+  imports: [CustomCard, CardTitle, CardBody],
+  template: `
+    &lt;custom-card&gt;
+      &lt;card-title&gt;Hello&lt;/card-title&gt;
+      &lt;card-body&gt;Welcome to the example&lt;/card-body&gt;
+    &lt;/custom-card&gt;
+`,
+})
+export class App {}</pre>
+<pre data-language="ts">&lt;!-- Rendered DOM --&gt;
+&lt;custom-card&gt;
+  &lt;div class="card-shadow"&gt;
+    &lt;card-title&gt;Hello&lt;/card-title&gt;
+    &lt;div class="card-divider"&gt;&lt;/div&gt;
+    &lt;card-body&gt;Welcome to the example&lt;/card-body&gt;
+  &lt;/div&gt;
+&lt;/custom-card&gt;</pre>
+<p>The <code>&lt;ng-content&gt;</code> placeholder supports the same CSS selectors as <a href="selectors">component selectors</a>.</p> <p>If you include one or more <code>&lt;ng-content&gt;</code> placeholders with a <code>select</code> attribute and one <code>&lt;ng-content&gt;</code> placeholder without a <code>select</code> attribute, the latter captures all elements that did not match a <code>select</code> attribute:</p> <pre data-language="ts">&lt;!-- Component template --&gt;
+&lt;div class="card-shadow"&gt;
+  &lt;ng-content select="card-title"&gt;&lt;/ng-content&gt;
+  &lt;div class="card-divider"&gt;&lt;/div&gt;
+  &lt;!-- capture anything except "card-title" --&gt;
+  &lt;ng-content&gt;&lt;/ng-content&gt;
+&lt;/div&gt;</pre>
+<pre data-language="ts">&lt;!-- Using the component --&gt;
+&lt;custom-card&gt;
+  &lt;card-title&gt;Hello&lt;/card-title&gt;
+  &lt;img src="..." /&gt;
+  &lt;p&gt;Welcome to the example&lt;/p&gt;
+&lt;/custom-card&gt;</pre>
+<pre data-language="ts">&lt;!-- Rendered DOM --&gt;
+&lt;custom-card&gt;
+  &lt;div class="card-shadow"&gt;
+    &lt;card-title&gt;Hello&lt;/card-title&gt;
+    &lt;div class="card-divider"&gt;&lt;/div&gt;
+    &lt;img src="..." /&gt;
+    &lt;p&gt;Welcome to the example&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/custom-card&gt;</pre>
+<p>If a component does not include an <code>&lt;ng-content&gt;</code> placeholder without a <code>select</code> attribute, any elements that don't match one of the component's placeholders do not render into the DOM.</p> <h2 id="fallback-content"> Fallback content </h2> <p>Angular can show <em>fallback content</em> for a component's <code>&lt;ng-content&gt;</code> placeholder if that component doesn't have any matching child content. You can specify fallback content by adding child content to the <code>&lt;ng-content&gt;</code> element itself.</p> <pre data-language="ts">&lt;!-- Component template --&gt;
+&lt;div class="card-shadow"&gt;
+  &lt;ng-content select="card-title"&gt;Default Title&lt;/ng-content&gt;
+  &lt;div class="card-divider"&gt;&lt;/div&gt;
+  &lt;ng-content select="card-body"&gt;Default Body&lt;/ng-content&gt;
+&lt;/div&gt;</pre>
+<pre data-language="ts">&lt;!-- Using the component --&gt;
+&lt;custom-card&gt;
+  &lt;card-title&gt;Hello&lt;/card-title&gt;
+  &lt;!-- No card-body provided --&gt;
+&lt;/custom-card&gt;</pre>
+<pre data-language="ts">&lt;!-- Rendered DOM --&gt;
+&lt;custom-card&gt;
+  &lt;div class="card-shadow"&gt;
+    &lt;card-title&gt;Hello&lt;/card-title&gt;
+    &lt;div class="card-divider"&gt;&lt;/div&gt;
+    Default Body
+  &lt;/div&gt;
+&lt;/custom-card&gt;</pre> <h2 id="aliasing-content-for-projection"> Aliasing content for projection </h2> <p>Angular supports a special attribute, <code>ngProjectAs</code>, that allows you to specify a CSS selector on any element. Whenever an element with <code>ngProjectAs</code> is checked against an <code>&lt;ng-content&gt;</code> placeholder, Angular compares against the <code>ngProjectAs</code> value instead of the element's identity:</p> <pre data-language="ts">&lt;!-- Component template --&gt;
+&lt;div class="card-shadow"&gt;
+  &lt;ng-content select="card-title"&gt;&lt;/ng-content&gt;
+  &lt;div class="card-divider"&gt;&lt;/div&gt;
+  &lt;ng-content&gt;&lt;/ng-content&gt;
+&lt;/div&gt;</pre>
+<pre data-language="ts">&lt;!-- Using the component --&gt;
+&lt;custom-card&gt;
+  &lt;h3 ngProjectAs="card-title"&gt;Hello&lt;/h3&gt;
+
+  &lt;p&gt;Welcome to the example&lt;/p&gt;
+&lt;/custom-card&gt;</pre>
+<pre data-language="ts">&lt;!-- Rendered DOM --&gt;
+&lt;custom-card&gt;
+  &lt;div class="card-shadow"&gt;
+    &lt;h3&gt;Hello&lt;/h3&gt;
+    &lt;div class="card-divider"&gt;&lt;/div&gt;
+    &lt;p&gt;Welcome to the example&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/custom-card&gt;</pre>
+<p><code>ngProjectAs</code> supports only static values and cannot be bound to dynamic expressions.</p><div class="_attribution">
+  <p class="_attribution-p">
+    Super-powered by Google &copy;2010&ndash;2025.<br />Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.<br>
+    <a href="https://v20.angular.dev/guide/components/content-projection" class="_attribution-link">https://v20.angular.dev/guide/components/content-projection</a>
+  </p>
+</div>

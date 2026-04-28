@@ -1,0 +1,26 @@
+<h1 tabindex="-1">Whitespace in templates</h1> <header class="docs-header"> <docs-breadcrumb ng-version="20.3.15" _nghost-ng-c3945279308 ngh="8"></docs-breadcrumb>   </header> <p>By default, Angular templates do not preserve whitespace that the framework considers unnecessary. This commonly occurs in two situations: whitespace between elements, and collapsible whitespace inside of text.</p> <h2 id="whitespace-between-elements"> Whitespace between elements </h2> <p>Most developers prefer to format their templates with newlines and indentation to make the template readable:</p> <pre data-language="ts">&lt;section&gt;
+  &lt;h3&gt;User profile&lt;/h3&gt;
+  &lt;label&gt;
+    User name
+    &lt;input&gt;
+  &lt;/label&gt;
+&lt;/section&gt;</pre>
+<p>This template contains whitespace between all of the elements. The following snippet shows the same HTML with each whitespace character replaced with the hash (<code>#</code>) character to highlight how much whitespace is present:</p> <pre data-language="ts">&lt;!-- Total Whitespace: 20 --&gt;
+&lt;section&gt;###&lt;h3&gt;User profile&lt;/h3&gt;###&lt;label&gt;#####User name#####&lt;input&gt;###&lt;/label&gt;#&lt;/section&gt;</pre>
+<p>Preserving the whitespace as written in the template would result in many unnecessary <a href="https://developer.mozilla.org/en-US/docs/Web/API/Text" target="_blank">text nodes</a> and increase page rendering overhead. By ignoring this whitespace between elements, Angular performs less work when rendering the template on the page, improving overall performance.</p> <h2 id="collapsible-whitespace-inside-text"> Collapsible whitespace inside text </h2> <p>When your web browser renders HTML on a page, it collapses multiple consecutive whitespace characters to a single character:</p> <pre data-language="ts">&lt;!-- What it looks like in the template --&gt;
+&lt;p&gt;Hello         world&lt;/p&gt;</pre>
+<p>In this example, the browser displays only a single space between "Hello" and "world".</p> <pre data-language="ts">&lt;!-- What shows up in the browser --&gt;
+&lt;p&gt;Hello world&lt;/p&gt;</pre>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace" target="_blank">How whitespace is handled by HTML, CSS, and in the DOM</a> for more context on how this works.</p> <p>Angular avoids sending these unnecessary whitespace characters to the browser in the first place by collapsing them to a single character when it compiles the template.</p> <h2 id="preserving-whitespace"> Preserving whitespace </h2> <p>You can tell Angular to preserve whitespace in a template by specifying <code>preserveWhitespaces: true</code> in the <a href="../../api/core/component"><code>@Component</code></a> decorator for a template.</p> <pre data-language="ts">@Component({
+  /* ... */,
+  preserveWhitespaces: true,
+  template: `
+    &lt;p&gt;Hello         world&lt;/p&gt;
+  `
+})</pre>
+<p>Avoid setting this option unless absolutely necessary. Preserving whitespace can cause Angular to produce significantly more nodes while rendering, slowing down your application.</p> <p>You can additionally use a special HTML entity unique to Angular, <code>&amp;ngsp;</code>. This entity produces a single space character that's preserved in the compiled output.</p><div class="_attribution">
+  <p class="_attribution-p">
+    Super-powered by Google &copy;2010&ndash;2025.<br />Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.<br>
+    <a href="https://v20.angular.dev/guide/templates/whitespace" class="_attribution-link">https://v20.angular.dev/guide/templates/whitespace</a>
+  </p>
+</div>

@@ -1,0 +1,22 @@
+<h1>space-return-throw-case</h1>  <p>Requires spaces after <code>return</code>, <code>throw</code>, and <code>case</code> keywords.</p> <aside role="note" class="alert alert--important"> <svg class="alert__icon" aria-hidden="true" focusable="false" width="19" height="20" viewbox="0 0 19 20" fill="none"> <path d="M9.49999 6.66667V10M9.49999 13.3333H9.50832M17.8333 10C17.8333 14.6024 14.1024 18.3333 9.49999 18.3333C4.89762 18.3333 1.16666 14.6024 1.16666 10C1.16666 5.39763 4.89762 1.66667 9.49999 1.66667C14.1024 1.66667 17.8333 5.39763 17.8333 10Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <div class="alert__content"> <span class="alert__type">Important</span> <div class="alert__text">
+<p>This rule was removed in ESLint v2.0.0 and replaced by the <a href="space-return-throw-casekeyword-spacing">keyword-spacing</a> rule.</p> </div> </div> </aside><p>(fixable) The <code>--fix</code> option on the <a href="space-return-throw-case../use/command-line-interface#--fix">command line</a> automatically fixed problems reported by this rule.</p> <p>Require spaces following <code>return</code>, <code>throw</code>, and <code>case</code>.</p> <h2 id="rule-details" tabindex="-1">Rule Details</h2> <p>Examples of <strong>incorrect</strong> code for this rule:</p> <div class="incorrect"><pre class="language-js line-numbers-mode"><code><span class="token eslint-marked eslint-message-id-1" title="Rule 'space-return-throw-case' was removed and replaced by: keyword-spacing"><span class="token comment">/*eslint space-return-throw-case: "error"*/</span></span>
+
+<span class="token keyword">throw</span><span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span><span class="token operator">-</span>a<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">case</span><span class="token string">'a'</span><span class="token operator">:</span> <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre></div>
+<p>Examples of <strong>correct</strong> code for this rule:</p> <div class="correct"><pre class="language-js line-numbers-mode"><code><span class="token eslint-marked eslint-message-id-1" title="Rule 'space-return-throw-case' was removed and replaced by: keyword-spacing"><span class="token comment">/*eslint space-return-throw-case: "error"*/</span></span>
+
+<span class="token keyword">throw</span> <span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">-</span>a<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token operator">:</span> <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre></div> <h2 id="version">Version</h2> <p>This rule was introduced in ESLint v0.1.4 and removed in v2.0.0-beta.3.</p><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; OpenJS Foundation and other contributors<br>Licensed under the MIT License.<br>
+    <a href="https://eslint.org/docs/latest/rules/space-return-throw-case" class="_attribution-link">https://eslint.org/docs/latest/rules/space-return-throw-case</a>
+  </p>
+</div>

@@ -1,0 +1,132 @@
+<header><h1>Playwright MCP</h1></header><h2 id="introduction">Introduction<a href="#introduction" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a>
+</h2> <p>The Playwright MCP server provides browser automation capabilities through the <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">Model Context Protocol</a>, enabling LLMs to interact with web pages using structured accessibility snapshots. It works with VS Code, Cursor, Windsurf, Claude Desktop, and any other MCP client — no vision models required.</p> <h2 id="prerequisites">Prerequisites<a href="#prerequisites" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites">​</a>
+</h2> <p>Before you begin, make sure you have the following installed:</p> <ul> <li>
+<a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> 18 or newer</li> <li>An MCP client: VS Code, Cursor, Windsurf, Claude Code, Claude Desktop, or similar</li> </ul> <h2 id="getting-started">Getting Started<a href="#getting-started" aria-label="Direct link to Getting Started" title="Direct link to Getting Started">​</a>
+</h2> <h3 id="installation">Installation<a href="#installation" aria-label="Direct link to Installation" title="Direct link to Installation">​</a>
+</h3> <p>Add the Playwright MCP server to your client using the standard configuration:</p> <pre tabindex="0" data-language="javascript">{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}</pre> <h4 id="vs-code">VS Code<a href="#vs-code" aria-label="Direct link to VS Code" title="Direct link to VS Code">​</a>
+</h4> <p>Click one of the buttons below to install directly:</p> <p><a href="https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522playwright%2522%252C%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522%2540playwright%252Fmcp%2540latest%2522%255D%257D" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&amp;label=Install%20Server&amp;color=0098FF" alt="Install in VS Code"></a> <a href="https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522playwright%2522%252C%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522%2540playwright%252Fmcp%2540latest%2522%255D%257D" target="_blank" rel="noopener noreferrer"><img alt="Install in VS Code Insiders" src="https://img.shields.io/badge/VS_Code_Insiders-VS_Code_Insiders?style=flat-square&amp;label=Install%20Server&amp;color=24bfa5"></a></p> <p>Or install via the VS Code CLI:</p> <pre tabindex="0" data-language="javascript">code --add-mcp '{"name":"playwright","command":"npx","args":["@playwright/mcp@latest"]}'</pre> <h4 id="cursor">Cursor<a href="#cursor" aria-label="Direct link to Cursor" title="Direct link to Cursor">​</a>
+</h4> <p><a href="https://cursor.com/en/install-mcp?name=Playwright&amp;config=eyJjb21tYW5kIjoibnB4IEBwbGF5d3JpZ2h0L21jcEBsYXRlc3QifQ%3D%3D" target="_blank" rel="noopener noreferrer"><img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Install in Cursor"></a></p> <p>Or go to <code>Cursor Settings</code> → <code>MCP</code> → <code>Add new MCP Server</code> and use command type with <code>npx @playwright/mcp@latest</code>.</p> <h4 id="claude-code">Claude Code<a href="#claude-code" aria-label="Direct link to Claude Code" title="Direct link to Claude Code">​</a>
+</h4> <pre tabindex="0" data-language="javascript">claude mcp add playwright npx @playwright/mcp@latest</pre> <h4 id="claude-desktop">Claude Desktop<a href="#claude-desktop" aria-label="Direct link to Claude Desktop" title="Direct link to Claude Desktop">​</a>
+</h4> <p>Follow the MCP install <a href="https://modelcontextprotocol.io/quickstart/user" target="_blank" rel="noopener noreferrer">guide</a> and use the standard config above.</p> <h4 id="other-clients">Other clients<a href="#other-clients" aria-label="Direct link to Other clients" title="Direct link to Other clients">​</a>
+</h4> <p>The standard configuration works with most MCP clients, including Windsurf, Cline, Goose, Kiro, Codex, Copilot CLI, and others. Consult your client's MCP documentation for where to place the config.</p> <h3 id="first-interaction">First interaction<a href="#first-interaction" aria-label="Direct link to First interaction" title="Direct link to First interaction">​</a>
+</h3> <p>Once the server is connected, ask your AI assistant to interact with a web page:</p> <pre tabindex="0" data-language="javascript">Navigate to https://demo.playwright.dev/todomvc and add a few todo items.</pre> <p>The assistant will use Playwright MCP tools to open the browser, navigate to the page, and interact with elements — all through structured accessibility snapshots rather than screenshots.</p> <h2 id="core-features">Core Features<a href="#core-features" aria-label="Direct link to Core Features" title="Direct link to Core Features">​</a>
+</h2> <h3 id="accessibility-snapshots">Accessibility snapshots<a href="#accessibility-snapshots" aria-label="Direct link to Accessibility snapshots" title="Direct link to Accessibility snapshots">​</a>
+</h3> <p>Playwright MCP operates on the page's accessibility tree, not pixels. When a tool runs, it returns a structured snapshot showing the page elements, their roles, and text content. The LLM uses element references from these snapshots to interact with the page:</p> <pre tabindex="0" data-language="javascript">- heading "todos" [level=1]
+- textbox "What needs to be done?" [ref=e5]
+- listitem:
+  - checkbox "Toggle Todo" [ref=e10]
+  - text: "Buy groceries"</pre> <p>The LLM reads this snapshot and uses <code>ref=e5</code> to type into the textbox or <code>ref=e10</code> to check the checkbox.</p> <h3 id="interacting-with-pages">Interacting with pages<a href="#interacting-with-pages" aria-label="Direct link to Interacting with pages" title="Direct link to Interacting with pages">​</a>
+</h3> <p>Playwright MCP provides tools for all common browser interactions:</p> <ul> <li>
+<strong>Navigation</strong>: Open URLs, go back/forward, reload pages.</li> <li>
+<strong>Clicking and typing</strong>: Click elements, type text, fill forms, select dropdowns.</li> <li>
+<strong>Screenshots</strong>: Capture the current page or specific elements for visual verification.</li> <li>
+<strong>Keyboard and mouse</strong>: Press keys, hover, drag and drop.</li> <li>
+<strong>Dialogs</strong>: Accept or dismiss browser dialogs.</li> <li>
+<strong>Tabs</strong>: Create, close, and switch between browser tabs.</li> </ul> <h3 id="running-playwright-code">Running Playwright code<a href="#running-playwright-code" aria-label="Direct link to Running Playwright code" title="Direct link to Running Playwright code">​</a>
+</h3> <p>For complex interactions that go beyond individual tool calls, use the <code>browser_run_code</code> tool to execute Playwright scripts directly:</p> <pre tabindex="0" data-language="javascript">Run this Playwright code to verify the todo count:
+async (page) =&gt; {
+  const count = await page.getByTestId('todo-count').textContent();
+  return count;
+}</pre> <h3 id="network-monitoring-and-mocking">Network monitoring and mocking<a href="#network-monitoring-and-mocking" aria-label="Direct link to Network monitoring and mocking" title="Direct link to Network monitoring and mocking">​</a>
+</h3> <p>Inspect network traffic and mock API responses:</p> <ul> <li>
+<strong>View network requests</strong>: List all requests made since page load.</li> <li>
+<strong>Mock routes</strong>: Set up URL pattern matching to return custom responses.</li> <li>
+<strong>Console messages</strong>: Access browser console output for debugging.</li> </ul> <h3 id="storage-state">Storage state<a href="#storage-state" aria-label="Direct link to Storage state" title="Direct link to Storage state">​</a>
+</h3> <p>Save and restore browser state including cookies and localStorage:</p> <ul> <li>
+<strong>Save state</strong>: Persist authentication and session data to a file.</li> <li>
+<strong>Restore state</strong>: Load previously saved state into a new session.</li> <li>
+<strong>Cookie management</strong>: List, get, set, and delete individual cookies.</li> </ul> <h2 id="configuration">Configuration<a href="#configuration" aria-label="Direct link to Configuration" title="Direct link to Configuration">​</a>
+</h2> <h3 id="headed-mode">Headed mode<a href="#headed-mode" aria-label="Direct link to Headed mode" title="Direct link to Headed mode">​</a>
+</h3> <p>By default, Playwright MCP runs the browser in headed mode so you can see what's happening. To run headless:</p> <pre tabindex="0" data-language="javascript">{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--headless"
+      ]
+    }
+  }
+}</pre> <h3 id="browser-selection">Browser selection<a href="#browser-selection" aria-label="Direct link to Browser selection" title="Direct link to Browser selection">​</a>
+</h3> <p>Choose which browser to use:</p> <pre tabindex="0" data-language="javascript">{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--browser=firefox"
+      ]
+    }
+  }
+}</pre> <p>Supported values: <code>chrome</code>, <code>firefox</code>, <code>webkit</code>, <code>msedge</code>.</p> <h3 id="user-profile">User profile<a href="#user-profile" aria-label="Direct link to User profile" title="Direct link to User profile">​</a>
+</h3> <p>Playwright MCP supports three profile modes:</p> <ul> <li>
+<strong>Persistent (default)</strong>: Login state and cookies are preserved between sessions. The profile is stored in <code>ms-playwright/mcp-{channel}-profile</code> in your platform's cache directory. Override with <code>--user-data-dir</code>.</li> <li>
+<strong>Isolated</strong>: Each session starts fresh. Pass <code>--isolated</code> to enable. You can load initial state with <code>--storage-state</code>.</li> <li>
+<strong>Browser extension</strong>: Connect to your existing browser tabs with the <a href="https://github.com/user-attachments/packages/extension" target="_blank" rel="noopener noreferrer">Playwright MCP Bridge extension</a>. Pass <code>--extension</code> to enable.</li> </ul> <h3 id="configuration-file">Configuration file<a href="#configuration-file" aria-label="Direct link to Configuration file" title="Direct link to Configuration file">​</a>
+</h3> <p>For advanced configuration, use a JSON config file:</p> <pre tabindex="0" data-language="javascript">npx @playwright/mcp@latest --config path/to/config.json</pre> <p>The config file supports browser options, context options, network rules, timeouts, and more. See the <a href="https://github.com/microsoft/playwright-mcp/blob/main/packages/playwright-mcp/config.d.ts" target="_blank" rel="noopener noreferrer">Playwright MCP repository</a> for the full schema.</p> <h3 id="standalone-server">Standalone server<a href="#standalone-server" aria-label="Direct link to Standalone server" title="Direct link to Standalone server">​</a>
+</h3> <p>When running a headed browser on a system without a display or from IDE worker processes, start the MCP server separately with HTTP transport:</p> <pre tabindex="0" data-language="javascript">npx @playwright/mcp@latest --port 8931</pre> <p>Then point your MCP client to the HTTP endpoint:</p> <pre tabindex="0" data-language="javascript">{
+  "mcpServers": {
+    "playwright": {
+      "url": "http://localhost:8931/mcp"
+    }
+  }
+}</pre> <h2 id="quick-reference">Quick Reference<a href="#quick-reference" aria-label="Direct link to Quick Reference" title="Direct link to Quick Reference">​</a>
+</h2> <table>
+<thead><tr>
+<th>Action</th>
+<th>How to do it</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Install server</strong></td>
+<td>Add standard config to your MCP client</td>
+</tr>
+<tr>
+<td><strong>Navigate to a page</strong></td>
+<td>Ask: "Go to <a href="https://example.com" target="_blank" rel="noopener noreferrer">https://example.com</a>"</td>
+</tr>
+<tr>
+<td><strong>Click an element</strong></td>
+<td>Ask: "Click the Submit button"</td>
+</tr>
+<tr>
+<td><strong>Fill a form</strong></td>
+<td>Ask: "Fill in the email field with <a href="mailto:test@example.com" target="_blank" rel="noopener noreferrer">test@example.com</a>"</td>
+</tr>
+<tr>
+<td><strong>Take a screenshot</strong></td>
+<td>Ask: "Take a screenshot of the page"</td>
+</tr>
+<tr>
+<td><strong>Run Playwright code</strong></td>
+<td>Ask: "Run this Playwright code: ..."</td>
+</tr>
+<tr>
+<td><strong>Mock an API</strong></td>
+<td>Ask: "Mock the /api/users endpoint to return ..."</td>
+</tr>
+<tr>
+<td><strong>Use headed mode</strong></td>
+<td>Default. Pass <code>--headless</code> to disable</td>
+</tr>
+<tr>
+<td><strong>Choose a browser</strong></td>
+<td>Pass <code>--browser=firefox</code> in args</td>
+</tr>
+</tbody>
+</table> <h2 id="whats-next">What's Next<a href="#whats-next" aria-label="Direct link to What's Next" title="Direct link to What's Next">​</a>
+</h2> <ul> <li><a href="writing-tests">Write tests using web-first assertions, page fixtures, and locators</a></li> <li><a href="ci-intro">Run your tests on CI</a></li> <li><a href="trace-viewer">Learn more about the Trace Viewer</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+          &copy; 2026 Microsoft<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://playwright.dev/docs/getting-started-mcp" class="_attribution-link">https://playwright.dev/docs/getting-started-mcp</a>
+  </p>
+</div>

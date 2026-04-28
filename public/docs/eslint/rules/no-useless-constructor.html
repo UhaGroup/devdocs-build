@@ -1,0 +1,79 @@
+<h1>no-useless-constructor</h1> 
+<p>Disallow unnecessary constructors</p> <div class="rule-categories" aria-label="Rule Categories"><div class="rule-category"> <span class="rule-category__icon">💡 <span class="visually-hidden">hasSuggestions</span></span> <p> Some problems reported by this rule are manually fixable by editor <a href="no-useless-constructor../use/core-concepts#rule-suggestions">suggestions</a> </p> </div></div>  <p>ES2015 provides a default class constructor if one is not specified. As such, it is unnecessary to provide an empty constructor or one that simply delegates into its parent class, as in the following examples:</p> <div class="code-wrapper"> <pre class="language-js line-numbers-mode"><code><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <button class="copy-btn" aria-labelledby="copy-button-label"> <span hidden id="copy-button-label">Copy code to clipboard</span> <svg width="20" height="20" viewbox="0 0 20 20" role="img" aria-label="copy" fill="none" focusable="false"> <path d="M4.16667 12.5H3.33333C2.89131 12.5 2.46738 12.3244 2.15482 12.0118C1.84226 11.6993 1.66667 11.2754 1.66667 10.8333V3.33332C1.66667 2.8913 1.84226 2.46737 2.15482 2.15481C2.46738 1.84225 2.89131 1.66666 3.33333 1.66666H10.8333C11.2754 1.66666 11.6993 1.84225 12.0118 2.15481C12.3244 2.46737 12.5 2.8913 12.5 3.33332V4.16666M9.16667 7.49999H16.6667C17.5871 7.49999 18.3333 8.24618 18.3333 9.16666V16.6667C18.3333 17.5871 17.5871 18.3333 16.6667 18.3333H9.16667C8.24619 18.3333 7.5 17.5871 7.5 16.6667V9.16666C7.5 8.24618 8.24619 7.49999 9.16667 7.49999Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path> </svg> </button> </div> <h2 id="rule-details" tabindex="-1">Rule Details</h2> <p>This rule flags class constructors that can be safely removed without changing how the class works.</p> <p>Examples of <strong>incorrect</strong> code for this rule:</p> <div class="incorrect"> <a class="c-btn c-btn--secondary c-btn--playground" href="https://eslint.org/play#eyJ0ZXh0IjoiLyplc2xpbnQgbm8tdXNlbGVzcy1jb25zdHJ1Y3RvcjogXCJlcnJvclwiKi9cblxuY2xhc3MgQSB7XG4gICAgY29uc3RydWN0b3IgKCkge1xuICAgIH1cbn1cblxuY2xhc3MgQiBleHRlbmRzIEEge1xuICAgIGNvbnN0cnVjdG9yICguLi5hcmdzKSB7XG4gICAgICBzdXBlciguLi5hcmdzKTtcbiAgICB9XG59In0=" target="_blank"> Open in Playground </a><pre class="language-js line-numbers-mode"><code><span class="token comment">/*eslint no-useless-constructor: "error"*/</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token eslint-marked eslint-message-id-1" title="Useless constructor."><span class="token function">constructor</span></span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token eslint-marked eslint-message-id-1" title="Useless constructor."><span class="token function">constructor</span></span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+<p>Examples of <strong>correct</strong> code for this rule:</p> <div class="correct"> <a class="c-btn c-btn--secondary c-btn--playground" href="https://eslint.org/play#eyJ0ZXh0IjoiLyplc2xpbnQgbm8tdXNlbGVzcy1jb25zdHJ1Y3RvcjogXCJlcnJvclwiKi9cblxuY2xhc3MgQSB7IH1cblxuY2xhc3MgQiB7XG4gICAgY29uc3RydWN0b3IgKCkge1xuICAgICAgICBkb1NvbWV0aGluZygpO1xuICAgIH1cbn1cblxuY2xhc3MgQyBleHRlbmRzIEEge1xuICAgIGNvbnN0cnVjdG9yKCkge1xuICAgICAgICBzdXBlcignZm9vJyk7XG4gICAgfVxufVxuXG5jbGFzcyBEIGV4dGVuZHMgQSB7XG4gICAgY29uc3RydWN0b3IoKSB7XG4gICAgICAgIHN1cGVyKCk7XG4gICAgICAgIGRvU29tZXRoaW5nKCk7XG4gICAgfVxufSJ9" target="_blank"> Open in Playground </a><pre class="language-js line-numbers-mode"><code><span class="token comment">/*eslint no-useless-constructor: "error"*/</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">D</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+<p>This rule additionally supports TypeScript type syntax.</p> <p>Examples of <strong>incorrect</strong> TypeScript code for this rule:</p> <div class="incorrect"> <a class="c-btn c-btn--secondary c-btn--playground" href="https://eslint.org/play#eyJvcHRpb25zIjp7Imxhbmd1YWdlT3B0aW9ucyI6eyJwYXJzZXIiOiJAdHlwZXNjcmlwdC1lc2xpbnQvcGFyc2VyIiwicGFyc2VyT3B0aW9ucyI6eyJlY21hRmVhdHVyZXMiOnsianN4Ijp0cnVlfX19fSwidGV4dCI6Ii8qIGVzbGludCBuby11c2VsZXNzLWNvbnN0cnVjdG9yOiBcImVycm9yXCIgKi9cblxuY2xhc3MgQSB7XG4gICAgcHVibGljIGNvbnN0cnVjdG9yKCkge31cbn0ifQ==" target="_blank"> Open in Playground </a><pre class="language-ts line-numbers-mode"><code><span class="token comment">/* eslint no-useless-constructor: "error" */</span>
+
+<span class="token keyword">class</span> <span class="token class-name"><span class="token constant">A</span></span> <span class="token punctuation">{</span>
+    <span class="token eslint-marked eslint-message-id-1" title="Useless constructor."><span class="token keyword">public</span> <span class="token function">constructor</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+<p>Examples of <strong>correct</strong> TypeScript code for this rule:</p> <div class="correct"> <a class="c-btn c-btn--secondary c-btn--playground" href="https://eslint.org/play#eyJvcHRpb25zIjp7Imxhbmd1YWdlT3B0aW9ucyI6eyJwYXJzZXIiOiJAdHlwZXNjcmlwdC1lc2xpbnQvcGFyc2VyIiwicGFyc2VyT3B0aW9ucyI6eyJlY21hRmVhdHVyZXMiOnsianN4Ijp0cnVlfX19fSwidGV4dCI6Ii8qIGVzbGludCBuby11c2VsZXNzLWNvbnN0cnVjdG9yOiBcImVycm9yXCIgKi9cblxuY2xhc3MgQSB7XG4gICAgcHJvdGVjdGVkIGNvbnN0cnVjdG9yKCkge31cbn1cblxuY2xhc3MgQiBleHRlbmRzIEEge1xuICAgIHB1YmxpYyBjb25zdHJ1Y3RvcigpIHtcbiAgICAgICAgc3VwZXIoKTtcbiAgICB9XG59XG5cbmNsYXNzIEMge1xuICAgIGNvbnN0cnVjdG9yKEBkZWNvcmF0ZWQgcGFyYW0pIHt9XG59In0=" target="_blank"> Open in Playground </a><pre class="language-ts line-numbers-mode"><code><span class="token comment">/* eslint no-useless-constructor: "error" */</span>
+
+<span class="token keyword">class</span> <span class="token class-name"><span class="token constant">A</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name"><span class="token constant">B</span></span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token constant">A</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name"><span class="token constant">C</span></span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token decorator"><span class="token at operator">@</span><span class="token function">decorated</span></span> param<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+<h2 id="options" tabindex="-1">Options</h2> <p>This rule has no options.</p> <h2 id="when-not-to-use-it" tabindex="-1">When Not To Use It</h2> <p>If you don’t want to be notified about unnecessary constructors, you can safely disable this rule.</p> <h2 id="version">Version</h2> <p>This rule was introduced in ESLint v2.0.0-beta.1.</p> <h2 id="resources">Resources</h2> <ul> <li><a href="https://github.com/eslint/eslint/blob/main/lib/rules/no-useless-constructor.js">Rule source</a></li> <li><a href="https://github.com/eslint/eslint/blob/main/tests/lib/rules/no-useless-constructor.js">Tests source</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; OpenJS Foundation and other contributors<br>Licensed under the MIT License.<br>
+    <a href="https://eslint.org/docs/latest/rules/no-useless-constructor" class="_attribution-link">https://eslint.org/docs/latest/rules/no-useless-constructor</a>
+  </p>
+</div>

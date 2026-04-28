@@ -1,0 +1,58 @@
+<h1>unmountComponentAtNode
+</h1>
+<h3>
+Deprecated</h3>
+<div>
+<p>This API will be removed in a future major version of React.</p>
+<p>In React 18, <code dir="ltr">unmountComponentAtNode</code> was replaced by <a href="client/createroot#root-unmount"><code dir="ltr">root.unmount()</code></a>.</p>
+</div> <div>
+<p><code dir="ltr">unmountComponentAtNode</code> removes a mounted React component from the DOM.</p>
+<pre data-language="jsx"><code><span>unmountComponentAtNode</span><span>(</span><span>domNode</span><span>)</span></code></pre>
+</div> <ul>
+<li>
+<a href="#reference">Reference </a><ul><li><a href="#unmountcomponentatnode"><code dir="ltr">unmountComponentAtNode(domNode)</code> </a></li></ul>
+</li>
+<li>
+<a href="#usage">Usage </a><ul><li><a href="#removing-a-react-app-from-a-dom-element">Removing a React app from a DOM element </a></li></ul>
+</li>
+</ul> <hr> <h2 id="reference">Reference 
+</h2> <h3 id="unmountcomponentatnode">
+<code dir="ltr">unmountComponentAtNode(domNode)</code> 
+</h3> <p>Call <code dir="ltr">unmountComponentAtNode</code> to remove a mounted React component from the DOM and clean up its event handlers and state.</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>unmountComponentAtNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+
+<span>const</span> <span>domNode</span> = <span>document</span>.<span>getElementById</span><span>(</span><span>'root'</span><span>)</span><span>;</span>
+<span>render</span><span>(</span><span>&lt;</span><span>App</span> <span>/&gt;</span><span>,</span> <span>domNode</span><span>)</span><span>;</span>
+
+<span>unmountComponentAtNode</span><span>(</span><span>domNode</span><span>)</span><span>;</span></code></pre> <p><a href="#usage">See more examples below.</a></p> <h4 id="parameters">Parameters 
+</h4> <ul> <li>
+<code dir="ltr">domNode</code>: A <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element" target="_blank" rel="nofollow noopener noreferrer">DOM element.</a> React will remove a mounted React component from this element.</li> </ul> <h4 id="returns">Returns 
+</h4> <p><code dir="ltr">unmountComponentAtNode</code> returns <code dir="ltr">true</code> if a component was unmounted and <code dir="ltr">false</code> otherwise.</p> <hr> <h2 id="usage">Usage 
+</h2> <p>Call <code dir="ltr">unmountComponentAtNode</code> to remove a <span data-step="1">mounted React component</span> from a <span data-step="2">browser DOM node</span> and clean up its event handlers and state.</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>render</span><span>,</span> <span>unmountComponentAtNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+<span>import</span> <span>App</span> <span>from</span> <span>'./App.js'</span><span>;</span>
+
+<span>const</span> <span>rootNode</span> = <span>document</span>.<span>getElementById</span><span>(</span><span>'root'</span><span>)</span><span>;</span>
+<span>render</span><span>(</span><span>&lt;App /&gt;</span><span>,</span> <span>rootNode</span><span>)</span><span>;</span>
+
+<span>// ...</span>
+<span>unmountComponentAtNode</span><span>(</span><span>rootNode</span><span>)</span><span>;</span></code></pre> <h3 id="removing-a-react-app-from-a-dom-element">Removing a React app from a DOM element 
+</h3> <p>Occasionally, you may want to “sprinkle” React on an existing page, or a page that is not fully written in React. In those cases, you may need to “stop” the React app, by removing all of the UI, state, and listeners from the DOM node it was rendered to.</p> <p>In this example, clicking “Render React App” will render a React app. Click “Unmount React App” to destroy it:</p> 
+<pre data-language="jsx"><span>import</span> <span>'./styles.css'</span><span>;</span>
+<span>import</span> <span>{</span> <span>render</span><span>,</span> <span>unmountComponentAtNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+<span>import</span> <span>App</span> <span>from</span> <span>'./App.js'</span><span>;</span>
+
+<span>const</span> <span>domNode</span> = <span>document</span>.<span>getElementById</span><span>(</span><span>'root'</span><span>)</span><span>;</span>
+
+<span>document</span>.<span>getElementById</span><span>(</span><span>'render'</span><span>)</span>.<span>addEventListener</span><span>(</span><span>'click'</span><span>,</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+  <span>render</span><span>(</span><span>&lt;</span><span>App</span> <span>/&gt;</span><span>,</span> <span>domNode</span><span>)</span><span>;</span>
+<span>}</span><span>)</span><span>;</span>
+
+<span>document</span>.<span>getElementById</span><span>(</span><span>'unmount'</span><span>)</span>.<span>addEventListener</span><span>(</span><span>'click'</span><span>,</span> <span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+  <span>unmountComponentAtNode</span><span>(</span><span>domNode</span><span>)</span><span>;</span>
+<span>}</span><span>)</span><span>;</span>
+
+</pre><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2013&ndash;present Facebook Inc.<br>Licensed under the Creative Commons Attribution 4.0 International Public License.<br>
+    <a href="https://18.react.dev/reference/react-dom/unmountComponentAtNode" class="_attribution-link">https://18.react.dev/reference/react-dom/unmountComponentAtNode</a>
+  </p>
+</div>
