@@ -1,55 +1,53 @@
+name: Build and Package DevDocs
 
-  name: Build and Package DevDocs
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
-  on:
-    push:
-      branches: [ main ]
-    workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      permissions:
-        contents: write
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.8'
 
-        - name: Setup Ruby
-          uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: '3.4.8'
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev zip
 
-        - name: Install system dependencies
-          run: |
-            sudo apt-get update
-            sudo apt-get install -y libcurl4-openssl-dev
+      - name: Clean vendor bundle
+        run: rm -rf vendor/bundle
 
-        - name: Clean vendor bundle
-          run: rm -rf vendor/bundle
+      - name: Install project dependencies
+        run: |
+          gem install bundler -v 2.4.6
+          bundle _2.4.6_ config set path 'vendor/bundle'
+          bundle _2.4.6_ install
 
-        - name: Install project dependencies
-          run: |
-            gem install bundler -v 2.4.6
-            bundle _2.4.6_ config set path 'vendor/bundle'
-            bundle _2.4.6_ install
+      - name: Download docs
+        id: download
+        run: |
+          bundle _2.4.6_ exec thor docs:download php laravel@11 javascript typescript css sass html dom react@18 vue@3 angular@20 nextjs node@22 LTS npm webpack@5 vite@7 bootstrap@5 tailwindcss@3 jquery_core mysql postgresql@17 sqlite redis apache nginx git bash docker electron react_native express@4 fastapi flask@3.0 mongodb mongoose socketio@4 graphql lodash@4 axios moment eslint prettier babel@7 svelte@4 lit@3 cypress playwright wordpress 2>&1 | tee download.log
+        continue-on-error: true
 
-        - name: Download docs
-          id: download
-          run: |
-            bundle _2.4.6_ exec thor docs:download php laravel@11 javascript typescript css sass html dom react@18 vue@3 angular@20 nextjs node@22 LTS npm webpack@5 vite@7 bootstrap@5 tailwindcss@3 jquery_core mysql postgresql@17 sqlite redis apache nginx git bash docker electron react_native express@4 fastapi flask@3.0 mongodb mongoose socketio@4 graphql lodash@4 axios moment eslint prettier babel@7 svelte@4 lit@3 cypress playwright wordpress 2>&1 | tee download.log
-          continue-on-error: true
+      - name: Package as zip
+        if: always()
+        run: |
+          rm -rf vendor/bundle .git download.log
+          zip -r devdocs.zip .
 
-        - name: Commit and push built files
-          if: always()
-          run: |
-            rm -rf .git vendor/bundle
-            cp -r . /tmp/devdocs-build
-            git checkout --orphan built
-            git rm -rf .
-            cp -r /tmp/devdocs-build/* .
-            git add -A
-            git config user.name "UhaGroup"
-            git config user.email "uha.company@gmail.com"
-            git commit -m "Build DevDocs with docs"
-            git push origin built --force
+      - name: Upload as artifact (for easy download)
+        uses: actions/upload-artifact@v4
+        with:
+          name: devdocs-complete
+          path: devdocs.zip
+          retention-days: 90
