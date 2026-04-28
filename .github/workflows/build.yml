@@ -22,7 +22,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev zip
+          sudo apt-get install -y libcurl4-openssl-dev
 
       - name: Clean vendor bundle
         run: rm -rf vendor/bundle
@@ -39,15 +39,21 @@ jobs:
           bundle _2.4.6_ exec thor docs:download php laravel@11 javascript typescript css sass html dom react@18 vue@3 angular@20 nextjs node@22 LTS npm webpack@5 vite@7 bootstrap@5 tailwindcss@3 jquery_core mysql postgresql@17 sqlite redis apache nginx git bash docker electron react_native express@4 fastapi flask@3.0 mongodb mongoose socketio@4 graphql lodash@4 axios moment eslint prettier babel@7 svelte@4 lit@3 cypress playwright wordpress 2>&1 | tee download.log
         continue-on-error: true
 
-      - name: Package as zip
+      - name: Copy built files to output folder
         if: always()
         run: |
-          rm -rf vendor/bundle .git download.log
-          zip -r devdocs.zip .
+          rm -rf .git vendor/bundle download.log
+          mkdir -p ../devdocs-output
+          cp -r . ../devdocs-output/
 
-      - name: Upload as artifact (for easy download)
-        uses: actions/upload-artifact@v4
+      - name: Commit and push output folder
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: devdocs-complete
-          path: devdocs.zip
-          retention-days: 90
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ../devdocs-output
+          publish_branch: built
+          force_orphan: true
+          user_name: 'UhaGroup'
+          user_email: 'uha.company@gmail.com'
+          commit_message: 'Build DevDocs with docs'
