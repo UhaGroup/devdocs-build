@@ -33,18 +33,13 @@ jobs:
 
       - name: Download docs
         run: |
-          bundle _2.4.6_ exec thor docs:download php laravel javascript css sass typescript kotlin react webpack csharp mysql sqlite || echo "Some docs failed, continuing..."
+          bundle _2.4.6_ exec thor docs:download php laravel javascript css sass typescript kotlin react webpack mysql sqlite || echo "Some docs failed, continuing..."
 
-      - name: Package application
+      - name: Upload entire app
         if: always()
-        run: |
-            rm -rf .git vendor/bundle
-            ls -la
-            tar -czvf devdocs-offline.tar.gz .
-
-      - name: Upload packaged app
         uses: actions/upload-artifact@v4
         with:
           name: devdocs-complete
-          path: devdocs-offline.tar.gz
+          path: .
+          include-hidden-files: false
 
