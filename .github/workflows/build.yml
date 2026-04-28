@@ -36,9 +36,10 @@ jobs:
           bundle _2.4.6_ exec thor docs:download php laravel javascript css sass typescript java kotlin react webpack csharp mysql sqlite || echo "Some docs failed, continuing..."
 
       - name: Package application
+        if: always()
         run: |
-          rm -rf  .git
-          tar -czf devdocs-offline.tar.gz .
+          rm -rf .git vendor/bundle
+          tar -czf /tmp/devdocs-offline.tar.gz .
 
       - name: Upload packaged app
         uses: actions/upload-artifact@v4
