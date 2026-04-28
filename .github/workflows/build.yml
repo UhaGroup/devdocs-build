@@ -75,8 +75,10 @@ jobs:
           name: download-logs
           path: "*.log"
 
-      - name: Compile assets
-        run: bundle _2.4.6_ exec thor assets:compile
+      - name: Compile assets with fix
+        run: |
+          ruby -r html-pipeline -e "puts 'HTML::Pipeline loaded successfully'"
+          bundle _2.4.6_ exec thor assets:compile
 
       - name: Package application
         run: |
