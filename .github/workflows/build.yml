@@ -17,16 +17,13 @@
         - name: Setup Ruby
           uses: ruby/setup-ruby@v1
           with:
-            ruby-version: '3.4.7'
-
-        - name: Fix Gemfile Ruby version
-          run: sed -i 's/ruby "3.4.8"/ruby "3.4.7"/' Gemfile
+            ruby-version: '3.4.8'
 
         - name: Install system dependencies
           run: |
             sudo apt-get update
             sudo apt-get install -y libcurl4-openssl-dev
-            
+
         - name: Install project dependencies
           run: |
             gem install bundler -v 2.4.6
