@@ -1,25 +1,14 @@
-FROM ruby:3.4.7
-ENV LANG=C.UTF-8
-ENV ENABLE_SERVICE_WORKER=true
+FROM ruby:3.4.8-slim
 
-WORKDIR /devdocs
+RUN apt-get update && apt-get install -y libcurl4-openssl-dev nodejs && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && \
-    apt-get -y install git nodejs libcurl4 && \
-    gem install bundler && \
-    rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY . /app
 
-COPY Gemfile Gemfile.lock Rakefile /devdocs/
-
-RUN bundle config set path.system true && \
-    bundle install && \
-    rm -rf ~/.gem /root/.bundle/cache /usr/local/bundle/cache
-
-COPY . /devdocs
-
-RUN thor docs:download --all && \
-    thor assets:compile && \
-    rm -rf /tmp
+RUN gem install bundler -v 2.4.6 && \
+    bundle _2.4.6_ config set path 'vendor/bundle' && \
+    bundle _2.4.6_ install && \
+    bundle _2.4.6_ exec thor assets:compile
 
 EXPOSE 9292
-CMD rackup -o 0.0.0.0
+CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
