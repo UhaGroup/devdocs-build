@@ -22,17 +22,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev
 
+      - name: Fix Gemfile Ruby version
+        run: sed -i 's/ruby "3.4.8"/ruby "3.4.7"/' Gemfile
+
       - name: Install project dependencies
         run: |
-          gem install bundler
-          bundle config set path 'vendor/bundle'
-          bundle install
+          gem install bundler -v 2.4.6
+          bundle _2.4.6_ config set path 'vendor/bundle'
+          bundle _2.4.6_ install
 
       - name: Download all documentation
-        run: bundle exec thor docs:download --all
+        run: bundle _2.4.6_ exec thor docs:download --all
 
       - name: Compile assets
-        run: bundle exec thor assets:compile
+        run: bundle _2.4.6_ exec thor assets:compile
 
       - name: Package application
         run: |
