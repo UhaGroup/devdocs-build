@@ -1,4 +1,4 @@
-name: Build Docker Image and Save to Repo
+name: Build Docker Image from Main Branch
 
 on:
   push:
@@ -29,4 +29,4 @@ jobs:
           force_orphan: true
           user_name: 'UhaGroup'
           user_email: 'uha.company@gmail.com'
-          commit_message: 'Build Docker image tar file'
+          commit_message: 'Build Docker image from main branch'
