@@ -38,8 +38,10 @@ jobs:
       - name: Package application
         if: always()
         run: |
-          rm -rf .git vendor/bundle
-          tar -czf /tmp/devdocs-offline.tar.gz .
+            rm -rf .git vendor/bundle
+            ls -la
+            tar -czvf devdocs-offline.tar.gz .
+            ls -la devdocs-offline.tar.gz
 
       - name: Upload packaged app
         uses: actions/upload-artifact@v4
