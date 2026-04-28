@@ -22,11 +22,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev
 
-      - name: Force fix Gemfile Ruby version
-        run: ruby -i -pe 'gsub(/ruby "3.4.8"/, "ruby \"3.4.7\"")' Gemfile
-
-      - name: Verify Gemfile fix
-        run: grep 'ruby "3.4.7"' Gemfile && echo "Gemfile fixed successfully"
+      - name: Force fix Gemfile Ruby version (AGGRESSIVE)
+        run: |
+          echo "Before fix:"
+          head -5 Gemfile
+          ruby -i -pe 'gsub(/3.4.8/, "3.4.7")' Gemfile
+          echo "After fix:"
+          head -5 Gemfile
 
       - name: Delete old lockfile
         run: rm -f Gemfile.lock
