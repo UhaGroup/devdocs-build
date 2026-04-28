@@ -31,16 +31,13 @@ jobs:
           bundle _2.4.6_ config set path 'vendor/bundle'
           bundle _2.4.6_ install
 
-      - name: Download docs
+     - name: Download docs
         run: |
-          bundle _2.4.6_ exec thor docs:download --all --verbose
-
-      - name: Try compile assets (ignore if fails)
-        run: bundle _2.4.6_ exec thor assets:compile || echo "Compile skipped, continuing anyway..."
+          bundle _2.4.6_ exec thor docs:download php laravel javascript css sass typescript java kotlin react webpack csharp mysql sqlite || echo "Some docs failed, continuing..."
 
       - name: Package application
         run: |
-          rm -rf vendor/bundle .git
+          rm -rf  .git
           tar -czf devdocs-offline.tar.gz .
 
       - name: Upload packaged app
