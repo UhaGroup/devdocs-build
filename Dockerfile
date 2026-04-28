@@ -7,8 +7,7 @@ COPY . /app
 
 RUN gem install bundler -v 2.4.6 && \
     bundle _2.4.6_ config set path 'vendor/bundle' && \
-    bundle _2.4.6_ install && \
-    bundle _2.4.6_ exec thor assets:compile
-
+    bundle _2.4.6_ install
+    
 EXPOSE 9292
 CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
