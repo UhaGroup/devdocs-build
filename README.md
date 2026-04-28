@@ -124,6 +124,9 @@ More information about [scrapers](./docs/scraper-reference.md) and [filters](./d
 The command-line interface uses [Thor](http://whatisthor.com). To see all commands and options, run `thor list` from the project's root.
 
 ```sh
+bundle exec thor assets:compile
+bundle exec rackup -o 0.0.0.0
+
 # Server
 rackup              # Start the server (ctrl+c to stop)
 rackup --help       # List server options
