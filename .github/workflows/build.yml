@@ -1,49 +1,144 @@
-name: Build and Package DevDocs
+  name: Build and Package DevDocs
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+  on:
+    push:
+      branches: [ main ]
+    workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.4.8'
+        - name: Setup Ruby
+          uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: '3.4.7'
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev
+        - name: Fix Gemfile Ruby version
+          run: sed -i 's/ruby "3.4.8"/ruby "3.4.7"/' Gemfile
 
-      - name: Install project dependencies
-        run: |
-          gem install bundler -v 2.4.6
-          bundle _2.4.6_ config set path 'vendor/bundle'
-          bundle _2.4.6_ install
+        - name: Install system dependencies
+          run: |
+            sudo apt-get update
+            sudo apt-get install -y libcurl4-openssl-dev
+            
+        - name: Install project dependencies
+          run: |
+            gem install bundler -v 2.4.6
+            bundle _2.4.6_ config set path 'vendor/bundle'
+            bundle _2.4.6_ install
 
-      - name: Download docs
-        id: download
-        run: |
-          bundle _2.4.6_ exec thor docs:download php laravel@11 javascript typescript css sass html dom react@18 vue@3 angular@20 nextjs npm webpack@5 vite@7 bootstrap@5 tailwindcss@3 jquery_core mariadb postgresql@17 sqlite redis apache nginx git bash docker electron react_native express@4 fastapi flask@3.0 mongodb mongoose socketio@4 graphql lodash@4 axios moment eslint prettier babel@7 svelte@4 lit@3 cypress playwright wordpress 2>&1 | tee download.log
-        continue-on-error: true
+        - name: Download php
+          run: bundle _2.4.6_ exec thor docs:download php || echo "FAILED"
+        - name: Download laravel@11
+          run: bundle _2.4.6_ exec thor docs:download laravel@11 || echo "FAILED"
+        - name: Download javascript
+          run: bundle _2.4.6_ exec thor docs:download javascript || echo "FAILED"
+        - name: Download typescript
+          run: bundle _2.4.6_ exec thor docs:download typescript || echo "FAILED"
+        - name: Download css
+          run: bundle _2.4.6_ exec thor docs:download css || echo "FAILED"
+        - name: Download sass
+          run: bundle _2.4.6_ exec thor docs:download sass || echo "FAILED"
+        - name: Download html
+          run: bundle _2.4.6_ exec thor docs:download html || echo "FAILED"
+        - name: Download dom
+          run: bundle _2.4.6_ exec thor docs:download dom || echo "FAILED"
+        - name: Download react@18
+          run: bundle _2.4.6_ exec thor docs:download react@18 || echo "FAILED"
+        - name: Download vue@3
+          run: bundle _2.4.6_ exec thor docs:download vue@3 || echo "FAILED"
+        - name: Download angular@20
+          run: bundle _2.4.6_ exec thor docs:download angular@20 || echo "FAILED"
+        - name: Download nextjs
+          run: bundle _2.4.6_ exec thor docs:download nextjs || echo "FAILED"
+        - name: Download npm
+          run: bundle _2.4.6_ exec thor docs:download npm || echo "FAILED"
+        - name: Download webpack@5
+          run: bundle _2.4.6_ exec thor docs:download webpack@5 || echo "FAILED"
+        - name: Download vite@7
+          run: bundle _2.4.6_ exec thor docs:download vite@7 || echo "FAILED"
+        - name: Download bootstrap@5
+          run: bundle _2.4.6_ exec thor docs:download bootstrap@5 || echo "FAILED"
+        - name: Download tailwindcss@3
+          run: bundle _2.4.6_ exec thor docs:download tailwindcss@3 || echo "FAILED"
+        - name: Download jquery_core
+          run: bundle _2.4.6_ exec thor docs:download jquery_core || echo "FAILED"
+        - name: Download mariadb
+          run: bundle _2.4.6_ exec thor docs:download mariadb || echo "FAILED"
+        - name: Download postgresql@17
+          run: bundle _2.4.6_ exec thor docs:download postgresql@17 || echo "FAILED"
+        - name: Download sqlite
+          run: bundle _2.4.6_ exec thor docs:download sqlite || echo "FAILED"
+        - name: Download redis
+          run: bundle _2.4.6_ exec thor docs:download redis || echo "FAILED"
+        - name: Download apache
+          run: bundle _2.4.6_ exec thor docs:download apache || echo "FAILED"
+        - name: Download nginx
+          run: bundle _2.4.6_ exec thor docs:download nginx || echo "FAILED"
+        - name: Download git
+          run: bundle _2.4.6_ exec thor docs:download git || echo "FAILED"
+        - name: Download bash
+          run: bundle _2.4.6_ exec thor docs:download bash || echo "FAILED"
+        - name: Download docker
+          run: bundle _2.4.6_ exec thor docs:download docker || echo "FAILED"
+        - name: Download electron
+          run: bundle _2.4.6_ exec thor docs:download electron || echo "FAILED"
+        - name: Download react_native
+          run: bundle _2.4.6_ exec thor docs:download react_native || echo "FAILED"
+        - name: Download express@4
+          run: bundle _2.4.6_ exec thor docs:download express@4 || echo "FAILED"
+        - name: Download fastapi
+          run: bundle _2.4.6_ exec thor docs:download fastapi || echo "FAILED"
+        - name: Download flask@3.0
+          run: bundle _2.4.6_ exec thor docs:download flask@3.0 || echo "FAILED"
+        - name: Download mongodb
+          run: bundle _2.4.6_ exec thor docs:download mongodb || echo "FAILED"
+        - name: Download mongoose
+          run: bundle _2.4.6_ exec thor docs:download mongoose || echo "FAILED"
+        - name: Download socketio@4
+          run: bundle _2.4.6_ exec thor docs:download socketio@4 || echo "FAILED"
+        - name: Download graphql
+          run: bundle _2.4.6_ exec thor docs:download graphql || echo "FAILED"
+        - name: Download lodash@4
+          run: bundle _2.4.6_ exec thor docs:download lodash@4 || echo "FAILED"
+        - name: Download axios
+          run: bundle _2.4.6_ exec thor docs:download axios || echo "FAILED"
+        - name: Download moment
+          run: bundle _2.4.6_ exec thor docs:download moment || echo "FAILED"
+        - name: Download eslint
+          run: bundle _2.4.6_ exec thor docs:download eslint || echo "FAILED"
+        - name: Download prettier
+          run: bundle _2.4.6_ exec thor docs:download prettier || echo "FAILED"
+        - name: Download babel@7
+          run: bundle _2.4.6_ exec thor docs:download babel@7 || echo "FAILED"
+        - name: Download svelte@4
+          run: bundle _2.4.6_ exec thor docs:download svelte@4 || echo "FAILED"
+        - name: Download lit@3
+          run: bundle _2.4.6_ exec thor docs:download lit@3 || echo "FAILED"
+        - name: Download cypress
+          run: bundle _2.4.6_ exec thor docs:download cypress || echo "FAILED"
+        - name: Download playwright
+          run: bundle _2.4.6_ exec thor docs:download playwright || echo "FAILED"
+        - name: Download wordpress
+          run: bundle _2.4.6_ exec thor docs:download wordpress || echo "FAILED"
 
-      - name: Deploy to built branch
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: built
-          force_orphan: true
-          user_name: 'UhaGroup'
-          user_email: 'uha.company@gmail.com'
-          commit_message: 'Build DevDocs with all docs'
+        - name: Compile assets
+          run: bundle _2.4.6_ exec thor assets:compile || echo "Compile failed, continuing..."
+
+        - name: Deploy to built branch
+          if: always()
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./
+            publish_branch: built
+            force_orphan: true
+            user_name: 'UhaGroup'
+            user_email: 'uha.company@gmail.com'
+            commit_message: 'Build DevDocs with all docs'
