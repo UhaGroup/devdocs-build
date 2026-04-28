@@ -34,38 +34,28 @@ jobs:
           bundle _2.4.6_ config set path 'vendor/bundle'
           bundle _2.4.6_ install
 
+      - name: Verify html-pipeline is installed
+        run: |
+          bundle _2.4.6_ list | grep html-pipeline
+          bundle _2.4.6_ exec ruby -e "require 'html/pipeline'; puts 'OK'"
+
       - name: Download docs with verbose logging
         run: |
           bundle _2.4.6_ exec thor docs:download php@8.4 --verbose 2>&1 | tee download-php84.log || echo "PHP 8.4 FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download php@8.3 --verbose 2>&1 | tee download-php83.log || echo "PHP 8.3 FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download php@8.2 --verbose 2>&1 | tee download-php82.log || echo "PHP 8.2 FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download laravel@11 --verbose 2>&1 | tee download-laravel11.log || echo "Laravel 11 FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download javascript --verbose 2>&1 | tee download-js.log || echo "JavaScript FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download typescript --verbose 2>&1 | tee download-ts.log || echo "TypeScript FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download css --verbose 2>&1 | tee download-css.log || echo "CSS FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download sass --verbose 2>&1 | tee download-sass.log || echo "SASS FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download mysql --verbose 2>&1 | tee download-mysql.log || echo "MySQL FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download postgresql --verbose 2>&1 | tee download-pg.log || echo "PostgreSQL FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download python --verbose 2>&1 | tee download-python.log || echo "Python FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download java --verbose 2>&1 | tee download-java.log || echo "Java FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download apache --verbose 2>&1 | tee download-apache.log || echo "Apache FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download nginx --verbose 2>&1 | tee download-nginx.log || echo "Nginx FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download react --verbose 2>&1 | tee download-react.log || echo "React FAILED"
-          echo "---"
           bundle _2.4.6_ exec thor docs:download webpack --verbose 2>&1 | tee download-webpack.log || echo "Webpack FAILED"
 
       - name: Upload log files
@@ -75,9 +65,9 @@ jobs:
           name: download-logs
           path: "*.log"
 
-      - name: Compile assets with fix
+      - name: Compile assets
         run: |
-          ruby -r html-pipeline -e "puts 'HTML::Pipeline loaded successfully'"
+          export RUBYOPT="-r html/pipeline"
           bundle _2.4.6_ exec thor assets:compile
 
       - name: Package application
