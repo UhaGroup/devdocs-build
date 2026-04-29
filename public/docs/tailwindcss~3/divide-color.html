@@ -1,0 +1,1549 @@
+<h1>Divide Color</h1>
+<div id="__next">
+<div><div><div><div>
+<header id="header"><div><div></div></div>
+<p>Utilities for controlling the border color between elements.</p></header><div>
+<h2 id="class-reference">Quick reference</h2>
+<div class="long-quick-reference"><div id="class-table">
+<table>
+<thead><tr>
+<th><div>Class</div></th>
+<th><div>Properties</div></th>
+<th><div>
+<span>Preview</span> </div></th>
+</tr></thead>
+<tbody>
+<tr>
+<td translate="no">divide-inherit <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: inherit; </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-current <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: currentColor; </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-transparent <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: transparent; </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-black <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(0 0 0 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-white <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(255 255 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(248 250 252 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(241 245 249 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(226 232 240 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(203 213 225 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(148 163 184 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(100 116 139 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(71 85 105 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(51 65 85 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(30 41 59 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(15 23 42 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-slate-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(2 6 23 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(249 250 251 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(243 244 246 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(229 231 235 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(209 213 219 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(156 163 175 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(107 114 128 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(75 85 99 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(55 65 81 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(31 41 55 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(17 24 39 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-gray-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(3 7 18 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(250 250 250 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(244 244 245 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(228 228 231 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(212 212 216 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(161 161 170 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(113 113 122 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(82 82 91 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(63 63 70 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(39 39 42 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(24 24 27 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-zinc-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(9 9 11 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(250 250 250 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(245 245 245 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(229 229 229 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(212 212 212 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(163 163 163 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(115 115 115 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(82 82 82 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(64 64 64 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(38 38 38 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(23 23 23 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-neutral-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(10 10 10 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(250 250 249 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(245 245 244 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(231 229 228 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(214 211 209 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(168 162 158 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(120 113 108 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(87 83 78 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(68 64 60 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(41 37 36 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(28 25 23 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-stone-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(12 10 9 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 242 242 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 226 226 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 202 202 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(252 165 165 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(248 113 113 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(239 68 68 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(220 38 38 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(185 28 28 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(153 27 27 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(127 29 29 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-red-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(69 10 10 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(255 247 237 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(255 237 213 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 215 170 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(253 186 116 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(251 146 60 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(249 115 22 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(234 88 12 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(194 65 12 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(154 52 18 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(124 45 18 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-orange-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(67 20 7 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(255 251 235 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 243 199 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(253 230 138 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(252 211 77 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(251 191 36 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(245 158 11 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(217 119 6 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(180 83 9 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(146 64 14 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(120 53 15 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-amber-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(69 26 3 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 252 232 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 249 195 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 240 138 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(253 224 71 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(250 204 21 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(234 179 8 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(202 138 4 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(161 98 7 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(133 77 14 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(113 63 18 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-yellow-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(66 32 6 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(247 254 231 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(236 252 203 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(217 249 157 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(190 242 100 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(163 230 53 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(132 204 22 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(101 163 13 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(77 124 15 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(63 98 18 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(54 83 20 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-lime-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(26 46 5 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(240 253 244 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(220 252 231 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(187 247 208 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(134 239 172 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(74 222 128 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(34 197 94 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(22 163 74 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(21 128 61 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(22 101 52 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(20 83 45 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-green-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(5 46 22 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(236 253 245 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(209 250 229 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(167 243 208 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(110 231 183 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(52 211 153 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(16 185 129 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(5 150 105 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(4 120 87 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(6 95 70 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(6 78 59 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-emerald-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(2 44 34 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(240 253 250 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(204 251 241 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(153 246 228 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(94 234 212 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(45 212 191 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(20 184 166 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(13 148 136 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(15 118 110 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(17 94 89 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(19 78 74 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-teal-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(4 47 46 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(236 254 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(207 250 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(165 243 252 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(103 232 249 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(34 211 238 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(6 182 212 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(8 145 178 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(14 116 144 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(21 94 117 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(22 78 99 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-cyan-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(8 51 68 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(240 249 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(224 242 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(186 230 253 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(125 211 252 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(56 189 248 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(14 165 233 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(2 132 199 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(3 105 161 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(7 89 133 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(12 74 110 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-sky-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(8 47 73 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(239 246 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(219 234 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(191 219 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(147 197 253 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(96 165 250 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(59 130 246 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(37 99 235 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(29 78 216 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(30 64 175 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(30 58 138 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-blue-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(23 37 84 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(238 242 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(224 231 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(199 210 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(165 180 252 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(129 140 248 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(99 102 241 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(79 70 229 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(67 56 202 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(55 48 163 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(49 46 129 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-indigo-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(30 27 75 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(245 243 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(237 233 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(221 214 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(196 181 253 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(167 139 250 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(139 92 246 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(124 58 237 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(109 40 217 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(91 33 182 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(76 29 149 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-violet-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(46 16 101 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(250 245 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(243 232 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(233 213 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(216 180 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(192 132 252 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(168 85 247 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(147 51 234 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(126 34 206 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(107 33 168 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(88 28 135 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-purple-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(59 7 100 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(253 244 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(250 232 255 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(245 208 254 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(240 171 252 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(232 121 249 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(217 70 239 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(192 38 211 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(162 28 175 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(134 25 143 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(112 26 117 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-fuchsia-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(74 4 78 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(253 242 248 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(252 231 243 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(251 207 232 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(249 168 212 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(244 114 182 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(236 72 153 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(219 39 119 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(190 24 93 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(157 23 77 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(131 24 67 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-pink-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(80 7 36 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-50 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(255 241 242 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-100 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(255 228 230 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-200 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(254 205 211 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-300 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(253 164 175 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-400 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(251 113 133 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-500 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(244 63 94 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-600 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(225 29 72 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-700 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(190 18 60 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-800 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(159 18 57 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-900 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(136 19 55 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+<tr>
+<td translate="no">divide-rose-950 <span>&gt; * + *</span>
+</td>
+<td translate="no">border-color: rgb(76 5 25 / var(--tw-divide-opacity, 1)); </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div></div>
+</div></div>
+</div>
+<div id="content-wrapper">
+<h2 id="basic-usage">Basic usage</h2> <h3 id="setting-the-divide-color">Setting the divide color</h3> <p>Use the <code>divide-*</code> utilities to control the border color between elements.</p>  <pre data-language="html">&lt;div class="divide-y divide-blue-200"&gt;
+  &lt;div&gt;01&lt;/div&gt;
+  &lt;div&gt;02&lt;/div&gt;
+  &lt;div&gt;03&lt;/div&gt;
+&lt;/div&gt;</pre> <h3 id="changing-the-opacity">Changing the opacity</h3> <p>Use the color opacity modifier to control the opacity of the divide color.</p>  <pre data-language="html">&lt;div class="divide-y-4 divide-slate-400/25 ..."&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;</pre> <p>You can use any value defined in your <a href="opacity">opacity scale</a>, or use arbitrary values if you need to deviate from your design tokens.</p> <pre data-language="html">&lt;div class="divide-y-4 divide-slate-400/[.24] ..."&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;</pre>  <h2 id="applying-conditionally" data-docsearch-ignore="">Applying conditionally</h2> <h3 id="hover-focus-and-other-states" data-docsearch-ignore="">Hover, focus, and other states</h3> <p>Tailwind lets you conditionally apply utility classes in different states using variant modifiers. For example, use <code>hover:divide-pink-400</code> to only apply the <code>divide-pink-400</code> utility on hover.</p>
+<pre data-language="html">&lt;div class="divide-y divide-teal-400 hover:divide-pink-400"&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;
+</pre>
+<p>For a complete list of all available state modifiers, check out the <a href="hover-focus-and-other-states">Hover, Focus, &amp; Other States</a> documentation.</p> <h3 id="breakpoints-and-media-queries" data-docsearch-ignore="">Breakpoints and media queries</h3> <p>You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use <code>md:divide-pink-400</code> to apply the <code>divide-pink-400</code> utility at only medium screen sizes and above.</p>
+<pre data-language="html">&lt;div class="divide-y divide-teal-400 md:divide-pink-400"&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;
+</pre>
+<p>To learn more, check out the documentation on <a href="responsive-design">Responsive Design</a>, <a href="dark-mode">Dark Mode</a> and <a href="hover-focus-and-other-states#media-and-feature-queries">other media query modifiers</a>.</p>  <h2 id="using-custom-values">Using custom values</h2> <h3 id="customizing-your-theme">Customizing your theme</h3> <p>By default, Tailwind makes the entire <a href="customizing-colors#default-color-palette">default color palette</a> available as divide colors. You can <a href="/docs/customizing-colors#customizing">customize your color palette</a> by editing <code>theme.colors</code> or <code>theme.extend.colors</code> in your <code>tailwind.config.js</code> file.</p>
+<div><div><div><pre data-language="css">module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'regal-blue': '#243c5a',
+      },
+    }
+  }
+}
+
+</pre></div></div></div>
+<p>Alternatively, you can customize just your divide colors by editing <code>theme.divideColor</code> or <code>theme.extend.divideColor</code> in your <code>tailwind.config.js</code> file.</p>
+<p>Learn more about customizing the default theme in the <a href="theme#customizing-the-default-theme">theme customization</a> documentation.</p> <h3 id="arbitrary-values">Arbitrary values</h3> <p>If you need to use a one-off divide color value that doesn’t make sense to include in your theme, use square brackets to generate a property on the fly using any arbitrary value.</p>
+<pre data-language="html">&lt;div class="divide-[#243c5a]"&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;
+</pre>
+<p>Learn more about arbitrary value support in the <a href="adding-custom-styles#using-arbitrary-values">arbitrary values</a> documentation.</p>
+</div>
+</div></div></div></div>
+<div hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></div>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Tailwind Labs Inc.<br>
+    <a href="https://v3.tailwindcss.com/docs/divide-color" class="_attribution-link">https://v3.tailwindcss.com/docs/divide-color</a>
+  </p>
+</div>

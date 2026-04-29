@@ -1,0 +1,20 @@
+<h1>no-spaced-func</h1> 
+<p>Disallow spacing between function identifiers and their applications (deprecated)</p> <div class="rule-categories" aria-label="Rule Categories"><div class="rule-category"> <span class="rule-category__icon">🔧 <span class="visually-hidden">Fixable</span></span> <p> Some problems reported by this rule are automatically fixable by the <code>--fix</code> <a href="no-spaced-func../use/command-line-interface#--fix">command line</a> option </p> </div></div> <div role="note" class="alert alert--important"> <svg class="alert__icon" aria-hidden="true" focusable="false" width="21" height="18" viewbox="0 0 21 18" fill="none"> <path d="M10.4998 6.66666V9.99999M10.4998 13.3333H10.5081M9.0748 2.38333L2.01647 14.1667C1.87094 14.4187 1.79394 14.7044 1.79313 14.9954C1.79231 15.2864 1.86771 15.5726 2.01183 15.8254C2.15594 16.0783 2.36374 16.2889 2.61456 16.4365C2.86538 16.5841 3.15047 16.6635 3.44147 16.6667H17.5581C17.8491 16.6635 18.1342 16.5841 18.385 16.4365C18.6359 16.2889 18.8437 16.0783 18.9878 15.8254C19.1319 15.5726 19.2073 15.2864 19.2065 14.9954C19.2057 14.7044 19.1287 14.4187 18.9831 14.1667L11.9248 2.38333C11.7762 2.13841 11.5671 1.93593 11.3175 1.7954C11.0679 1.65487 10.7862 1.58104 10.4998 1.58104C10.2134 1.58104 9.93175 1.65487 9.68214 1.7954C9.43254 1.93593 9.22336 2.13841 9.0748 2.38333Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <div class="alert__content"> <span class="alert__type">Important</span> <div class="alert__text"> <p>This rule was <strong>deprecated</strong> in ESLint v3.3.0. It will be removed in <strong>v11.0.0</strong>. Please use the <a href="https://eslint.style/rules/function-call-spacing">corresponding rule</a> in <a href="https://eslint.style">@stylistic/eslint-plugin</a>. </p>
+</div> <a href="https://eslint.org/blog/2016/08/eslint-v3.3.0-released/#deprecated-rules" class="alert__learn-more">Learn more</a> </div> </div>  <p>While it’s possible to have whitespace between the name of a function and the parentheses that execute it, such patterns tend to look more like errors.</p> <h2 id="rule-details" tabindex="-1">Rule Details</h2> <p>This rule disallows spacing between function identifiers and their applications.</p> <p>Examples of <strong>incorrect</strong> code for this rule:</p> <div class="incorrect"> <a class="c-btn c-btn--secondary c-btn--playground" href="https://eslint.org/play#eyJ0ZXh0IjoiLyplc2xpbnQgbm8tc3BhY2VkLWZ1bmM6IFwiZXJyb3JcIiovXG5cbmZuICgpXG5cbmZuXG4oKSJ9" target="_blank"> Open in Playground </a><pre class="language-js line-numbers-mode"><code><span class="token comment">/*eslint no-spaced-func: "error"*/</span>
+
+<span class="token function">fn</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">fn</span>
+<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+</div>
+<p>Examples of <strong>correct</strong> code for this rule:</p> <div class="correct"> <a class="c-btn c-btn--secondary c-btn--playground" href="https://eslint.org/play#eyJ0ZXh0IjoiLyplc2xpbnQgbm8tc3BhY2VkLWZ1bmM6IFwiZXJyb3JcIiovXG5cbmZuKCkifQ==" target="_blank"> Open in Playground </a><pre class="language-js line-numbers-mode"><code><span class="token comment">/*eslint no-spaced-func: "error"*/</span>
+
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+</div> <h2 id="version">Version</h2> <p>This rule was introduced in ESLint v0.1.2.</p> <h2 id="resources">Resources</h2> <ul> <li><a href="https://github.com/eslint/eslint/blob/main/lib/rules/no-spaced-func.js">Rule source</a></li> <li><a href="https://github.com/eslint/eslint/blob/main/tests/lib/rules/no-spaced-func.js">Tests source</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; OpenJS Foundation and other contributors<br>Licensed under the MIT License.<br>
+    <a href="https://eslint.org/docs/latest/rules/no-spaced-func" class="_attribution-link">https://eslint.org/docs/latest/rules/no-spaced-func</a>
+  </p>
+</div>

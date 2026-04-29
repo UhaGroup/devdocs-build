@@ -1,0 +1,18 @@
+current directory: /home/runner/work/devdocs-build/devdocs-build/vendor/bundle/ruby/3.4.0/gems/cgi-0.5.1/ext/cgi/escape
+/opt/hostedtoolcache/Ruby/3.4.8/x64/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/devdocs-build/devdocs-build/vendor/bundle/ruby/3.4.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260428-2857-9uc67w sitelibdir\=./.gem.20260428-2857-9uc67w clean
+
+current directory: /home/runner/work/devdocs-build/devdocs-build/vendor/bundle/ruby/3.4.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260428-2857-9uc67w sitelibdir\=./.gem.20260428-2857-9uc67w
+compiling escape.c
+linking shared-object cgi/escape.so
+
+current directory: /home/runner/work/devdocs-build/devdocs-build/vendor/bundle/ruby/3.4.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260428-2857-9uc67w sitelibdir\=./.gem.20260428-2857-9uc67w install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20260428-2857-9uc67w/cgi
+
+current directory: /home/runner/work/devdocs-build/devdocs-build/vendor/bundle/ruby/3.4.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260428-2857-9uc67w sitelibdir\=./.gem.20260428-2857-9uc67w clean

@@ -1,0 +1,82 @@
+<header><h1>Chrome extensions</h1></header><h2 id="introduction">Introduction<a href="#introduction" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a>
+</h2> <blockquote>
+<div>
+note</div>
+<div>
+<p>Extensions only work in Chromium when launched with a persistent context. Use custom browser args at your own risk, as some of them may break Playwright functionality.</p>
+<p>Google Chrome and Microsoft Edge <a href="https://groups.google.com/a/chromium.org/g/chromium-extensions/c/FxMU1TvxWWg/m/daZVTYNlBQAJ" target="_blank" rel="noopener noreferrer">removed the command-line flags needed to side-load extensions</a>, so use Chromium that comes bundled with Playwright.</p>
+</div>
+</blockquote> <p>The snippet below retrieves the <a href="https://developer.chrome.com/docs/extensions/develop/concepts/service-workers" target="_blank" rel="noopener noreferrer">service worker</a> of a <a href="https://developer.chrome.com/docs/extensions/develop/migrate" target="_blank" rel="noopener noreferrer">Manifest v3</a> extension whose source is located in <code>./my-extension</code>.</p> <p>Note the use of the <code>chromium</code> channel that allows to run extensions in headless mode. Alternatively, you can launch the browser in headed mode.</p> <pre tabindex="0" data-language="javascript">const { chromium } = require('playwright');
+
+(async () =&gt; {
+  const pathToExtension = require('path').join(__dirname, 'my-extension');
+  const userDataDir = '/tmp/test-user-data-dir';
+  const browserContext = await chromium.launchPersistentContext(userDataDir, {
+    channel: 'chromium',
+    args: [
+      `--disable-extensions-except=${pathToExtension}`,
+      `--load-extension=${pathToExtension}`
+    ]
+  });
+  let [serviceWorker] = browserContext.serviceWorkers();
+  if (!serviceWorker)
+    serviceWorker = await browserContext.waitForEvent('serviceworker');
+
+  // Test the service worker as you would any other worker.
+  await browserContext.close();
+})();</pre> <h2 id="service-worker-idle-suspension-mv3">Service worker idle suspension (MV3)<a href="#service-worker-idle-suspension-mv3" aria-label="Direct link to Service worker idle suspension (MV3)" title="Direct link to Service worker idle suspension (MV3)">​</a>
+</h2> <p>Chrome MV3 service workers are automatically suspended after ~30 seconds of inactivity and restarted on demand. When this happens, Playwright keeps the <strong>same <a title="Worker" href="api/class-worker">Worker</a> object alive</strong> — no new <code>'serviceworker'</code> event is emitted. New <code>evaluate()</code> calls issued during the restart window are stalled until the new context is ready and then resume automatically:</p> <pre tabindex="0" data-language="javascript">const sw = await context.waitForEvent('serviceworker');
+
+// ... SW suspends after 30 s of inactivity and is restarted by the browser ...
+
+// The existing handle is transparent across the restart.
+await sw.evaluate(() =&gt; sendMessage({ type: 'ping' })); // just works</pre> <blockquote>
+<div>
+note</div>
+<div><p><code>evaluate()</code> calls that were already in-flight at the exact moment of suspension will throw with <code>"Service worker restarted"</code>, matching the behaviour of page navigations mid-flight.</p></div>
+</blockquote> <h2 id="testing">Testing<a href="#testing" aria-label="Direct link to Testing" title="Direct link to Testing">​</a>
+</h2> <p>To have the extension loaded when running tests you can use a test fixture to set the context. You can also dynamically retrieve the extension id and use it to load and test the popup page for example.</p> <p>Note the use of the <code>chromium</code> channel that allows to run extensions in headless mode. Alternatively, you can launch the browser in headed mode.</p> <p>First, add fixtures that will load the extension:</p> <pre tabindex="0" data-language="javascript">import { test as base, chromium, type BrowserContext } from '@playwright/test';
+import path from 'path';
+
+export const test = base.extend&lt;{
+  context: BrowserContext;
+  extensionId: string;
+}&gt;({
+  context: async ({ }, use) =&gt; {
+    const pathToExtension = path.join(__dirname, 'my-extension');
+    const context = await chromium.launchPersistentContext('', {
+      channel: 'chromium',
+      args: [
+        `--disable-extensions-except=${pathToExtension}`,
+        `--load-extension=${pathToExtension}`,
+      ],
+    });
+    await use(context);
+    await context.close();
+  },
+  extensionId: async ({ context }, use) =&gt; {
+    // for manifest v3:
+    let [serviceWorker] = context.serviceWorkers();
+    if (!serviceWorker)
+      serviceWorker = await context.waitForEvent('serviceworker');
+
+    const extensionId = serviceWorker.url().split('/')[2];
+    await use(extensionId);
+  },
+});
+export const expect = test.expect;</pre> <p>Then use these fixtures in a test:</p> <pre tabindex="0" data-language="javascript">import { test, expect } from './fixtures';
+
+test('example test', async ({ page }) =&gt; {
+  await page.goto('https://example.com');
+  await expect(page.locator('body')).toHaveText('Changed by my-extension');
+});
+
+test('popup page', async ({ page, extensionId }) =&gt; {
+  await page.goto(`chrome-extension://${extensionId}/popup.html`);
+  await expect(page.locator('body')).toHaveText('my-extension popup');
+});</pre><div class="_attribution">
+  <p class="_attribution-p">
+          &copy; 2026 Microsoft<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://playwright.dev/docs/chrome-extensions" class="_attribution-link">https://playwright.dev/docs/chrome-extensions</a>
+  </p>
+</div>

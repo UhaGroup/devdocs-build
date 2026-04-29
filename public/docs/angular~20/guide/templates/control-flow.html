@@ -1,0 +1,42 @@
+<h1 tabindex="-1">Control flow</h1> <header class="docs-header"> <docs-breadcrumb ng-version="20.3.15" _nghost-ng-c3945279308 ngh="8"></docs-breadcrumb>   </header> <p>Angular templates support control flow blocks that let you conditionally show, hide, and repeat elements.</p> <h2 id="conditionally-display-content-with-if-else-if-and-else"> Conditionally display content with @if, @else-if and @else </h2> <p>The <code>@if</code> block conditionally displays its content when its condition expression is truthy:</p> <pre data-language="ts">@if (a &gt; b) {
+  &lt;p&gt;{{a}} is greater than {{b}}&lt;/p&gt;
+}</pre>
+<p>If you want to display alternative content, you can do so by providing any number of <code>@else if</code> blocks and a singular <code>@else</code> block.</p> <pre data-language="ts">@if (a &gt; b) {
+  {{a}} is greater than {{b}}
+} @else if (b &gt; a) {
+  {{a}} is less than {{b}}
+} @else {
+  {{a}} is equal to {{b}}
+}</pre> <h3 id="referencing-the-conditional-expressions-result"> Referencing the conditional expression's result </h3> <p>The <code>@if</code> conditional supports saving the result of the conditional expression into a variable for reuse inside of the block.</p> <pre data-language="ts">@if (user.profile.settings.startDate; as startDate) {
+  {{ startDate }}
+}</pre>
+<p>This can be useful for referencing longer expressions that would be easier to read and maintain within the template.</p> <h2 id="repeat-content-with-the-for-block"> Repeat content with the @for block </h2> <p>The <code>@for</code> block loops through a collection and repeatedly renders the content of a block. The collection can be any JavaScript <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols" target="_blank">iterable</a>, but Angular has additional performance optimizations for <code>Array</code> values.</p> <p>A typical <code>@for</code> loop looks like:</p> <pre data-language="ts">@for (item of items; track item.id) {
+  {{ item.name }}
+}</pre>
+<p>Angular's <code>@for</code> block does not support flow-modifying statements like JavaScript's <code>continue</code> or <code>break</code>.</p> <h3 id="why-is-track-in-for-blocks-important"> Why is track in @for blocks important? </h3> <p>The <code>track</code> expression allows Angular to maintain a relationship between your data and the DOM nodes on the page. This allows Angular to optimize performance by executing the minimum necessary DOM operations when the data changes.</p> <p>Using track effectively can significantly improve your application's rendering performance when looping over data collections.</p> <p>Select a property that uniquely identifies each item in the <code>track</code> expression. If your data model includes a uniquely identifying property, commonly <code>id</code> or <code>uuid</code>, use this value. If your data does not include a field like this, strongly consider adding one.</p> <p>For static collections that never change, you can use <code>$index</code> to tell Angular to track each item by its index in the collection.</p> <p>If no other option is available, you can specify <code>identity</code>. This tells Angular to track the item by its reference identity using the triple-equals operator (<code>===</code>). Avoid this option whenever possible as it can lead to significantly slower rendering updates, as Angular has no way to map which data item corresponds to which DOM nodes.</p> <h3 id="contextual-variables-in-for-blocks"> Contextual variables in @for blocks </h3> <p>Inside <code>@for</code> blocks, several implicit variables are always available:</p> <div class="docs-table docs-scroll-track-transparent"> <table> <thead> <tr> <th>Variable</th> <th>Meaning</th> </tr> </thead> <tbody> <tr> <td><code>$count</code></td> <td>Number of items in a collection iterated over</td> </tr> <tr> <td><code>$index</code></td> <td>Index of the current row</td> </tr> <tr> <td><code>$first</code></td> <td>Whether the current row is the first row</td> </tr> <tr> <td><code>$last</code></td> <td>Whether the current row is the last row</td> </tr> <tr> <td><code>$even</code></td> <td>Whether the current row index is even</td> </tr> <tr> <td><code>$odd</code></td> <td>Whether the current row index is odd</td> </tr> </tbody> </table> </div> <p>These variables are always available with these names, but can be aliased via a <code>let</code> segment:</p> <pre data-language="ts">@for (item of items; track item.id; let idx = $index, e = $even) {
+  &lt;p&gt;Item #{{ idx }}: {{ item.name }}&lt;/p&gt;
+}</pre>
+<p>The aliasing is useful when nesting <code>@for</code> blocks, letting you read variables from the outer <code>@for</code> block from an inner <code>@for</code> block.</p> <h3 id="providing-a-fallback-for-for-blocks-with-the-empty-block"> Providing a fallback for @for blocks with the @empty block </h3> <p>You can optionally include an <code>@empty</code> section immediately after the <code>@for</code> block content. The content of the <code>@empty</code> block displays when there are no items:</p> <pre data-language="ts">@for (item of items; track item.name) {
+  &lt;li&gt; {{ item.name }}&lt;/li&gt;
+} @empty {
+  &lt;li&gt; There are no items. &lt;/li&gt;
+}</pre> <h2 id="conditionally-display-content-with-the-switch-block"> Conditionally display content with the @switch block </h2> <p>While the <code>@if</code> block is great for most scenarios, the <code>@switch</code> block provides an alternate syntax to conditionally render data. Its syntax closely resembles JavaScript's <code>switch</code> statement.</p> <pre data-language="ts">@switch (userPermissions) {
+  @case ('admin') {
+    &lt;app-admin-dashboard /&gt;
+  }
+  @case ('reviewer') {
+    &lt;app-reviewer-dashboard /&gt;
+  }
+  @case ('editor') {
+    &lt;app-editor-dashboard /&gt;
+  }
+  @default {
+    &lt;app-viewer-dashboard /&gt;
+  }
+}</pre>
+<p>The value of the conditional expression is compared to the case expression using the triple-equals (<code>===</code>) operator.</p> <p><strong><code>@switch</code> does not have a fallthrough</strong>, so you do not need an equivalent to a <code>break</code> or <code>return</code> statement in the block.</p> <p>You can optionally include a <code>@default</code> block. The content of the <code>@default</code> block displays if none of the preceding case expressions match the switch value.</p> <p>If no <code>@case</code> matches the expression and there is no <code>@default</code> block, nothing is shown.</p><div class="_attribution">
+  <p class="_attribution-p">
+    Super-powered by Google &copy;2010&ndash;2025.<br />Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.<br>
+    <a href="https://v20.angular.dev/guide/templates/control-flow" class="_attribution-link">https://v20.angular.dev/guide/templates/control-flow</a>
+  </p>
+</div>

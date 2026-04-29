@@ -1,0 +1,39 @@
+<h1>space-after-keywords</h1>  <p>Enforces consistent spacing after keywords.</p> <aside role="note" class="alert alert--important"> <svg class="alert__icon" aria-hidden="true" focusable="false" width="19" height="20" viewbox="0 0 19 20" fill="none"> <path d="M9.49999 6.66667V10M9.49999 13.3333H9.50832M17.8333 10C17.8333 14.6024 14.1024 18.3333 9.49999 18.3333C4.89762 18.3333 1.16666 14.6024 1.16666 10C1.16666 5.39763 4.89762 1.66667 9.49999 1.66667C14.1024 1.66667 17.8333 5.39763 17.8333 10Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path> </svg> <div class="alert__content"> <span class="alert__type">Important</span> <div class="alert__text">
+<p>This rule was removed in ESLint v2.0.0 and replaced by the <a href="space-after-keywordskeyword-spacing">keyword-spacing</a> rule.</p> </div> </div> </aside><p>Some style guides will require or disallow spaces following the certain keywords.</p> <div class="code-wrapper"> <pre class="language-js line-numbers-mode"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">doSomethingElse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token function">doSomethingElse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <button class="copy-btn" aria-labelledby="copy-button-label"> <span hidden id="copy-button-label">Copy code to clipboard</span> <svg width="20" height="20" viewbox="0 0 20 20" role="img" aria-label="copy" fill="none" focusable="false"> <path d="M4.16667 12.5H3.33333C2.89131 12.5 2.46738 12.3244 2.15482 12.0118C1.84226 11.6993 1.66667 11.2754 1.66667 10.8333V3.33332C1.66667 2.8913 1.84226 2.46737 2.15482 2.15481C2.46738 1.84225 2.89131 1.66666 3.33333 1.66666H10.8333C11.2754 1.66666 11.6993 1.84225 12.0118 2.15481C12.3244 2.46737 12.5 2.8913 12.5 3.33332V4.16666M9.16667 7.49999H16.6667C17.5871 7.49999 18.3333 8.24618 18.3333 9.16666V16.6667C18.3333 17.5871 17.5871 18.3333 16.6667 18.3333H9.16667C8.24619 18.3333 7.5 17.5871 7.5 16.6667V9.16666C7.5 8.24618 8.24619 7.49999 9.16667 7.49999Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path> </svg> </button> </div> <h2 id="rule-details" tabindex="-1">Rule Details</h2> <p>This rule will enforce consistency of spacing after the keywords <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>do</code>, <code>switch</code>, <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>with</code>.</p> <p>This rule takes one argument. If it is <code>"always"</code> then the keywords must be followed by at least one space. If <code>"never"</code> then there should be no spaces following. The default is <code>"always"</code>.</p> <p>Examples of <strong>incorrect</strong> code for this rule:</p> <div class="incorrect"><pre class="language-js line-numbers-mode"><code><span class="token eslint-marked eslint-message-id-1" title="Rule 'space-after-keywords' was removed and replaced by: keyword-spacing"><span class="token comment">/*eslint space-after-keywords: "error"*/</span></span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">do</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+<div class="incorrect"><pre class="language-js line-numbers-mode"><code><span class="token eslint-marked eslint-message-id-1" title="Rule 'space-after-keywords' was removed and replaced by: keyword-spacing"><span class="token comment">/*eslint space-after-keywords: ["error", "never"]*/</span></span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div>
+<p>Examples of <strong>correct</strong> code for this rule:</p> <div class="correct"><pre class="language-js line-numbers-mode"><code><span class="token eslint-marked eslint-message-id-1" title="Rule 'space-after-keywords' was removed and replaced by: keyword-spacing"><span class="token comment">/*eslint space-after-keywords: "error"*/</span></span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div>
+<div class="correct"><pre class="language-js line-numbers-mode"><code><span class="token eslint-marked eslint-message-id-1" title="Rule 'space-after-keywords' was removed and replaced by: keyword-spacing"><span class="token comment">/*eslint space-after-keywords: ["error", "never"]*/</span></span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div> <h2 id="version">Version</h2> <p>This rule was introduced in ESLint v0.6.0 and removed in v2.0.0-beta.3.</p><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; OpenJS Foundation and other contributors<br>Licensed under the MIT License.<br>
+    <a href="https://eslint.org/docs/latest/rules/space-after-keywords" class="_attribution-link">https://eslint.org/docs/latest/rules/space-after-keywords</a>
+  </p>
+</div>

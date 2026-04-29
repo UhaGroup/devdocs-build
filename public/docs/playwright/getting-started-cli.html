@@ -1,0 +1,165 @@
+<header><h1>Coding agents</h1></header><h2 id="introduction">Introduction<a href="#introduction" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a>
+</h2> <p>Playwright comes with <code>playwright-cli</code>, a command-line interface for browser automation designed for coding agents. It provides token-efficient browser control through concise CLI commands and installable skills, making it ideal for agents that need to balance browser automation with large codebases and reasoning within limited context windows.</p> <h3 id="playwright-cli-vs-playwright-mcp">
+<code>playwright-cli</code> vs Playwright MCP<a href="#playwright-cli-vs-playwright-mcp" aria-label="Direct link to playwright-cli-vs-playwright-mcp" title="Direct link to playwright-cli-vs-playwright-mcp">​</a>
+</h3> <ul> <li>
+<strong><code>playwright-cli</code></strong> is best for <strong>coding agents</strong> (Claude Code, GitHub Copilot, etc.) that favor token-efficient, skill-based workflows. CLI commands avoid loading large tool schemas and verbose accessibility trees into the model context.</li> <li>
+<strong>MCP</strong> is best for specialized agentic loops that benefit from persistent state and iterative reasoning over page structure, such as exploratory automation or long-running autonomous workflows. See the <a href="getting-started-mcp">MCP getting started guide</a>.</li> </ul> <h2 id="prerequisites">Prerequisites<a href="#prerequisites" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites">​</a>
+</h2> <p>Before you begin, make sure you have the following installed:</p> <ul> <li>
+<a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> 18 or newer</li> <li>A coding agent: Claude Code, GitHub Copilot, or similar</li> </ul> <h2 id="installation">Installation<a href="#installation" aria-label="Direct link to Installation" title="Direct link to Installation">​</a>
+</h2> <p>Install <code>playwright-cli</code> globally:</p> <pre tabindex="0" data-language="javascript">npm install -g @playwright/cli@latest
+playwright-cli --help</pre> <p>Alternatively, install <code>@playwright/cli</code> as a local dependency and use <code>npx</code>:</p> <pre tabindex="0" data-language="javascript">npx playwright-cli --help</pre> <h3 id="installing-skills">Installing skills<a href="#installing-skills" aria-label="Direct link to Installing skills" title="Direct link to Installing skills">​</a>
+</h3> <p>Coding agents like Claude Code and GitHub Copilot can use locally installed skills for richer context about available commands:</p> <pre tabindex="0" data-language="javascript">playwright-cli install --skills</pre> <h3 id="skills-less-operation">Skills-less operation<a href="#skills-less-operation" aria-label="Direct link to Skills-less operation" title="Direct link to Skills-less operation">​</a>
+</h3> <p>You can also point your agent at the CLI directly and let it discover commands on its own:</p> <pre tabindex="0" data-language="javascript">Test the "add todo" flow on https://demo.playwright.dev/todomvc using playwright-cli.
+Check playwright-cli --help for available commands.</pre> <h2 id="first-steps">First Steps<a href="#first-steps" aria-label="Direct link to First Steps" title="Direct link to First Steps">​</a>
+</h2> <h3 id="interactive-demo">Interactive demo<a href="#interactive-demo" aria-label="Direct link to Interactive demo" title="Direct link to Interactive demo">​</a>
+</h3> <p>Try asking your coding agent:</p> <pre tabindex="0" data-language="javascript">Use playwright skills to test https://demo.playwright.dev/todomvc/.
+Take screenshots for all successful and failing scenarios.</pre> <h3 id="manual-walkthrough">Manual walkthrough<a href="#manual-walkthrough" aria-label="Direct link to Manual walkthrough" title="Direct link to Manual walkthrough">​</a>
+</h3> <p>You can also run commands manually to see how the CLI works:</p> <pre tabindex="0" data-language="javascript">playwright-cli open https://demo.playwright.dev/todomvc/ --headed
+playwright-cli type "Buy groceries"
+playwright-cli press Enter
+playwright-cli type "Water flowers"
+playwright-cli press Enter
+playwright-cli check e21
+playwright-cli screenshot</pre> <p>After each command, the CLI outputs a snapshot of the current page state:</p> <pre tabindex="0" data-language="javascript">### Page
+- Page URL: https://demo.playwright.dev/todomvc/#/
+- Page Title: React • TodoMVC
+### Snapshot
+[Snapshot](.playwright-cli/page-2026-02-14T19-22-42-679Z.yml)</pre> <h2 id="core-commands">Core Commands<a href="#core-commands" aria-label="Direct link to Core Commands" title="Direct link to Core Commands">​</a>
+</h2> <h3 id="interacting-with-pages">Interacting with pages<a href="#interacting-with-pages" aria-label="Direct link to Interacting with pages" title="Direct link to Interacting with pages">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli open [url]               # open browser, optionally navigate to url
+playwright-cli goto &lt;url&gt;               # navigate to a url
+playwright-cli click &lt;ref&gt; [button]     # click an element
+playwright-cli type &lt;text&gt;              # type text into editable element
+playwright-cli fill &lt;ref&gt; &lt;text&gt;        # fill text into editable element
+playwright-cli select &lt;ref&gt; &lt;value&gt;     # select an option in a dropdown
+playwright-cli check &lt;ref&gt;              # check a checkbox or radio button
+playwright-cli uncheck &lt;ref&gt;            # uncheck a checkbox
+playwright-cli hover &lt;ref&gt;              # hover over element
+playwright-cli drag &lt;startRef&gt; &lt;endRef&gt; # drag and drop between elements
+playwright-cli upload &lt;file&gt;            # upload files
+playwright-cli close                    # close the page</pre> <h3 id="targeting-elements">Targeting elements<a href="#targeting-elements" aria-label="Direct link to Targeting elements" title="Direct link to Targeting elements">​</a>
+</h3> <p>Use element refs from snapshots to target elements:</p> <pre tabindex="0" data-language="javascript">playwright-cli snapshot                 # get snapshot with element refs
+playwright-cli click e15                # click using a ref</pre> <p>You can also use CSS or role selectors:</p> <pre tabindex="0" data-language="javascript">playwright-cli click "#main &gt; button.submit"
+playwright-cli click "role=button[name=Submit]"
+playwright-cli click "#footer &gt;&gt; role=button[name=Submit]"</pre> <h3 id="screenshots-and-snapshots">Screenshots and snapshots<a href="#screenshots-and-snapshots" aria-label="Direct link to Screenshots and snapshots" title="Direct link to Screenshots and snapshots">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli snapshot                 # capture page snapshot
+playwright-cli snapshot --filename=f    # save snapshot to specific file
+playwright-cli screenshot               # screenshot of the current page
+playwright-cli screenshot [ref]         # screenshot of a specific element
+playwright-cli screenshot --filename=f  # save with specific filename
+playwright-cli pdf                      # save page as PDF</pre> <h3 id="navigation">Navigation<a href="#navigation" aria-label="Direct link to Navigation" title="Direct link to Navigation">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli go-back                  # go back
+playwright-cli go-forward               # go forward
+playwright-cli reload                   # reload the page</pre> <h3 id="keyboard-and-mouse">Keyboard and mouse<a href="#keyboard-and-mouse" aria-label="Direct link to Keyboard and mouse" title="Direct link to Keyboard and mouse">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli press &lt;key&gt;              # press a key (e.g. Enter, ArrowLeft)
+playwright-cli keydown &lt;key&gt;            # key down
+playwright-cli keyup &lt;key&gt;              # key up
+playwright-cli mousemove &lt;x&gt; &lt;y&gt;        # move mouse
+playwright-cli mousedown [button]       # mouse button down
+playwright-cli mouseup [button]         # mouse button up
+playwright-cli mousewheel &lt;dx&gt; &lt;dy&gt;     # scroll</pre> <h3 id="tabs">Tabs<a href="#tabs" aria-label="Direct link to Tabs" title="Direct link to Tabs">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli tab-list                 # list all tabs
+playwright-cli tab-new [url]            # create a new tab
+playwright-cli tab-select &lt;index&gt;       # select a tab
+playwright-cli tab-close [index]        # close a tab</pre> <h3 id="network">Network<a href="#network" aria-label="Direct link to Network" title="Direct link to Network">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli network                  # list network requests since page load
+playwright-cli route &lt;pattern&gt; [opts]   # mock network requests
+playwright-cli route-list               # list active routes
+playwright-cli unroute [pattern]        # remove routes</pre> <h3 id="storage">Storage<a href="#storage" aria-label="Direct link to Storage" title="Direct link to Storage">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli state-save [filename]    # save storage state (cookies, localStorage)
+playwright-cli state-load &lt;filename&gt;    # load storage state
+
+# Cookies
+playwright-cli cookie-list [--domain]   # list cookies
+playwright-cli cookie-get &lt;name&gt;        # get a cookie
+playwright-cli cookie-set &lt;name&gt; &lt;val&gt;  # set a cookie
+playwright-cli cookie-delete &lt;name&gt;     # delete a cookie
+playwright-cli cookie-clear             # clear all cookies
+
+# localStorage
+playwright-cli localstorage-list        # list entries
+playwright-cli localstorage-get &lt;key&gt;   # get value
+playwright-cli localstorage-set &lt;k&gt; &lt;v&gt; # set value
+playwright-cli localstorage-delete &lt;k&gt;  # delete entry
+playwright-cli localstorage-clear       # clear all</pre> <h3 id="devtools">DevTools<a href="#devtools" aria-label="Direct link to DevTools" title="Direct link to DevTools">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli console [min-level]      # list console messages
+playwright-cli eval &lt;func&gt; [ref]        # evaluate JavaScript on page
+playwright-cli run-code &lt;code&gt;          # run Playwright code snippet
+playwright-cli tracing-start            # start trace recording
+playwright-cli tracing-stop             # stop trace recording
+playwright-cli video-start              # start video recording
+playwright-cli video-chapter &lt;title&gt;    # add chapter marker to video
+playwright-cli video-stop --filename=f  # stop video recording</pre> <h2 id="sessions">Sessions<a href="#sessions" aria-label="Direct link to Sessions" title="Direct link to Sessions">​</a>
+</h2> <p>The CLI keeps the browser profile in memory by default — cookies and storage state are preserved between calls within a session but lost when the browser closes. Use <code>--persistent</code> to save the profile to disk.</p> <h3 id="named-sessions">Named sessions<a href="#named-sessions" aria-label="Direct link to Named sessions" title="Direct link to Named sessions">​</a>
+</h3> <p>Run multiple browser instances for different projects:</p> <pre tabindex="0" data-language="javascript">playwright-cli open https://playwright.dev
+playwright-cli -s=example open https://example.com --persistent
+playwright-cli list                     # list all sessions</pre> <p>You can configure your coding agent to use a specific session:</p> <pre tabindex="0" data-language="javascript">PLAYWRIGHT_CLI_SESSION=todo-app claude .</pre> <h3 id="session-management">Session management<a href="#session-management" aria-label="Direct link to Session management" title="Direct link to Session management">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli list                     # list all sessions
+playwright-cli close-all                # close all browsers
+playwright-cli kill-all                 # forcefully kill all browser processes
+playwright-cli -s=name delete-data      # delete user data for a named session</pre> <h2 id="monitoring">Monitoring<a href="#monitoring" aria-label="Direct link to Monitoring" title="Direct link to Monitoring">​</a>
+</h2> <p>Use <code>playwright-cli show</code> to open a visual dashboard for observing and controlling all running browser sessions:</p> <pre tabindex="0" data-language="javascript">playwright-cli show</pre> <p>The dashboard provides:</p> <ul> <li>
+<strong>Session grid</strong> — all active sessions grouped by workspace, each with a live screencast preview, session name, current URL, and page title. Click any session to zoom in.</li> <li>
+<strong>Session detail</strong> — a live view of the selected session with tab bar, navigation controls, and full remote control. Click into the viewport to take over mouse and keyboard; press Escape to release.</li> </ul> <h2 id="configuration">Configuration<a href="#configuration" aria-label="Direct link to Configuration" title="Direct link to Configuration">​</a>
+</h2> <h3 id="headed-mode">Headed mode<a href="#headed-mode" aria-label="Direct link to Headed mode" title="Direct link to Headed mode">​</a>
+</h3> <p>The CLI runs headless by default. To see the browser:</p> <pre tabindex="0" data-language="javascript">playwright-cli open https://playwright.dev --headed</pre> <h3 id="browser-selection">Browser selection<a href="#browser-selection" aria-label="Direct link to Browser selection" title="Direct link to Browser selection">​</a>
+</h3> <pre tabindex="0" data-language="javascript">playwright-cli open --browser=chrome    # use specific browser
+playwright-cli open --browser=firefox
+playwright-cli open --browser=webkit
+playwright-cli open --browser=msedge</pre> <h3 id="configuration-file">Configuration file<a href="#configuration-file" aria-label="Direct link to Configuration file" title="Direct link to Configuration file">​</a>
+</h3> <p>For advanced settings, use a JSON config file:</p> <pre tabindex="0" data-language="javascript">playwright-cli --config path/to/config.json open example.com</pre> <p>The CLI also loads <code>.playwright/cli.config.json</code> automatically if present. The config file supports browser options, context options, network rules, timeouts, and more. Run <code>playwright-cli --help</code> for the full list of options.</p> <h3 id="browser-extension">Browser extension<a href="#browser-extension" aria-label="Direct link to Browser extension" title="Direct link to Browser extension">​</a>
+</h3> <p>Connect to your existing browser tabs instead of launching a new browser:</p> <pre tabindex="0" data-language="javascript">playwright-cli open --extension</pre> <p>This requires the <a href="https://github.com/user-attachments/packages/extension" target="_blank" rel="noopener noreferrer">Playwright MCP Bridge browser extension</a> to be installed.</p> <h2 id="quick-reference">Quick Reference<a href="#quick-reference" aria-label="Direct link to Quick Reference" title="Direct link to Quick Reference">​</a>
+</h2> <table>
+<thead><tr>
+<th>Action</th>
+<th>Command</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Install CLI</strong></td>
+<td><code>npm install -g @playwright/cli@latest</code></td>
+</tr>
+<tr>
+<td><strong>Install skills</strong></td>
+<td><code>playwright-cli install --skills</code></td>
+</tr>
+<tr>
+<td><strong>Open a page</strong></td>
+<td><code>playwright-cli open https://example.com</code></td>
+</tr>
+<tr>
+<td><strong>Click an element</strong></td>
+<td><code>playwright-cli click e15</code></td>
+</tr>
+<tr>
+<td><strong>Type text</strong></td>
+<td><code>playwright-cli type "hello world"</code></td>
+</tr>
+<tr>
+<td><strong>Take a screenshot</strong></td>
+<td><code>playwright-cli screenshot</code></td>
+</tr>
+<tr>
+<td><strong>Get page snapshot</strong></td>
+<td><code>playwright-cli snapshot</code></td>
+</tr>
+<tr>
+<td><strong>Run headed</strong></td>
+<td><code>playwright-cli open https://example.com --headed</code></td>
+</tr>
+<tr>
+<td><strong>Use Firefox</strong></td>
+<td><code>playwright-cli open --browser=firefox</code></td>
+</tr>
+<tr>
+<td><strong>Monitor sessions</strong></td>
+<td><code>playwright-cli show</code></td>
+</tr>
+</tbody>
+</table> <h2 id="whats-next">What's Next<a href="#whats-next" aria-label="Direct link to What's Next" title="Direct link to What's Next">​</a>
+</h2> <ul> <li><a href="writing-tests">Write tests using web-first assertions, page fixtures, and locators</a></li> <li><a href="ci-intro">Run your tests on CI</a></li> <li><a href="trace-viewer">Learn more about the Trace Viewer</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+          &copy; 2026 Microsoft<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://playwright.dev/docs/getting-started-cli" class="_attribution-link">https://playwright.dev/docs/getting-started-cli</a>
+  </p>
+</div>

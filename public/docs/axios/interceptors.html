@@ -1,0 +1,31 @@
+<h1 class="title">Interceptors</h1>  <p>You can intercept requests or responses <strong>before</strong> they are handled by <code>then</code> or <code>catch</code>.</p> <p>The <code>use</code> function adds a handler to the list of handlers to be run when the Promise is fulfilled or rejected. The handler is defined by the fulfilled and rejected functions.</p> <p>There is an optional <code>options</code> object that can be passed in as the third parameter. <code>synchronous</code> if the synchronous option is true. The handler is defined as asynchronous if the synchronous option is false. If the synchronous option is not provided, the handler is defined as asynchronous. <code>runWhen</code> will control when the provided interceptor will run. Provide a function that will return true or false on whether it should run, defaults to always true.</p> <pre class="lang-js" data-language="js">// Add a request interceptor
+axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  },
+  { synchronous: true, runWhen: () =&gt; /* This function returns true */}
+);
+
+// Add a response interceptor
+axios.interceptors.response.use(function onFulfilled(response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  }, function onRejected(error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  });
+</pre> <p>In normal circumstances the <code>onFulfilled</code> response interceptor is only called for responses in the 2xx range, and <code>onRejected</code> is called otherwise. However, this behavior depends on <a href="req_config">validateStatus</a>. For instance, if <code>validateStatus</code> is setup to always return <code>true</code>, then <code>onFulfilled</code> will be called for <em>all</em> responses.</p> <p>If you need to remove an interceptor later you can.</p> <pre class="lang-js" data-language="js">const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
+axios.interceptors.request.eject(myInterceptor);
+</pre> <p>You can add interceptors to a custom instance of axios.</p> <pre class="lang-js" data-language="js">const instance = axios.create();
+instance.interceptors.request.use(function () {/*...*/});
+</pre><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2020-present John Jakob "Jake" Sarjeant<br>Licensed under the MIT License.<br>
+    <a href="https://axios-http.com/docs/interceptors" class="_attribution-link">https://axios-http.com/docs/interceptors</a>
+  </p>
+</div>

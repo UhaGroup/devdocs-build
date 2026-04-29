@@ -1,0 +1,175 @@
+<h1>findDOMNode
+</h1>
+<h3>
+Deprecated</h3>
+<div><p>This API will be removed in a future major version of React. <a href="#alternatives">See the alternatives.</a></p></div> <div>
+<p><code dir="ltr">findDOMNode</code> finds the browser DOM node for a React <a href="../react/component">class component</a> instance.</p>
+<pre data-language="jsx"><code><span>const</span> <span>domNode</span> = <span>findDOMNode</span><span>(</span><span>componentInstance</span><span>)</span></code></pre>
+</div> <ul>
+<li>
+<a href="#reference">Reference </a><ul><li><a href="#finddomnode"><code dir="ltr">findDOMNode(componentInstance)</code> </a></li></ul>
+</li>
+<li>
+<a href="#usage">Usage </a><ul><li><a href="#finding-the-root-dom-node-of-a-class-component">Finding the root DOM node of a class component </a></li></ul>
+</li>
+<li>
+<a href="#alternatives">Alternatives </a><ul>
+<li><a href="#reading-components-own-dom-node-from-a-ref">Reading component’s own DOM node from a ref </a></li>
+<li><a href="#reading-a-child-components-dom-node-from-a-forwarded-ref">Reading a child component’s DOM node from a forwarded ref </a></li>
+<li><a href="#adding-a-wrapper-div-element">Adding a wrapper <code dir="ltr">&lt;div&gt;</code> element </a></li>
+</ul>
+</li>
+</ul> <hr> <h2 id="reference">Reference 
+</h2> <h3 id="finddomnode">
+<code dir="ltr">findDOMNode(componentInstance)</code> 
+</h3> <p>Call <code dir="ltr">findDOMNode</code> to find the browser DOM node for a given React <a href="../react/component">class component</a> instance.</p> <pre data-language="jsx"><code><span>import</span> <span>{</span> <span>findDOMNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+
+<span>const</span> <span>domNode</span> = <span>findDOMNode</span><span>(</span><span>componentInstance</span><span>)</span><span>;</span></code></pre> <p><a href="#usage">See more examples below.</a></p> <h4 id="parameters">Parameters 
+</h4> <ul> <li>
+<code dir="ltr">componentInstance</code>: An instance of the <a href="../react/component"><code dir="ltr">Component</code></a> subclass. For example, <code dir="ltr">this</code> inside a class component.</li> </ul> <h4 id="returns">Returns 
+</h4> <p><code dir="ltr">findDOMNode</code> returns the first closest browser DOM node within the given <code dir="ltr">componentInstance</code>. When a component renders to <code dir="ltr">null</code>, or renders <code dir="ltr">false</code>, <code dir="ltr">findDOMNode</code> returns <code dir="ltr">null</code>. When a component renders to a string, <code dir="ltr">findDOMNode</code> returns a text DOM node containing that value.</p> <h4 id="caveats">Caveats 
+</h4> <ul> <li> <p>A component may return an array or a <a href="../react/fragment">Fragment</a> with multiple children. In that case <code dir="ltr">findDOMNode</code>, will return the DOM node corresponding to the first non-empty child.</p> </li> <li> <p><code dir="ltr">findDOMNode</code> only works on mounted components (that is, components that have been placed in the DOM). If you try to call this on a component that has not been mounted yet (like calling <code dir="ltr">findDOMNode()</code> in <code dir="ltr">render()</code> on a component that has yet to be created), an exception will be thrown.</p> </li> <li> <p><code dir="ltr">findDOMNode</code> only returns the result at the time of your call. If a child component renders a different node later, there is no way for you to be notified of this change.</p> </li> <li> <p><code dir="ltr">findDOMNode</code> accepts a class component instance, so it can’t be used with function components.</p> </li> </ul> <hr> <h2 id="usage">Usage 
+</h2> <h3 id="finding-the-root-dom-node-of-a-class-component">Finding the root DOM node of a class component 
+</h3> <p>Call <code dir="ltr">findDOMNode</code> with a <a href="../react/component">class component</a> instance (usually, <code dir="ltr">this</code>) to find the DOM node it has rendered.</p> <pre data-language="jsx"><code><span>class</span> AutoselectingInput <span>extends</span> <span>Component</span> <span>{</span>
+  <span>componentDidMount</span><span>(</span><span>)</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>findDOMNode</span><span>(</span><span>this</span><span>)</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span>
+  <span>}</span>
+
+  <span>render</span><span>(</span><span>)</span> <span>{</span>
+    <span>return</span> <span>&lt;</span><span>input</span> <span>defaultValue</span>=<span>"Hello"</span> <span>/&gt;</span>
+  <span>}</span>
+<span>}</span></code></pre> <p>Here, the <code dir="ltr">input</code> variable will be set to the <code dir="ltr">&lt;input&gt;</code> DOM element. This lets you do something with it. For example, when clicking “Show example” below mounts the input, <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select" target="_blank" rel="nofollow noopener noreferrer"><code dir="ltr">input.select()</code></a> selects all text in the input:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>Component</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+<span>import</span> <span>{</span> <span>findDOMNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+
+<span>class</span> AutoselectingInput <span>extends</span> <span>Component</span> <span>{</span>
+  <span>componentDidMount</span><span>(</span><span>)</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>findDOMNode</span><span>(</span><span>this</span><span>)</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span>
+  <span>}</span>
+
+  <span>render</span><span>(</span><span>)</span> <span>{</span>
+    <span>return</span> <span>&lt;</span><span>input</span> <span>defaultValue</span>=<span>"Hello"</span> <span>/&gt;</span>
+  <span>}</span>
+<span>}</span>
+
+<span>export</span> <span>default</span> <span>AutoselectingInput</span><span>;</span>
+
+</pre> <hr> <h2 id="alternatives">Alternatives 
+</h2> <h3 id="reading-components-own-dom-node-from-a-ref">Reading component’s own DOM node from a ref 
+</h3> <p>Code using <code dir="ltr">findDOMNode</code> is fragile because the connection between the JSX node and the code manipulating the corresponding DOM node is not explicit. For example, try wrapping this <code dir="ltr">&lt;input /&gt;</code> into a <code dir="ltr">&lt;div&gt;</code>:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>Component</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+<span>import</span> <span>{</span> <span>findDOMNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+
+<span>class</span> AutoselectingInput <span>extends</span> <span>Component</span> <span>{</span>
+  <span>componentDidMount</span><span>(</span><span>)</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>findDOMNode</span><span>(</span><span>this</span><span>)</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span>
+  <span>}</span>
+  <span>render</span><span>(</span><span>)</span> <span>{</span>
+    <span>return</span> <span>&lt;</span><span>input</span> <span>defaultValue</span>=<span>"Hello"</span> <span>/&gt;</span>
+  <span>}</span>
+<span>}</span>
+
+<span>export</span> <span>default</span> <span>AutoselectingInput</span><span>;</span>
+
+</pre> <p>This will break the code because now, <code dir="ltr">findDOMNode(this)</code> finds the <code dir="ltr">&lt;div&gt;</code> DOM node, but the code expects an <code dir="ltr">&lt;input&gt;</code> DOM node. To avoid these kinds of problems, use <a href="../react/createref"><code dir="ltr">createRef</code></a> to manage a specific DOM node.</p> <p>In this example, <code dir="ltr">findDOMNode</code> is no longer used. Instead, <code dir="ltr">inputRef = createRef(null)</code> is defined as an instance field on the class. To read the DOM node from it, you can use <code dir="ltr">this.inputRef.current</code>. To attach it to the JSX, you render <code dir="ltr">&lt;input ref={this.inputRef} /&gt;</code>. This connects the code using the DOM node to its JSX:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>createRef</span><span>,</span> <span>Component</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>class</span> AutoselectingInput <span>extends</span> <span>Component</span> <span>{</span>
+  <span>inputRef</span> = <span>createRef</span><span>(</span><span>null</span><span>)</span><span>;</span>
+
+  <span>componentDidMount</span><span>(</span><span>)</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>this</span>.<span>inputRef</span>.<span>current</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span>
+  <span>}</span>
+
+  <span>render</span><span>(</span><span>)</span> <span>{</span>
+    <span>return</span> <span>(</span>
+      <span>&lt;</span><span>input</span> <span>ref</span>=<span>{</span><span>this</span>.<span>inputRef</span><span>}</span> <span>defaultValue</span>=<span>"Hello"</span> <span>/&gt;</span>
+    <span>)</span><span>;</span>
+  <span>}</span>
+<span>}</span>
+
+<span>export</span> <span>default</span> <span>AutoselectingInput</span><span>;</span>
+
+</pre> <p>In modern React without class components, the equivalent code would call <a href="../react/useref"><code dir="ltr">useRef</code></a> instead:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>useRef</span><span>,</span> <span>useEffect</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>AutoselectingInput</span><span>(</span><span>)</span> <span>{</span>
+  <span>const</span> <span>inputRef</span> = <span>useRef</span><span>(</span><span>null</span><span>)</span><span>;</span>
+
+  <span>useEffect</span><span>(</span><span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>inputRef</span>.<span>current</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span><span>;</span>
+  <span>}</span><span>,</span> <span>[</span><span>]</span><span>)</span><span>;</span>
+
+  <span>return</span> <span>&lt;</span><span>input</span> <span>ref</span>=<span>{</span><span>inputRef</span><span>}</span> <span>defaultValue</span>=<span>"Hello"</span> <span>/&gt;</span>
+<span>}</span>
+
+</pre> <p><a href="../../learn/manipulating-the-dom-with-refs">Read more about manipulating the DOM with refs.</a></p> <hr> <h3 id="reading-a-child-components-dom-node-from-a-forwarded-ref">Reading a child component’s DOM node from a forwarded ref 
+</h3> <p>In this example, <code dir="ltr">findDOMNode(this)</code> finds a DOM node that belongs to another component. The <code dir="ltr">AutoselectingInput</code> renders <code dir="ltr">MyInput</code>, which is your own component that renders a browser <code dir="ltr">&lt;input&gt;</code>.</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>Component</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+<span>import</span> <span>{</span> <span>findDOMNode</span> <span>}</span> <span>from</span> <span>'react-dom'</span><span>;</span>
+<span>import</span> <span>MyInput</span> <span>from</span> <span>'./MyInput.js'</span><span>;</span>
+
+<span>class</span> AutoselectingInput <span>extends</span> <span>Component</span> <span>{</span>
+  <span>componentDidMount</span><span>(</span><span>)</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>findDOMNode</span><span>(</span><span>this</span><span>)</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span>
+  <span>}</span>
+  <span>render</span><span>(</span><span>)</span> <span>{</span>
+    <span>return</span> <span>&lt;</span><span>MyInput</span> <span>/&gt;</span><span>;</span>
+  <span>}</span>
+<span>}</span>
+
+<span>export</span> <span>default</span> <span>AutoselectingInput</span><span>;</span>
+
+</pre> <p>Notice that calling <code dir="ltr">findDOMNode(this)</code> inside <code dir="ltr">AutoselectingInput</code> still gives you the DOM <code dir="ltr">&lt;input&gt;</code>—even though the JSX for this <code dir="ltr">&lt;input&gt;</code> is hidden inside the <code dir="ltr">MyInput</code> component. This seems convenient for the above example, but it leads to fragile code. Imagine that you wanted to edit <code dir="ltr">MyInput</code> later and add a wrapper <code dir="ltr">&lt;div&gt;</code> around it. This would break the code of <code dir="ltr">AutoselectingInput</code> (which expects to find an <code dir="ltr">&lt;input&gt;</code>).</p> <p>To replace <code dir="ltr">findDOMNode</code> in this example, the two components need to coordinate:</p> <ol> <li>
+<code dir="ltr">AutoSelectingInput</code> should declare a ref, like <a href="#reading-components-own-dom-node-from-a-ref">in the earlier example</a>, and pass it to <code dir="ltr">&lt;MyInput&gt;</code>.</li> <li>
+<code dir="ltr">MyInput</code> should be declared with <a href="../react/forwardref"><code dir="ltr">forwardRef</code></a> to take that ref and forward it down to the <code dir="ltr">&lt;input&gt;</code> node.</li> </ol> <p>This version does that, so it no longer needs <code dir="ltr">findDOMNode</code>:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>createRef</span><span>,</span> <span>Component</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+<span>import</span> <span>MyInput</span> <span>from</span> <span>'./MyInput.js'</span><span>;</span>
+
+<span>class</span> AutoselectingInput <span>extends</span> <span>Component</span> <span>{</span>
+  <span>inputRef</span> = <span>createRef</span><span>(</span><span>null</span><span>)</span><span>;</span>
+
+  <span>componentDidMount</span><span>(</span><span>)</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>this</span>.<span>inputRef</span>.<span>current</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span>
+  <span>}</span>
+
+  <span>render</span><span>(</span><span>)</span> <span>{</span>
+    <span>return</span> <span>(</span>
+      <span>&lt;</span><span>MyInput</span> <span>ref</span>=<span>{</span><span>this</span>.<span>inputRef</span><span>}</span> <span>/&gt;</span>
+    <span>)</span><span>;</span>
+  <span>}</span>
+<span>}</span>
+
+<span>export</span> <span>default</span> <span>AutoselectingInput</span><span>;</span>
+
+</pre> <p>Here is how this code would look like with function components instead of classes:</p> 
+<pre data-language="jsx"><span>import</span> <span>{</span> <span>useRef</span><span>,</span> <span>useEffect</span> <span>}</span> <span>from</span> <span>'react'</span><span>;</span>
+<span>import</span> <span>MyInput</span> <span>from</span> <span>'./MyInput.js'</span><span>;</span>
+
+<span>export</span> <span>default</span> <span>function</span> <span>AutoselectingInput</span><span>(</span><span>)</span> <span>{</span>
+  <span>const</span> <span>inputRef</span> = <span>useRef</span><span>(</span><span>null</span><span>)</span><span>;</span>
+
+  <span>useEffect</span><span>(</span><span>(</span><span>)</span> <span>=&gt;</span> <span>{</span>
+    <span>const</span> <span>input</span> = <span>inputRef</span>.<span>current</span><span>;</span>
+    <span>input</span>.<span>select</span><span>(</span><span>)</span><span>;</span>
+  <span>}</span><span>,</span> <span>[</span><span>]</span><span>)</span><span>;</span>
+
+  <span>return</span> <span>&lt;</span><span>MyInput</span> <span>ref</span>=<span>{</span><span>inputRef</span><span>}</span> <span>defaultValue</span>=<span>"Hello"</span> <span>/&gt;</span>
+<span>}</span>
+
+</pre> <hr> <h3 id="adding-a-wrapper-div-element">Adding a wrapper <code dir="ltr">&lt;div&gt;</code> element 
+</h3> <p>Sometimes a component needs to know the position and size of its children. This makes it tempting to find the children with <code dir="ltr">findDOMNode(this)</code>, and then use DOM methods like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="nofollow noopener noreferrer"><code dir="ltr">getBoundingClientRect</code></a> for measurements.</p> <p>There is currently no direct equivalent for this use case, which is why <code dir="ltr">findDOMNode</code> is deprecated but is not yet removed completely from React. In the meantime, you can try rendering a wrapper <code dir="ltr">&lt;div&gt;</code> node around the content as a workaround, and getting a ref to that node. However, extra wrappers can break styling.</p> <pre data-language="jsx"><code><span>&lt;</span><span>div</span> <span>ref</span>=<span>{</span><span>someRef</span><span>}</span><span>&gt;</span>
+  <span>{</span><span>children</span><span>}</span>
+<span>&lt;/</span><span>div</span><span>&gt;</span></code></pre> <p>This also applies to focusing and scrolling to arbitrary children.</p><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2013&ndash;present Facebook Inc.<br>Licensed under the Creative Commons Attribution 4.0 International Public License.<br>
+    <a href="https://18.react.dev/reference/react-dom/findDOMNode" class="_attribution-link">https://18.react.dev/reference/react-dom/findDOMNode</a>
+  </p>
+</div>

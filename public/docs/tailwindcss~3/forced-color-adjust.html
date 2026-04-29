@@ -1,0 +1,78 @@
+<h1>Forced Color Adjust</h1>
+<div id="__next">
+<div><div><div><div>
+<header id="header"><div><div></div></div>
+<p>Utilities for opting in and out of forced colors.</p></header><div>
+<h2 id="class-reference">Quick reference</h2>
+<div><div id="class-table">
+<table>
+<thead><tr>
+<th><div>Class</div></th>
+<th><div>Properties</div></th>
+</tr></thead>
+<tbody>
+<tr>
+<td translate="no">forced-color-adjust-auto</td>
+<td translate="no">forced-color-adjust: auto; </td>
+</tr>
+<tr>
+<td translate="no">forced-color-adjust-none</td>
+<td translate="no">forced-color-adjust: none; </td>
+</tr>
+</tbody>
+</table>
+<div></div>
+</div></div>
+</div>
+<div id="content-wrapper">
+<h2 id="basic-usage">Basic usage</h2> <h3 id="opting-out-of-forced-colors">Opting out of forced colors</h3> <p>Use <code>forced-color-adjust-none</code> to opt an element out the colors enforced by <a href="hover-focus-and-other-states#forced-colors-mode">forced colors mode</a>. This is useful in situations where enforcing a limited color palette will degrade usability.</p>  <pre data-language="html">&lt;form&gt;
+  &lt;img src="..." /&gt;
+  &lt;div&gt;
+    &lt;h3&gt;Basic Tee&lt;/h3&gt;
+    &lt;h3&gt;$35&lt;/h3&gt;
+    &lt;fieldset&gt;
+      &lt;legend class="sr-only"&gt;Choose a color&lt;/legend&gt;
+      &lt;div class="forced-color-adjust-none ..."&gt;
+        &lt;label &gt;
+          &lt;input class="sr-only" type="radio" name="color-choice" value="White" /&gt;
+          &lt;span class="sr-only"&gt;White&lt;/span&gt;
+          &lt;span class="size-6 rounded-full border border-black border-opacity-10 bg-white"&gt;&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;!-- ... --&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</pre> <p>You can also use the <a href="hover-focus-and-other-states#forced-colors-mode"><code>forced-colors</code> modifier</a> to conditionally add styles when the user has enabled a forced color mode.</p> <h3 id="restoring-forced-colors">Restoring forced colors</h3> <p>Use <code>forced-color-adjust-auto</code> to undo <code>forced-color-adjust-none</code>, making an element adhere to colors enforced by forced colors mode.</p> <p>This can be useful if you use a different control on a larger screen size for example:</p> <pre data-language="html">&lt;form&gt;
+  &lt;fieldset class="forced-color-adjust-none lg:forced-color-adjust-auto ..."&gt;
+    &lt;legend&gt;Choose a color:&lt;/legend&gt;
+    &lt;select class="hidden lg:block"&gt;
+      &lt;option value="White"&gt;White&lt;/option&gt;
+      &lt;option value="Gray"&gt;Gray&lt;/option&gt;
+      &lt;option value="Black"&gt;Black&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;div class="lg:hidden"&gt;
+      &lt;label&gt;
+        &lt;input class="sr-only" type="radio" name="color-choice" value="White" /&gt;
+        &lt;!-- ... --&gt;
+      &lt;/label&gt;
+      &lt;!-- ... --&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</pre>  <h2 id="applying-conditionally" data-docsearch-ignore="">Applying conditionally</h2> <h3 id="hover-focus-and-other-states" data-docsearch-ignore="">Hover, focus, and other states</h3> <p>Tailwind lets you conditionally apply utility classes in different states using variant modifiers. For example, use <code>focus:forced-color-adjust-none</code> to only apply the <code>forced-color-adjust-none</code> utility on focus.</p>
+<pre data-language="html">&lt;a href="#content" class="forced-color-adjust-none focus:forced-color-adjust-auto"&gt;
+  Skip to content
+&lt;/a&gt;</pre>
+<p>For a complete list of all available state modifiers, check out the <a href="hover-focus-and-other-states">Hover, Focus, &amp; Other States</a> documentation.</p> <h3 id="breakpoints-and-media-queries" data-docsearch-ignore="">Breakpoints and media queries</h3> <p>You can also use variant modifiers to target media queries like responsive breakpoints, dark mode, prefers-reduced-motion, and more. For example, use <code>md:forced-color-adjust-auto</code> to apply the <code>forced-color-adjust-auto</code> utility at only medium screen sizes and above.</p>
+<pre data-language="html">&lt;div class="forced-color-adjust-none md:forced-color-adjust-auto"&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;
+</pre>
+<p>To learn more, check out the documentation on <a href="responsive-design">Responsive Design</a>, <a href="dark-mode">Dark Mode</a> and <a href="hover-focus-and-other-states#media-and-feature-queries">other media query modifiers</a>.</p>
+</div>
+</div></div></div></div>
+<div hidden="" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none"></div>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Tailwind Labs Inc.<br>
+    <a href="https://v3.tailwindcss.com/docs/forced-color-adjust" class="_attribution-link">https://v3.tailwindcss.com/docs/forced-color-adjust</a>
+  </p>
+</div>

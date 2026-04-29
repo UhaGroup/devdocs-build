@@ -1,0 +1,418 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 301B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ruby:3.4.8
+#2 ...
+
+#3 [auth] library/ruby:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ruby:3.4.8
+#2 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 104B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/ruby:3.4.8@sha256:5c58050b16e00de92e7614bee88cd27865c0bdba262feb44aa838ae5da4431c9
+#5 resolve docker.io/library/ruby:3.4.8@sha256:5c58050b16e00de92e7614bee88cd27865c0bdba262feb44aa838ae5da4431c9 done
+#5 sha256:815568b0c9b62cba3db9d27c3246d4398ca8aefbd816038efb7e3a99fdc7192e 2.31kB / 2.31kB done
+#5 sha256:866771c43bf5eb77362eeeb163c0c825e194c2806d0b697028434e3b9c02f59d 0B / 49.29MB 0.1s
+#5 sha256:ed881fbf1b07b42dd470cd5b56a8feb684d60879c6f8028a9e7a8715e0e72361 0B / 25.61MB 0.1s
+#5 sha256:5c58050b16e00de92e7614bee88cd27865c0bdba262feb44aa838ae5da4431c9 10.26kB / 10.26kB done
+#5 sha256:8b77caf522fce5f29c5b4503c40b95aaf6bf974cc381378fc8a767055d436c21 7.01kB / 7.01kB done
+#5 sha256:9da421ddeb655bdfb3960e490b39373b0d1351e3eaba61d01978107920638392 0B / 67.78MB 0.1s
+#5 sha256:866771c43bf5eb77362eeeb163c0c825e194c2806d0b697028434e3b9c02f59d 25.17MB / 49.29MB 0.2s
+#5 sha256:ed881fbf1b07b42dd470cd5b56a8feb684d60879c6f8028a9e7a8715e0e72361 2.10MB / 25.61MB 0.2s
+#5 sha256:866771c43bf5eb77362eeeb163c0c825e194c2806d0b697028434e3b9c02f59d 49.29MB / 49.29MB 0.3s
+#5 sha256:ed881fbf1b07b42dd470cd5b56a8feb684d60879c6f8028a9e7a8715e0e72361 25.61MB / 25.61MB 0.3s
+#5 sha256:866771c43bf5eb77362eeeb163c0c825e194c2806d0b697028434e3b9c02f59d 49.29MB / 49.29MB 0.4s done
+#5 sha256:ed881fbf1b07b42dd470cd5b56a8feb684d60879c6f8028a9e7a8715e0e72361 25.61MB / 25.61MB 0.4s done
+#5 sha256:9da421ddeb655bdfb3960e490b39373b0d1351e3eaba61d01978107920638392 53.48MB / 67.78MB 0.6s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 17.83MB / 236.03MB 0.6s
+#5 sha256:e30e8fe111b01ea892d68bc762d415bc75c22f97e8d946b55d60f17e42ac787f 190B / 190B 0.5s done
+#5 extracting sha256:866771c43bf5eb77362eeeb163c0c825e194c2806d0b697028434e3b9c02f59d
+#5 sha256:7b752fcf8677c7568d95645aeceabf8f7474e0983a1c95f8f57ce89183c30e83 0B / 42.21MB 0.6s
+#5 sha256:9da421ddeb655bdfb3960e490b39373b0d1351e3eaba61d01978107920638392 67.78MB / 67.78MB 0.7s done
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 40.89MB / 236.03MB 0.7s
+#5 sha256:7b752fcf8677c7568d95645aeceabf8f7474e0983a1c95f8f57ce89183c30e83 18.87MB / 42.21MB 0.7s
+#5 sha256:18360adef1a516ad45e730a77de8e709311ea559e717668221acd3990e70d43a 0B / 143B 0.7s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 66.06MB / 236.03MB 0.8s
+#5 sha256:7b752fcf8677c7568d95645aeceabf8f7474e0983a1c95f8f57ce89183c30e83 42.21MB / 42.21MB 0.8s
+#5 sha256:18360adef1a516ad45e730a77de8e709311ea559e717668221acd3990e70d43a 143B / 143B 0.8s done
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 94.37MB / 236.03MB 0.9s
+#5 sha256:7b752fcf8677c7568d95645aeceabf8f7474e0983a1c95f8f57ce89183c30e83 42.21MB / 42.21MB 0.8s done
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 115.34MB / 236.03MB 1.0s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 147.85MB / 236.03MB 1.1s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 178.26MB / 236.03MB 1.2s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 204.47MB / 236.03MB 1.3s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 236.03MB / 236.03MB 1.5s
+#5 sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 236.03MB / 236.03MB 1.7s done
+#5 extracting sha256:866771c43bf5eb77362eeeb163c0c825e194c2806d0b697028434e3b9c02f59d 3.8s done
+#5 extracting sha256:ed881fbf1b07b42dd470cd5b56a8feb684d60879c6f8028a9e7a8715e0e72361 0.1s
+#5 extracting sha256:ed881fbf1b07b42dd470cd5b56a8feb684d60879c6f8028a9e7a8715e0e72361 1.5s done
+#5 ...
+
+#6 [internal] load build context
+#6 transferring context: 822.75MB 9.3s done
+#6 DONE 9.6s
+
+#5 [1/5] FROM docker.io/library/ruby:3.4.8@sha256:5c58050b16e00de92e7614bee88cd27865c0bdba262feb44aa838ae5da4431c9
+#5 extracting sha256:9da421ddeb655bdfb3960e490b39373b0d1351e3eaba61d01978107920638392 0.1s
+#5 extracting sha256:9da421ddeb655bdfb3960e490b39373b0d1351e3eaba61d01978107920638392 2.3s done
+#5 extracting sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30
+#5 extracting sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 5.0s
+#5 extracting sha256:a793e3c6bce826c77a6bfec52e3e42691937f0e5701d8efa06d32850314d3f30 6.2s done
+#5 extracting sha256:e30e8fe111b01ea892d68bc762d415bc75c22f97e8d946b55d60f17e42ac787f
+#5 extracting sha256:e30e8fe111b01ea892d68bc762d415bc75c22f97e8d946b55d60f17e42ac787f done
+#5 extracting sha256:7b752fcf8677c7568d95645aeceabf8f7474e0983a1c95f8f57ce89183c30e83 0.1s
+#5 extracting sha256:7b752fcf8677c7568d95645aeceabf8f7474e0983a1c95f8f57ce89183c30e83 1.0s done
+#5 extracting sha256:18360adef1a516ad45e730a77de8e709311ea559e717668221acd3990e70d43a
+#5 extracting sha256:18360adef1a516ad45e730a77de8e709311ea559e717668221acd3990e70d43a done
+#5 DONE 21.5s
+
+#7 [2/5] RUN apt-get update && apt-get install -y libcurl4-openssl-dev nodejs && rm -rf /var/lib/apt/lists/*
+#7 0.173 Get:1 http://deb.debian.org/debian trixie InRelease [140 kB]
+#7 0.185 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#7 0.185 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#7 0.203 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9671 kB]
+#7 0.250 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#7 0.251 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [129 kB]
+#7 0.892 Fetched 10.0 MB in 1s (13.6 MB/s)
+#7 0.892 Reading package lists...
+#7 1.396 Reading package lists...
+#7 1.863 Building dependency tree...
+#7 1.986 Reading state information...
+#7 2.110 libcurl4-openssl-dev is already the newest version (8.14.1-2+deb13u2).
+#7 2.110 The following additional packages will be installed:
+#7 2.111   libcares2 libnode115 libuv1t64 node-acorn node-balanced-match
+#7 2.111   node-brace-expansion node-cjs-module-lexer node-corepack node-minimatch
+#7 2.111   node-undici node-xtend nodejs-doc
+#7 2.112 Suggested packages:
+#7 2.112   npm
+#7 2.172 The following NEW packages will be installed:
+#7 2.173   libcares2 libnode115 libuv1t64 node-acorn node-balanced-match
+#7 2.173   node-brace-expansion node-cjs-module-lexer node-corepack node-minimatch
+#7 2.173   node-undici node-xtend nodejs nodejs-doc
+#7 2.225 0 upgraded, 13 newly installed, 0 to remove and 59 not upgraded.
+#7 2.225 Need to get 20.1 MB of archives.
+#7 2.225 After this operation, 85.1 MB of additional disk space will be used.
+#7 2.225 Get:1 http://deb.debian.org/debian trixie/main amd64 libcares2 amd64 1.34.5-1+deb13u1 [98.3 kB]
+#7 2.230 Get:2 http://deb.debian.org/debian trixie/main amd64 libuv1t64 amd64 1.50.0-2 [154 kB]
+#7 2.232 Get:3 http://deb.debian.org/debian trixie/main amd64 node-xtend all 4.0.2-3 [3932 B]
+#7 2.235 Get:4 http://deb.debian.org/debian trixie/main amd64 node-corepack all 0.24.0-5 [712 kB]
+#7 2.246 Get:5 http://deb.debian.org/debian-security trixie-security/main amd64 nodejs amd64 20.19.2+dfsg-1+deb13u2 [353 kB]
+#7 2.250 Get:6 http://deb.debian.org/debian trixie/main amd64 node-acorn all 8.8.1+ds+~cs25.17.7-2 [128 kB]
+#7 2.250 Get:7 http://deb.debian.org/debian trixie/main amd64 node-cjs-module-lexer all 1.2.3+dfsg-1 [30.6 kB]
+#7 2.251 Get:8 http://deb.debian.org/debian trixie/main amd64 node-balanced-match all 2.0.0-1 [4872 B]
+#7 2.252 Get:9 http://deb.debian.org/debian trixie/main amd64 node-brace-expansion all 2.0.1+~1.1.0-2 [8012 B]
+#7 2.252 Get:10 http://deb.debian.org/debian trixie/main amd64 node-minimatch all 9.0.3-6 [76.8 kB]
+#7 2.255 Get:11 http://deb.debian.org/debian trixie/main amd64 node-undici all 7.3.0+dfsg1+~cs24.12.11-1 [333 kB]
+#7 2.259 Get:12 http://deb.debian.org/debian-security trixie-security/main amd64 libnode115 amd64 20.19.2+dfsg-1+deb13u2 [12.1 MB]
+#7 2.294 Get:13 http://deb.debian.org/debian-security trixie-security/main amd64 nodejs-doc all 20.19.2+dfsg-1+deb13u2 [6084 kB]
+#7 2.451 debconf: unable to initialize frontend: Dialog
+#7 2.451 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 2.451 debconf: falling back to frontend: Readline
+#7 2.458 debconf: unable to initialize frontend: Readline
+#7 2.458 debconf: (This frontend requires a controlling tty.)
+#7 2.458 debconf: falling back to frontend: Teletype
+#7 2.462 debconf: unable to initialize frontend: Teletype
+#7 2.462 debconf: (This frontend requires a controlling tty.)
+#7 2.462 debconf: falling back to frontend: Noninteractive
+#7 2.950 Fetched 20.1 MB in 0s (143 MB/s)
+#7 2.966 Selecting previously unselected package libcares2:amd64.
+#7 2.966 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 26066 files and directories currently installed.)
+#7 2.986 Preparing to unpack .../00-libcares2_1.34.5-1+deb13u1_amd64.deb ...
+#7 2.988 Unpacking libcares2:amd64 (1.34.5-1+deb13u1) ...
+#7 3.010 Selecting previously unselected package libuv1t64:amd64.
+#7 3.012 Preparing to unpack .../01-libuv1t64_1.50.0-2_amd64.deb ...
+#7 3.013 Unpacking libuv1t64:amd64 (1.50.0-2) ...
+#7 3.033 Selecting previously unselected package node-xtend.
+#7 3.035 Preparing to unpack .../02-node-xtend_4.0.2-3_all.deb ...
+#7 3.036 Unpacking node-xtend (4.0.2-3) ...
+#7 3.050 Selecting previously unselected package node-corepack.
+#7 3.052 Preparing to unpack .../03-node-corepack_0.24.0-5_all.deb ...
+#7 3.053 Unpacking node-corepack (0.24.0-5) ...
+#7 3.098 Selecting previously unselected package nodejs.
+#7 3.101 Preparing to unpack .../04-nodejs_20.19.2+dfsg-1+deb13u2_amd64.deb ...
+#7 3.102 Unpacking nodejs (20.19.2+dfsg-1+deb13u2) ...
+#7 3.135 Selecting previously unselected package node-acorn.
+#7 3.138 Preparing to unpack .../05-node-acorn_8.8.1+ds+~cs25.17.7-2_all.deb ...
+#7 3.139 Unpacking node-acorn (8.8.1+ds+~cs25.17.7-2) ...
+#7 3.175 Selecting previously unselected package node-cjs-module-lexer.
+#7 3.177 Preparing to unpack .../06-node-cjs-module-lexer_1.2.3+dfsg-1_all.deb ...
+#7 3.178 Unpacking node-cjs-module-lexer (1.2.3+dfsg-1) ...
+#7 3.194 Selecting previously unselected package node-balanced-match.
+#7 3.197 Preparing to unpack .../07-node-balanced-match_2.0.0-1_all.deb ...
+#7 3.198 Unpacking node-balanced-match (2.0.0-1) ...
+#7 3.213 Selecting previously unselected package node-brace-expansion.
+#7 3.215 Preparing to unpack .../08-node-brace-expansion_2.0.1+~1.1.0-2_all.deb ...
+#7 3.216 Unpacking node-brace-expansion (2.0.1+~1.1.0-2) ...
+#7 3.231 Selecting previously unselected package node-minimatch.
+#7 3.234 Preparing to unpack .../09-node-minimatch_9.0.3-6_all.deb ...
+#7 3.235 Unpacking node-minimatch (9.0.3-6) ...
+#7 3.259 Selecting previously unselected package node-undici.
+#7 3.261 Preparing to unpack .../10-node-undici_7.3.0+dfsg1+~cs24.12.11-1_all.deb ...
+#7 3.267 Unpacking node-undici (7.3.0+dfsg1+~cs24.12.11-1) ...
+#7 3.317 Selecting previously unselected package libnode115:amd64.
+#7 3.320 Preparing to unpack .../11-libnode115_20.19.2+dfsg-1+deb13u2_amd64.deb ...
+#7 3.321 Unpacking libnode115:amd64 (20.19.2+dfsg-1+deb13u2) ...
+#7 3.642 Selecting previously unselected package nodejs-doc.
+#7 3.645 Preparing to unpack .../12-nodejs-doc_20.19.2+dfsg-1+deb13u2_all.deb ...
+#7 3.646 Unpacking nodejs-doc (20.19.2+dfsg-1+deb13u2) ...
+#7 3.788 Setting up libuv1t64:amd64 (1.50.0-2) ...
+#7 3.791 Setting up node-cjs-module-lexer (1.2.3+dfsg-1) ...
+#7 3.793 Setting up node-balanced-match (2.0.0-1) ...
+#7 3.798 Setting up node-brace-expansion (2.0.1+~1.1.0-2) ...
+#7 3.801 Setting up libcares2:amd64 (1.34.5-1+deb13u1) ...
+#7 3.803 Setting up nodejs-doc (20.19.2+dfsg-1+deb13u2) ...
+#7 3.806 Setting up node-undici (7.3.0+dfsg1+~cs24.12.11-1) ...
+#7 3.813 Setting up node-minimatch (9.0.3-6) ...
+#7 3.815 Setting up node-xtend (4.0.2-3) ...
+#7 3.818 Setting up node-acorn (8.8.1+ds+~cs25.17.7-2) ...
+#7 3.821 Setting up node-corepack (0.24.0-5) ...
+#7 3.823 Setting up libnode115:amd64 (20.19.2+dfsg-1+deb13u2) ...
+#7 3.826 Setting up nodejs (20.19.2+dfsg-1+deb13u2) ...
+#7 3.832 update-alternatives: using /usr/bin/nodejs to provide /usr/bin/js (js) in auto mode
+#7 3.835 Processing triggers for libc-bin (2.41-12+deb13u1) ...
+#7 DONE 3.9s
+
+#8 [3/5] WORKDIR /app
+#8 DONE 0.0s
+
+#9 [4/5] COPY . /app
+#9 DONE 8.0s
+
+#10 [5/5] RUN gem install bundler -v 2.4.6 && bundle _2.4.6_ install
+#10 0.488 Successfully installed bundler-2.4.6
+#10 0.488 1 gem installed
+#10 1.420 Fetching gem metadata from https://rubygems.org/.............
+#10 2.871 Fetching rake 13.3.1
+#10 2.928 Installing rake 13.3.1
+#10 2.946 Using base64 0.2.0
+#10 2.947 Fetching benchmark 0.3.0
+#10 2.948 Fetching bigdecimal 3.1.9
+#10 2.948 Fetching concurrent-ruby 1.3.5
+#10 2.948 Fetching connection_pool 2.4.1
+#10 2.993 Installing benchmark 0.3.0
+#10 2.994 Installing connection_pool 2.4.1
+#10 3.013 Installing bigdecimal 3.1.9 with native extensions
+#10 3.018 Fetching drb 2.2.3
+#10 3.029 Fetching logger 1.6.6
+#10 3.051 Installing drb 2.2.3
+#10 3.052 Installing concurrent-ruby 1.3.5
+#10 3.066 Installing logger 1.6.6
+#10 3.087 Fetching prism 1.9.0
+#10 3.127 Fetching securerandom 0.3.2
+#10 3.255 Installing securerandom 0.3.2
+#10 3.279 Fetching builder 3.3.0
+#10 3.308 Installing builder 3.3.0
+#10 3.344 Fetching cgi 0.5.1
+#10 3.361 Installing prism 1.9.0 with native extensions
+#10 3.381 Installing cgi 0.5.1 with native extensions
+#10 3.427 Fetching erubi 1.13.1
+#10 3.461 Installing erubi 1.13.1
+#10 3.485 Using racc 1.8.1
+#10 3.490 Fetching crass 1.0.6
+#10 3.544 Installing crass 1.0.6
+#10 3.570 Fetching rack 2.2.22
+#10 3.625 Installing rack 2.2.22
+#10 3.731 Fetching useragent 0.16.11
+#10 3.764 Installing useragent 0.16.11
+#10 3.775 Fetching rouge 1.11.1
+#10 3.880 Installing rouge 1.11.1
+#10 3.953 Fetching browser 5.3.1
+#10 4.007 Installing browser 5.3.1
+#10 4.015 Using bundler 2.4.6
+#10 4.017 Fetching byebug 12.0.0
+#10 4.054 Installing byebug 12.0.0 with native extensions
+#10 4.107 Fetching chunky_png 1.4.0
+#10 4.162 Installing chunky_png 1.4.0
+#10 4.287 Fetching coderay 1.1.3
+#10 4.323 Installing coderay 1.1.3
+#10 4.353 Fetching daemons 1.4.1
+#10 4.427 Installing daemons 1.4.1
+#10 4.447 Using prettyprint 0.2.0
+#10 4.450 Fetching erb 6.0.1
+#10 4.489 Installing erb 6.0.1 with native extensions
+#10 5.403 Fetching date 3.5.1
+#10 5.437 Installing date 3.5.1 with native extensions
+#10 6.477 Fetching stringio 3.2.0
+#10 6.508 Installing stringio 3.2.0 with native extensions
+#10 8.290 Using tsort 0.2.0
+#10 8.292 Fetching io-console 0.8.0
+#10 8.332 Installing io-console 0.8.0 with native extensions
+#10 13.22 Fetching webrick 1.9.2
+#10 13.25 Installing webrick 1.9.2
+#10 13.28 Fetching thor 1.4.0
+#10 13.32 Installing thor 1.4.0
+#10 13.34 Fetching zeitwerk 2.7.4
+#10 13.38 Installing zeitwerk 2.7.4
+#10 13.39 Fetching tilt 2.6.0
+#10 13.46 Installing tilt 2.6.0
+#10 13.48 Fetching docile 1.4.1
+#10 13.51 Installing docile 1.4.1
+#10 13.52 Fetching ffi 1.17.3 (x86_64-linux-gnu)
+#10 13.57 Installing ffi 1.17.3 (x86_64-linux-gnu)
+#10 13.64 Fetching eventmachine 1.2.7
+#10 13.69 Installing eventmachine 1.2.7 with native extensions
+#10 16.54 Fetching execjs 2.9.1
+#10 16.58 Installing execjs 2.9.1
+#10 16.59 Fetching exifr 1.4.0
+#10 16.64 Installing exifr 1.4.0
+#10 16.66 Fetching fspath 3.1.2
+#10 16.70 Installing fspath 3.1.2
+#10 16.71 Fetching image_size 3.3.0
+#10 16.75 Installing image_size 3.3.0
+#10 16.77 Fetching in_threads 1.6.0
+#10 16.82 Installing in_threads 1.6.0
+#10 16.83 Fetching progress 3.6.0
+#10 16.88 Installing progress 3.6.0
+#10 16.89 Fetching method_source 1.1.0
+#10 16.93 Installing method_source 1.1.0
+#10 16.94 Fetching multi_json 1.15.0
+#10 16.97 Installing multi_json 1.15.0
+#10 16.99 Using ruby2_keywords 0.0.5
+#10 16.99 Fetching newrelic_rpm 8.16.0
+#10 17.08 Installing newrelic_rpm 8.16.0
+#10 17.27 Fetching options 2.3.2
+#10 17.30 Installing options 2.3.2
+#10 17.31 Fetching rack-ssl-enforcer 0.2.9
+#10 17.35 Installing rack-ssl-enforcer 0.2.9
+#10 17.35 Fetching redcarpet 3.6.1
+#10 17.39 Installing redcarpet 3.6.1 with native extensions
+#10 18.26 Fetching rexml 3.3.9
+#10 18.31 Installing rexml 3.3.9
+#10 18.34 Fetching rr 3.1.2
+#10 18.38 Installing rr 3.1.2
+#10 18.47 Fetching simplecov-html 0.13.2
+#10 18.51 Installing simplecov-html 0.13.2
+#10 18.53 Fetching simplecov_json_formatter 0.1.4
+#10 18.55 Installing simplecov_json_formatter 0.1.4
+#10 18.56 Fetching strings-ansi 0.2.0
+#10 18.61 Installing strings-ansi 0.2.0
+#10 18.62 Fetching unicode-display_width 2.3.0
+#10 18.66 Installing unicode-display_width 2.3.0
+#10 18.67 Fetching unicode_utils 1.4.0
+#10 18.72 Installing unicode_utils 1.4.0
+#10 18.77 Fetching tty-screen 0.8.1
+#10 18.79 Installing tty-screen 0.8.1
+#10 18.80 Fetching unix_utils 0.0.15
+#10 18.84 Installing unix_utils 0.0.15
+#10 18.85 Fetching yajl-ruby 1.4.3
+#10 18.91 Installing yajl-ruby 1.4.3 with native extensions
+#10 21.58 Fetching i18n 1.14.7
+#10 21.62 Installing i18n 1.14.7
+#10 21.64 Fetching tzinfo 2.0.6
+#10 21.69 Installing tzinfo 2.0.6
+#10 21.70 Fetching nokogiri 1.19.1 (x86_64-linux-gnu)
+#10 21.72 Fetching rack-session 1.0.2
+#10 21.79 Installing rack-session 1.0.2
+#10 21.81 Fetching rack-test 2.2.0
+#10 21.85 Installing rack-test 2.2.0
+#10 21.87 Fetching sprockets 4.2.2
+#10 21.91 Installing sprockets 4.2.2
+#10 21.96 Fetching rack-protection 3.2.0
+#10 21.99 Installing rack-protection 3.2.0
+#10 22.02 Fetching better_errors 2.10.1
+#10 22.05 Installing better_errors 2.10.1
+#10 22.08 Installing nokogiri 1.19.1 (x86_64-linux-gnu)
+#10 22.12 Fetching pp 0.6.3
+#10 22.16 Installing pp 0.6.3
+#10 22.17 Using reline 0.6.0
+#10 22.18 Fetching rackup 1.0.1
+#10 22.21 Installing rackup 1.0.1
+#10 22.22 Fetching ethon 0.18.0
+#10 22.26 Installing ethon 0.18.0
+#10 22.30 Fetching psych 5.3.1
+#10 22.33 Installing psych 5.3.1 with native extensions
+#10 22.47 Fetching terser 1.2.6
+#10 22.52 Installing terser 1.2.6
+#10 22.54 Fetching image_optim 0.31.3
+#10 22.59 Installing image_optim 0.31.3
+#10 22.63 Fetching pry 0.15.2
+#10 22.67 Installing pry 0.15.2
+#10 22.72 Fetching mustermann 3.0.3
+#10 22.75 Installing mustermann 3.0.3
+#10 22.78 Fetching google-protobuf 4.33.4 (x86_64-linux-gnu)
+#10 22.85 Installing google-protobuf 4.33.4 (x86_64-linux-gnu)
+#10 22.91 Using rss 0.3.1
+#10 22.91 Fetching simplecov 0.22.0
+#10 22.97 Installing simplecov 0.22.0
+#10 22.99 Fetching terminal-table 3.0.2
+#10 23.02 Installing terminal-table 3.0.2
+#10 23.03 Fetching strings 0.2.1
+#10 23.06 Installing strings 0.2.1
+#10 23.07 Fetching sprockets-helpers 1.4.0
+#10 23.10 Installing sprockets-helpers 1.4.0
+#10 23.12 Fetching highline 3.1.2
+#10 23.14 Installing highline 3.1.2
+#10 23.17 Fetching typhoeus 1.6.0
+#10 23.20 Installing typhoeus 1.6.0
+#10 23.22 Fetching loofah 2.25.0
+#10 23.25 Installing loofah 2.25.0
+#10 23.27 Fetching image_optim_pack 0.10.1 (x86_64-linux)
+#10 23.37 Installing image_optim_pack 0.10.1 (x86_64-linux)
+#10 23.47 Fetching pry-byebug 3.11.0
+#10 23.50 Installing pry-byebug 3.11.0
+#10 23.51 Fetching sinatra 3.2.0
+#10 23.55 Installing sinatra 3.2.0
+#10 23.57 Fetching sass-embedded 1.97.3 (x86_64-linux-gnu)
+#10 23.80 Installing sass-embedded 1.97.3 (x86_64-linux-gnu)
+#10 24.00 Fetching tty-pager 0.14.0
+#10 24.04 Installing tty-pager 0.14.0
+#10 24.05 Fetching progress_bar 1.3.4
+#10 24.09 Installing progress_bar 1.3.4
+#10 24.11 Fetching rails-html-sanitizer 1.6.2
+#10 24.15 Installing rails-html-sanitizer 1.6.2
+#10 24.16 Fetching sinatra-contrib 3.2.0
+#10 24.19 Installing sinatra-contrib 3.2.0
+#10 24.21 Fetching sassc-embedded 1.80.8
+#10 24.24 Installing sassc-embedded 1.80.8
+#10 24.35 Fetching rdoc 7.1.0
+#10 24.41 Installing rdoc 7.1.0
+#10 24.62 Fetching irb 1.16.0
+#10 24.64 Installing irb 1.16.0
+#10 31.10 Fetching thin 1.8.2
+#10 31.13 Installing thin 1.8.2 with native extensions
+#10 32.71 Fetching minitest 6.0.2
+#10 32.74 Installing minitest 6.0.2
+#10 32.75 Fetching activesupport 7.2.3
+#10 32.78 Installing activesupport 7.2.3
+#10 32.84 Fetching rails-dom-testing 2.3.0
+#10 32.84 Fetching html-pipeline 2.14.3
+#10 32.87 Installing rails-dom-testing 2.3.0
+#10 32.87 Installing html-pipeline 2.14.3
+#10 32.89 Fetching actionview 7.2.3
+#10 32.91 Installing actionview 7.2.3
+#10 32.96 Fetching actionpack 7.2.3
+#10 32.99 Installing actionpack 7.2.3
+#10 33.04 Fetching railties 7.2.3
+#10 33.04 Fetching sprockets-rails 3.5.2
+#10 33.07 Installing sprockets-rails 3.5.2
+#10 33.09 Installing railties 7.2.3
+#10 33.17 Fetching dartsass-sprockets 3.2.1
+#10 33.19 Installing dartsass-sprockets 3.2.1
+#10 33.20 Bundle complete! 34 Gemfile dependencies, 107 gems now installed.
+#10 33.20 Use `bundle info [gemname]` to see where a bundled gem is installed.
+#10 33.20 Post-install message from html-pipeline:
+#10 33.20 -------------------------------------------------
+#10 33.20 Thank you for installing html-pipeline!
+#10 33.20 You must bundle Filter gem dependencies.
+#10 33.20 See html-pipeline README.md for more details.
+#10 33.20 https://github.com/jch/html-pipeline#dependencies
+#10 33.20 -------------------------------------------------
+#10 33.20 Post-install message from image_optim:
+#10 33.20 Rails image assets optimization is extracted into image_optim_rails gem
+#10 33.20 You can safely remove `config.assets.image_optim = false` if you are not going to use that gem
+#10 DONE 33.5s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 8.5s done
+#11 writing image sha256:fe31551ff3a9e04e15e76c0652f8b620862b5ce6fc0e92bf4180022f25a089f1 done
+#11 naming to docker.io/library/devdocs:latest done
+#11 DONE 8.5s

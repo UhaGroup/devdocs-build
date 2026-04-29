@@ -1,0 +1,645 @@
+[
+  {
+    "name": "Angular",
+    "slug": "angular~20",
+    "type": "angular",
+    "links": {
+      "home": "https://angular.dev/",
+      "code": "https://github.com/angular/angular"
+    },
+    "version": "20",
+    "release": "20.3.15",
+    "mtime": 1765113112,
+    "db_size": 8722712,
+    "attribution": "Super-powered by Google &copy;2010&ndash;2025.<br />\n      Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.",
+    "alias": "ng"
+  },
+  {
+    "name": "Apache HTTP Server",
+    "slug": "apache_http_server",
+    "type": "apache",
+    "links": {
+      "home": "https://httpd.apache.org/"
+    },
+    "release": "2.4.64",
+    "mtime": 1752170356,
+    "db_size": 3391556,
+    "attribution": "&copy; 2018 The Apache Software Foundation<br>\n      Licensed under the Apache License, Version 2.0.",
+    "alias": null
+  },
+  {
+    "name": "Axios",
+    "slug": "axios",
+    "type": "simple",
+    "links": {
+      "home": "hthttps://axios-http.com/",
+      "code": "https://github.com/axios/axios"
+    },
+    "release": "1.15.0",
+    "mtime": 1776019634,
+    "db_size": 56598,
+    "attribution": "&copy; 2020-present John Jakob \"Jake\" Sarjeant<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Babel",
+    "slug": "babel~7",
+    "type": "simple",
+    "links": {
+      "home": "https://babeljs.io/",
+      "code": "https://github.com/babel/babel"
+    },
+    "version": "7",
+    "release": "7.21.4",
+    "mtime": 1681332889,
+    "db_size": 1087962,
+    "attribution": "&copy; 2014-present Sebastian McKenzie<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Bash",
+    "slug": "bash",
+    "type": "bash",
+    "links": {
+      "home": "https://www.gnu.org/software/bash/",
+      "code": "http://git.savannah.gnu.org/cgit/bash.git"
+    },
+    "release": "5.2",
+    "mtime": 1675584533,
+    "db_size": 820421,
+    "attribution": "Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.<br>\n      Licensed under the GNU Free Documentation License.",
+    "alias": null
+  },
+  {
+    "name": "Bootstrap",
+    "slug": "bootstrap~5",
+    "type": "bootstrap",
+    "links": {
+      "home": "https://getbootstrap.com/",
+      "code": "https://github.com/twbs/bootstrap"
+    },
+    "version": "5",
+    "release": "5.3",
+    "mtime": 1690398435,
+    "db_size": 1653273,
+    "attribution": "&copy; 2011&ndash;2023 The Bootstrap Authors<br>\n      Code licensed under the MIT License.<br>\n      Documentation licensed under the Creative Commons Attribution License v3.0.",
+    "alias": null
+  },
+  {
+    "name": "CSS",
+    "slug": "css",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/css"
+    },
+    "mtime": 1757951118,
+    "db_size": 19009926,
+    "attribution": "&copy; 2005&ndash;2025 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.",
+    "alias": null
+  },
+  {
+    "name": "Cypress",
+    "slug": "cypress",
+    "type": "cypress",
+    "links": {
+      "home": "https://www.cypress.io/",
+      "code": "https://github.com/cypress-io/cypress"
+    },
+    "release": "9.4.1",
+    "mtime": 1644542245,
+    "db_size": 6467439,
+    "attribution": "&copy; 2017 Cypress.io<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Docker",
+    "slug": "docker",
+    "type": "simple",
+    "links": {
+      "home": "https://docker.com/",
+      "code": "https://github.com/docker/docker"
+    },
+    "version": "",
+    "release": "20.10.16",
+    "mtime": 1654206621,
+    "db_size": 4328150,
+    "attribution": "&copy; 2019 Docker, Inc.<br>\n      Licensed under the Apache License, Version 2.0.<br>\n      Docker and the Docker logo are trademarks or registered trademarks of Docker, Inc. in the United States and/or other countries.<br>\n      Docker, Inc. and other parties may also have trademark rights in other terms used herein.",
+    "alias": null
+  },
+  {
+    "name": "Electron",
+    "slug": "electron",
+    "type": "simple",
+    "links": {
+      "home": "https://www.electronjs.org/",
+      "code": "https://github.com/electron/electron"
+    },
+    "release": "20.0.0",
+    "mtime": 1661623849,
+    "db_size": 3279582,
+    "attribution": "&copy; GitHub Inc.<br>\n      Licensed under the MIT license.",
+    "alias": null
+  },
+  {
+    "name": "ESLint",
+    "slug": "eslint",
+    "type": "simple",
+    "links": {
+      "home": "https://eslint.org/",
+      "code": "https://github.com/eslint/eslint"
+    },
+    "release": "10.2.0",
+    "mtime": 1776195171,
+    "db_size": 7424392,
+    "attribution": "&copy; OpenJS Foundation and other contributors<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Express",
+    "slug": "express~4",
+    "type": "express",
+    "links": {
+      "home": "https://expressjs.com/",
+      "code": "https://github.com/strongloop/express/"
+    },
+    "version": "4",
+    "release": "4.21.2",
+    "mtime": 1748804195,
+    "db_size": 447837,
+    "attribution": "&copy; 2017 StrongLoop, IBM, and other expressjs.com contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v3.0.",
+    "alias": null
+  },
+  {
+    "name": "FastAPI",
+    "slug": "fastapi",
+    "type": "fastapi",
+    "links": {
+      "home": "https://fastapi.tiangolo.com/",
+      "code": "https://github.com/tiangolo/fastapi"
+    },
+    "release": "0.115.6",
+    "mtime": 1736597864,
+    "db_size": 5021772,
+    "attribution": "&copy; 2018 Sebastián Ramírez<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Flask",
+    "slug": "flask~3.0",
+    "type": "sphinx",
+    "links": {
+      "home": "https://palletsprojects.com/p/flask/",
+      "code": "https://github.com/pallets/flask"
+    },
+    "version": "3.0",
+    "release": "3.0.x",
+    "mtime": 1696879574,
+    "db_size": 1200265,
+    "attribution": "&copy; 2010 Pallets<br>\n      Licensed under the BSD 3-clause License.",
+    "alias": null
+  },
+  {
+    "name": "Git",
+    "slug": "git",
+    "type": "git",
+    "links": {
+      "home": "https://git-scm.com/",
+      "code": "https://github.com/git/git"
+    },
+    "release": "2.54.0",
+    "mtime": 1776884912,
+    "db_size": 6136779,
+    "attribution": "&copy; 2005&ndash;2026 Linus Torvalds and others<br>\n      Licensed under the GNU General Public License version 2.",
+    "alias": null
+  },
+  {
+    "name": "HTML",
+    "slug": "html",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/html"
+    },
+    "mtime": 1757950755,
+    "db_size": 4827406,
+    "attribution": "&copy; 2005&ndash;2025 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.",
+    "alias": null
+  },
+  {
+    "name": "JavaScript",
+    "slug": "javascript",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/javascript"
+    },
+    "mtime": 1776196146,
+    "db_size": 14263729,
+    "attribution": "&copy; 2005&ndash;2025 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.",
+    "alias": "js"
+  },
+  {
+    "name": "jQuery",
+    "slug": "jquery",
+    "type": "jquery",
+    "links": {
+      "home": "https://jquery.com/",
+      "code": "https://github.com/jquery/jquery"
+    },
+    "release": "4.0.0",
+    "mtime": 1772653129,
+    "db_size": 2931273,
+    "attribution": "&copy; The jQuery Foundation and other contributors<br>\n      Licensed under the MIT License.",
+    "alias": "$"
+  },
+  {
+    "name": "Laravel",
+    "slug": "laravel~11",
+    "type": "laravel",
+    "links": {
+      "home": "https://laravel.com/",
+      "code": "https://github.com/laravel/laravel"
+    },
+    "version": "11",
+    "release": "11.11.1",
+    "mtime": 1721189849,
+    "db_size": 41267337,
+    "attribution": "&copy; Taylor Otwell<br>\n      Licensed under the MIT License.<br>\n      Laravel is a trademark of Taylor Otwell.",
+    "alias": null
+  },
+  {
+    "name": "Lit",
+    "slug": "lit~3",
+    "type": "lit",
+    "links": {
+      "home": "https://lit.dev/",
+      "code": "https://github.com/lit/lit/"
+    },
+    "version": "3",
+    "release": "3.3.1",
+    "mtime": 1760803302,
+    "db_size": 1253640,
+    "attribution": "&copy; Google LLC<br>\n      Licensed under the Creative Commons Attribution 3.0 Unported License.",
+    "alias": null
+  },
+  {
+    "name": "lodash",
+    "slug": "lodash~4",
+    "type": "simple",
+    "links": {
+      "home": "https://lodash.com/",
+      "code": "https://github.com/lodash/lodash/"
+    },
+    "version": "4",
+    "release": "4.18.1",
+    "mtime": 1776195644,
+    "db_size": 338909,
+    "attribution": "&copy; JS Foundation and other contributors<br>\n      Licensed under the MIT License.",
+    "alias": "_"
+  },
+  {
+    "name": "MariaDB",
+    "slug": "mariadb",
+    "type": "mariadb",
+    "links": {
+      "home": "https://mariadb.com/",
+      "code": "https://github.com/MariaDB/server"
+    },
+    "release": "11.0.2",
+    "mtime": 1691007490,
+    "db_size": 25206985,
+    "attribution": "&copy; 2023 MariaDB<br>\n      Licensed under the Creative Commons Attribution 3.0 Unported License and the GNU Free Documentation License.",
+    "alias": null
+  },
+  {
+    "name": "Moment.js",
+    "slug": "moment",
+    "type": "moment",
+    "links": {
+      "home": "http://momentjs.com/",
+      "code": "https://github.com/moment/moment/"
+    },
+    "release": "2.30.1",
+    "mtime": 1760881040,
+    "db_size": 260580,
+    "attribution": "&copy; JS Foundation and other contributors<br>\n      Licensed under the MIT License.",
+    "alias": "mt"
+  },
+  {
+    "name": "Mongoose",
+    "slug": "mongoose",
+    "type": "simple",
+    "links": {
+      "home": "http://mongoosejs.com/",
+      "code": "https://github.com/Automattic/mongoose"
+    },
+    "release": "7.4.1",
+    "mtime": 1690396733,
+    "db_size": 1853673,
+    "attribution": "&copy; 2010 LearnBoost<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Next.js",
+    "slug": "nextjs",
+    "type": "simple",
+    "links": {
+      "home": "https://www.nextjs.org/",
+      "code": "https://github.com/vercel/next.js"
+    },
+    "release": "14.2.4",
+    "mtime": 1718217664,
+    "db_size": 2936428,
+    "attribution": "&copy; 2024 Vercel, Inc.<br>\n          Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "nginx",
+    "slug": "nginx",
+    "type": "nginx",
+    "links": {
+      "home": "https://nginx.org/",
+      "code": "https://hg.nginx.org/nginx"
+    },
+    "release": "1.30.0",
+    "mtime": 1776273043,
+    "db_size": 2214953,
+    "attribution": "&copy; 2002-2021 Igor Sysoev<br>\n      &copy; 2011-2026 Nginx, Inc.<br>\n      Licensed under the BSD License.",
+    "alias": "ngx"
+  },
+  {
+    "name": "npm",
+    "slug": "npm",
+    "type": "npm",
+    "links": {
+      "home": "https://www.npmjs.com/",
+      "code": "https://github.com/npm/npm"
+    },
+    "release": "10.2.5",
+    "mtime": 1704535397,
+    "db_size": 2146076,
+    "attribution": "&copy; npm, Inc. and Contributors<br>\n      Licensed under the npm License.<br>\n      npm is a trademark of npm, Inc.",
+    "alias": null
+  },
+  {
+    "name": "PHP",
+    "slug": "php",
+    "type": "php",
+    "links": {
+      "home": "https://www.php.net/",
+      "code": "https://git.php.net/?p=php-src.git;a=summary"
+    },
+    "release": "8.5",
+    "mtime": 1765189798,
+    "db_size": 29694503,
+    "attribution": "&copy; 1997&ndash;2025 The PHP Documentation Group<br>\n      Licensed under the Creative Commons Attribution License v3.0 or later.",
+    "alias": null
+  },
+  {
+    "name": "Playwright",
+    "slug": "playwright",
+    "type": "simple",
+    "links": {
+      "home": "https://playwright.dev/",
+      "code": "https://github.com/microsoft/playwright"
+    },
+    "release": "1.59.1",
+    "mtime": 1776193257,
+    "db_size": 3486871,
+    "attribution": "&copy; 2026 Microsoft<br>\n\t  Licensed under the Apache License, Version 2.0.",
+    "alias": null
+  },
+  {
+    "name": "PostgreSQL",
+    "slug": "postgresql~17",
+    "type": "postgres",
+    "links": {
+      "home": "https://www.postgresql.org/",
+      "code": "https://git.postgresql.org/gitweb/?p=postgresql.git"
+    },
+    "version": "17",
+    "release": "17.1",
+    "mtime": 1731842796,
+    "db_size": 7927154,
+    "attribution": "&copy; 1996&ndash;2026 The PostgreSQL Global Development Group<br>\n      Licensed under the PostgreSQL License.",
+    "alias": "pg"
+  },
+  {
+    "name": "Prettier",
+    "slug": "prettier",
+    "type": "simple",
+    "links": {
+      "home": "https://prettier.io/",
+      "code": "https://github.com/prettier/prettier"
+    },
+    "release": "3.8.2",
+    "mtime": 1776193544,
+    "db_size": 292918,
+    "attribution": "&copy; James Long and contributors",
+    "alias": null
+  },
+  {
+    "name": "React",
+    "slug": "react~18",
+    "type": "react",
+    "links": {
+      "home": "https://react.dev/",
+      "code": "https://github.com/facebook/react"
+    },
+    "version": "18",
+    "release": "18.3.1",
+    "mtime": 1733989945,
+    "db_size": 6380003,
+    "attribution": "&copy; 2013&ndash;present Facebook Inc.<br>\n      Licensed under the Creative Commons Attribution 4.0 International Public License.",
+    "alias": null
+  },
+  {
+    "name": "React Native",
+    "slug": "react_native",
+    "type": "react_native",
+    "links": {
+      "home": "https://reactnative.dev/",
+      "code": "https://github.com/facebook/react-native"
+    },
+    "release": "0.69",
+    "mtime": 1661624163,
+    "db_size": 3721974,
+    "attribution": "&copy; 2022 Facebook Inc.<br>\n      Licensed under the Creative Commons Attribution 4.0 International Public License.",
+    "alias": null
+  },
+  {
+    "name": "Redis",
+    "slug": "redis",
+    "type": "redis",
+    "links": {
+      "home": "https://redis.io/",
+      "code": "https://github.com/redis/redis"
+    },
+    "release": "7.0.10",
+    "mtime": 1681332415,
+    "db_size": 1922342,
+    "attribution": "&copy; 2006&ndash;2022 Salvatore Sanfilippo<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License 4.0.",
+    "alias": null
+  },
+  {
+    "name": "Sass",
+    "slug": "sass",
+    "type": "yard",
+    "links": {
+      "home": "http://sass-lang.com/",
+      "code": "https://github.com/sass/sass"
+    },
+    "release": "1.97.3",
+    "mtime": 1771064924,
+    "db_size": 4125062,
+    "attribution": "&copy; 2006&ndash;2025 the Sass team, and numerous contributors<br>\n      Licensed under the MIT License.",
+    "alias": "scss"
+  },
+  {
+    "name": "Socket.IO",
+    "slug": "socketio~4",
+    "type": "sphinx",
+    "links": {
+      "home": "https://socket.io/",
+      "code": "https://github.com/socketio/socket.io"
+    },
+    "version": "4",
+    "release": "4.5.2",
+    "mtime": 1663709361,
+    "db_size": 1447973,
+    "attribution": "&copy; 2014&ndash;2021 Automattic<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "SQLite",
+    "slug": "sqlite",
+    "type": "sqlite",
+    "links": {
+      "home": "https://sqlite.org/",
+      "code": "https://www.sqlite.org/src/"
+    },
+    "release": "3.53.0",
+    "mtime": 1776193128,
+    "db_size": 16360463,
+    "attribution": "SQLite is in the Public Domain.",
+    "alias": null
+  },
+  {
+    "name": "Svelte",
+    "slug": "svelte~4",
+    "type": "simple",
+    "links": {
+      "home": "https://svelte.dev/",
+      "code": "https://github.com/sveltejs/svelte"
+    },
+    "version": "4",
+    "release": "4.2.1",
+    "mtime": 1696881287,
+    "db_size": 319039,
+    "attribution": "&copy; 2016–2025 Rich Harris and contributors<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Tailwind CSS",
+    "slug": "tailwindcss~3",
+    "type": "tailwindcss",
+    "links": {
+      "home": "https://tailwindcss.com/",
+      "code": "https://github.com/tailwindlabs/tailwindcss"
+    },
+    "version": "3",
+    "release": "3.4.17",
+    "mtime": 1751651533,
+    "db_size": 2751234,
+    "attribution": "&copy; Tailwind Labs Inc.",
+    "alias": null
+  },
+  {
+    "name": "TypeScript",
+    "slug": "typescript",
+    "type": "typescript",
+    "links": {
+      "home": "https://www.typescriptlang.org",
+      "code": "https://github.com/Microsoft/TypeScript"
+    },
+    "version": "",
+    "release": "6.0.3",
+    "mtime": 1776883901,
+    "db_size": 2011449,
+    "attribution": "&copy; 2012-2026 Microsoft<br>\n      Licensed under the Apache License, Version 2.0.",
+    "alias": "ts"
+  },
+  {
+    "name": "Vite",
+    "slug": "vite~7",
+    "type": "simple",
+    "links": {
+      "home": "https://vite.dev/",
+      "code": "https://github.com/vitejs/vite"
+    },
+    "version": "7",
+    "release": "7.3.1",
+    "mtime": 1773855399,
+    "db_size": 615233,
+    "attribution": "&copy; 2019-present, VoidZero Inc. and Vite contributors<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Vue",
+    "slug": "vue~3",
+    "type": "vue",
+    "links": {
+      "home": "https://vuejs.org/",
+      "code": "https://github.com/vuejs/core"
+    },
+    "version": "3",
+    "release": "3.5.28",
+    "mtime": 1771062613,
+    "db_size": 1506942,
+    "attribution": "&copy; 2018-present, Yuxi (Evan) You and Vue contributors<br>\n      Licensed under the MIT License.",
+    "alias": null
+  },
+  {
+    "name": "Web APIs",
+    "slug": "dom",
+    "type": "mdn",
+    "links": {
+      "home": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "code": "https://github.com/mdn/content/tree/main/files/en-us/web/api"
+    },
+    "mtime": 1757953853,
+    "db_size": 63397971,
+    "attribution": "&copy; 2005&ndash;2025 MDN contributors.<br>\n      Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.",
+    "alias": null
+  },
+  {
+    "name": "webpack",
+    "slug": "webpack~5",
+    "type": "webpack",
+    "links": {
+      "home": "https://webpack.js.org/",
+      "code": "https://github.com/webpack/webpack"
+    },
+    "version": "5",
+    "release": "5.97.1",
+    "mtime": 1733655164,
+    "db_size": 1836905,
+    "attribution": "&copy; JS Foundation and other contributors<br>\n      Licensed under the Creative Commons Attribution License 4.0.",
+    "alias": null
+  },
+  {
+    "name": "WordPress",
+    "slug": "wordpress",
+    "type": "wordpress",
+    "links": {
+      "home": "https://wordpress.org/",
+      "code": "https://github.com/WordPress/WordPress"
+    },
+    "release": "6.7",
+    "mtime": 1731951375,
+    "db_size": 42524924,
+    "attribution": "&copy; 2003&ndash;2024 WordPress Foundation<br>\n      Licensed under the GNU GPLv2+ License.",
+    "alias": null
+  }
+]

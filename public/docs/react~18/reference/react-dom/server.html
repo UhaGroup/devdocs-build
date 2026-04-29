@@ -1,0 +1,23 @@
+<h1>Server React DOM APIs
+</h1>
+<div><p>The <code dir="ltr">react-dom/server</code> APIs let you render React components to HTML on the server. These APIs are only used on the server at the top level of your app to generate the initial HTML. A <a href="../../learn/start-a-new-react-project#production-grade-react-frameworks">framework</a> may call them for you. Most of your components don’t need to import or use them.</p></div> <hr> <h2 id="server-apis-for-nodejs-streams">Server APIs for Node.js Streams 
+</h2> <p>These methods are only available in the environments with <a href="https://nodejs.org/api/stream.html" target="_blank" rel="nofollow noopener noreferrer">Node.js Streams:</a></p> <ul> <li>
+<a href="server/rendertopipeablestream"><code dir="ltr">renderToPipeableStream</code></a> renders a React tree to a pipeable <a href="https://nodejs.org/api/stream.html" target="_blank" rel="nofollow noopener noreferrer">Node.js Stream.</a>
+</li> <li>
+<a href="server/rendertostaticnodestream"><code dir="ltr">renderToStaticNodeStream</code></a> renders a non-interactive React tree to a <a href="https://nodejs.org/api/stream.html#readable-streams" target="_blank" rel="nofollow noopener noreferrer">Node.js Readable Stream.</a>
+</li> </ul> <hr> <h2 id="server-apis-for-web-streams">Server APIs for Web Streams 
+</h2> <p>These methods are only available in the environments with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API" target="_blank" rel="nofollow noopener noreferrer">Web Streams</a>, which includes browsers, Deno, and some modern edge runtimes:</p> <ul> <li>
+<a href="server/rendertoreadablestream"><code dir="ltr">renderToReadableStream</code></a> renders a React tree to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream" target="_blank" rel="nofollow noopener noreferrer">Readable Web Stream.</a>
+</li> </ul> <hr> <h2 id="server-apis-for-non-streaming-environments">Server APIs for non-streaming environments 
+</h2> <p>These methods can be used in the environments that don’t support streams:</p> <ul> <li>
+<a href="server/rendertostring"><code dir="ltr">renderToString</code></a> renders a React tree to a string.</li> <li>
+<a href="server/rendertostaticmarkup"><code dir="ltr">renderToStaticMarkup</code></a> renders a non-interactive React tree to a string.</li> </ul> <p>They have limited functionality compared to the streaming APIs.</p> <hr> <h2 id="deprecated-server-apis">Deprecated server APIs 
+</h2> <h3>
+Deprecated</h3>
+<div><p>These APIs will be removed in a future major version of React.</p></div> <ul> <li>
+<a href="server/rendertonodestream"><code dir="ltr">renderToNodeStream</code></a> renders a React tree to a <a href="https://nodejs.org/api/stream.html#readable-streams" target="_blank" rel="nofollow noopener noreferrer">Node.js Readable stream.</a> (Deprecated.)</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2013&ndash;present Facebook Inc.<br>Licensed under the Creative Commons Attribution 4.0 International Public License.<br>
+    <a href="https://18.react.dev/reference/react-dom/server" class="_attribution-link">https://18.react.dev/reference/react-dom/server</a>
+  </p>
+</div>
