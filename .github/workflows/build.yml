@@ -17,21 +17,18 @@ jobs:
       - name: Build Docker image
         run: |
           cat > Dockerfile << 'DOCKEREOF'
-          FROM ruby:3.4.8-slim
+          FROM ruby:3.4.8
           RUN apt-get update && apt-get install -y libcurl4-openssl-dev nodejs && rm -rf /var/lib/apt/lists/*
           WORKDIR /app
           COPY . /app
-          RUN gem install bigdecimal && \
-              gem install bundler -v 2.4.6 && \
-              bundle _2.4.6_ install
+          RUN gem install bundler -v 2.4.6 && bundle _2.4.6_ install
           EXPOSE 9292
           CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
           DOCKEREOF
           docker build -t devdocs:latest . 2>&1 | tee build.log || true
 
       - name: Package & deploy
-        run: |
-          docker save devdocs:latest | gzip | split -b 90m - devdocs-docker.tar.gz.part
+        run: docker save devdocs:latest | gzip | split -b 90m - devdocs-docker.tar.gz.part
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -42,4 +39,4 @@ jobs:
           force_orphan: true
           user_name: 'UhaGroup'
           user_email: 'uha.company@gmail.com'
-          commit_message: 'Build Docker image with bigdecimal fix'
+          commit_message: 'Build with full ruby image'
