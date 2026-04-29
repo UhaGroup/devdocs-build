@@ -1,4 +1,4 @@
-name: Build Docker Image from Main Branch
+name: Build Docker Image from Project
 
 on:
   push:
@@ -13,6 +13,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.8'
+
+      - name: Bundle install
+        run: |
+          gem install bundler -v 2.4.6
+          bundle _2.4.6_ config set path 'vendor/bundle'
+          bundle _2.4.6_ install
 
       - name: Build Docker image
         run: |
@@ -29,4 +40,4 @@ jobs:
           force_orphan: true
           user_name: 'UhaGroup'
           user_email: 'uha.company@gmail.com'
-          commit_message: 'Build Docker image from main branch'
+          commit_message: 'Build Docker image'
