@@ -18,7 +18,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4.8'
-
+          
       - name: Bundle install
         run: |
           gem install bundler -v 2.4.6
@@ -28,7 +28,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t devdocs:latest .
-          docker save devdocs:latest -o devdocs-docker.tar.gz
+          docker save devdocs:latest | gzip | split -b 90m - devdocs-docker.tar.gz.part
 
       - name: Deploy to built branch
         if: always()
@@ -40,4 +40,4 @@ jobs:
           force_orphan: true
           user_name: 'UhaGroup'
           user_email: 'uha.company@gmail.com'
-          commit_message: 'Build Docker image'
+          commit_message: 'Build Docker image (split)'
